@@ -5,23 +5,21 @@ import { ButtonHTMLAttributes, ReactNode } from "react"
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
     children: ReactNode;
-    variant?: 'primary' | 'secondary' | 'outline';
-    size?: 'sm' | 'md' | 'lg';
-    fullWidth?: boolean;
 }
 
-const buttonVariants = cva('rounded-md font-semibold cursor-pointer', {
+const buttonVariants = cva('w-fit rounded-xl font-semibold cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in', {
     variants: {
         variant: {
-            primary: 'bg-primary text-white',
-            secondary: 'bg secondary text-black',
+            primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active',
+            secondary: 'bg-secondary text-brand-black hover:bg-secondary-hover active:bg-secondary-active',
             outline: 'bg-transparent text-primary border-2 border-primary',
-            'outline-secondary': 'bg-transparent text-secondary border-2 border-secondary'
+            "secondary-outline": 'bg-transparent text-secondary border-2 border-secondary',
+            transparent: 'bg-transparent'
         },
         size: {
-            sm: 'px-4 py-2 font-medium',
+            sm: 'px-4 py-2 font-medium text-sm',
             md: 'px-6 py-3 font-semibold',
-            lg: 'px-8 py-4 font-semibold'
+            lg: 'px-8 py-4 font-bold text-lg'
         },
         width: {
             full: 'w-full',

@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+ @theme{
+     --color-primary: #0B706A;
+     --color-primary-hover: #095A57;
+     --color-primary-active: #074944;
+     --color-primary-light: #E3F4F3;
+
+     --color-secondary: #FFD601;
+     --color-secondary-hover: #E6C200;
+     --color-secondary-active: #CCAD00;
+     
+    --color-tertiary: #5B4B3A;
+    --color-brand-white: #FFFFFF;
+    --color-brand-black: #000000;
+ }
+

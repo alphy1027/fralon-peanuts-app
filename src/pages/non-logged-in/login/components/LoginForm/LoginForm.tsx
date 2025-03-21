@@ -11,6 +11,9 @@ interface FormData {
 
 interface LoginFormProps {
     handleLogin: SubmitHandler<FormData>;
+    loading:boolean;
+    loginSuccess:boolean;
+    loginErrorMsg:string;
 }
 
 const LoginForm: FC<LoginFormProps> = ({ handleLogin }) => {

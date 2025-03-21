@@ -10,7 +10,7 @@ const inputVariants = cva('rounded-md w-80 h-10 border-2 border-teal-500', {
         variant: {
             primary: 'bg-teal-300',
             secondary: 'bg-red-400',
-            default: 'bg-slate-300'
+            default: 'bg-slate-300',
         }
     },
     defaultVariants: {

@@ -58,7 +58,7 @@ const LoginContainer = () => {
 
 
     }
-    console.log('Login Container rendered', handleLogin);
+
     return (
         <>
             <Login
