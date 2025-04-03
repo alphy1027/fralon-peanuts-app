@@ -1,6 +1,6 @@
 import { useAuth } from "@/context/AuthContext";
 import axiosInstance from "@/services/axios";
-import { AxiosError, AxiosResponse } from "axios";
+import { AxiosResponse } from "axios";
 
 const useRefreshToken = () => {
   const { login, user } = useAuth();

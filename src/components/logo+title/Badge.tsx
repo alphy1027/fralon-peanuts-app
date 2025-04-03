@@ -1,9 +1,6 @@
 import Logo from "@/assets/svg/logo/Logo";
-type sizeType = {
-  size?: "sm" | "md" | "lg" | "xl";
-};
 
-const Badge = ({ size = "sm" }: sizeType) => {
+const Badge = () => {
   return (
     <section className="flex flex-col items-center">
       <Logo width={60} height={33} />

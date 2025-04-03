@@ -1,5 +1,6 @@
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 import useFetch from "@/hooks/useFetch";
+import dateFormatter from "@/utils/dateFormatter";
 
 interface User {
   _id: string;
@@ -30,7 +31,7 @@ const Profile = () => {
             <p>Email : {user.email}</p>
             <p>Phone : {user.phoneNumber}</p>
             <p>Membership : {user.membership}</p>
-            <p>Phone : {user.createdAt}</p>
+            <p>Phone : {dateFormatter(user.createdAt)}</p>
           </>
         ) : (
           <p>User not found</p>
