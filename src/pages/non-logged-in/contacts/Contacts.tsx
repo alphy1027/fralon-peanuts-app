@@ -1,8 +1,23 @@
+import { FC } from "react";
+import ContactCard from "@/components/contact/ContactCard";
 
-const Contacts = () => {
-    return (
-        <div>Contacts</div>
-    )
+interface ContactFormProps {
+  handleContactForm: (data: ContactData) => void;
 }
 
-export default Contacts
+interface ContactData {
+  username: string;
+  email: string;
+  message: string;
+}
+
+const Contacts: FC<ContactFormProps> = () => {
+  return (
+    <div>
+      <h1>Contact Us</h1>
+      <ContactCard />
+    </div>
+  );
+};
+
+export default Contacts;

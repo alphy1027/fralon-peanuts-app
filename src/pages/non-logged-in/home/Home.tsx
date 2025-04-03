@@ -1,23 +1,31 @@
-import Button from "@/components/UI-primitives/Button"
-import Input from "@/components/UI-primitives/Input"
+import Button from "@/components/UI-primitives/Button";
+import { useAuth } from "@/context/AuthContext";
+import useRefreshToken from "@/hooks/useRefreshToken";
 
 const Home = () => {
-    return (
-        <section className="flex flex-col gap-4 items-center">
-            <h1 className="text-blue-600">Welcome to Fralon Peanuts App.</h1>
-            <Button variant="secondary" size="md" >Medium</Button>
-            <Button variant="outline" size="sm" >Small Us</Button>
-            <Button variant="primary" size="md" >Medium us</Button>
-            <Button variant="outline" size="sm" >small</Button>
-            <Button variant="secondary-outline" size="lg" >Large</Button>
-            <Button variant="transparent" size="md" >Large</Button>
-            <br />
-            <br />
-            <Input />
-            <Input variant='secondary' />
-            <Input variant='primary' />
-        </section>
-    )
-}
+  const { user } = useAuth();
+  const useRefresh = useRefreshToken();
+  const handleRefresh = async () => {
+    const refreshToken = await useRefresh();
+    console.log("New Access Token :: ", refreshToken);
+  };
 
-export default Home
+  return (
+    <section className="flex flex-col items-center gap-4">
+      <h1 className="text-blue-600">Welcome to Fralon Peanuts App.</h1>
+      {user.isAuthenticated ? (
+        <>
+          <h2 className="">Logged in as :</h2>
+          <h3 className="text-emerald-500">Username :: {user.username}</h3>
+          <h3 className="text-emerald-500">UserID :: {user.userId}</h3>
+          <h3 className="text-emerald-500">Roles :: {user.roles[0]}</h3>
+        </>
+      ) : (
+        <h3 className="text-red-400">Please Login to view your information</h3>
+      )}
+      <Button onClick={handleRefresh}>Refresh tokens</Button>
+    </section>
+  );
+};
+
+export default Home;

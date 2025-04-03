@@ -1,16 +1,17 @@
-import { Outlet } from "react-router-dom"
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
-    return (
-        <div>
-            <h1 className="">MainLayout</h1>
-            <header className="text-red-600 font-semibold">Header</header>
-            <main className="">
-                <Outlet />
-            </main>
-            <footer className="text-red-600 font-semibold">Footer</footer>
-        </div>
-    )
-}
+  return (
+    <section className="flex min-h-screen w-full flex-col">
+      <Header />
+      <main className="min-h-screen flex-1 py-10">
+        <Outlet />
+      </main>
+      <Footer />
+    </section>
+  );
+};
 
-export default MainLayout
+export default MainLayout;

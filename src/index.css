@@ -1,17 +1,82 @@
 @import "tailwindcss";
 
- @theme{
-     --color-primary: #0B706A;
-     --color-primary-hover: #095A57;
-     --color-primary-active: #074944;
-     --color-primary-light: #E3F4F3;
+@theme {
+  --font-primary: "Sofia Sans", "sans-serif";
+  --font-secondary: "Mate SC", "serif";
 
-     --color-secondary: #FFD601;
-     --color-secondary-hover: #E6C200;
-     --color-secondary-active: #CCAD00;
-     
-    --color-tertiary: #5B4B3A;
-    --color-brand-white: #FFFFFF;
-    --color-brand-black: #000000;
- }
+  --text-display: 48px;
+  --text-display-lg: 60px;
 
+  --text-heading-1: 36px;
+  --text-heading-2: 30px;
+  --text-heading-3: 24px;
+  --text-heading-4: 20px;
+  --text-heading-5: 18px;
+
+  --text-body: 16px;
+  --text-body-lg: 18px;
+  --text-label: 16px;
+  --text-caption: 14px;
+  --text-extra-sm: 12px;
+
+  --color-body-default: #303030;
+
+  --color-primary: #0b706a;
+  --color-primary-hover: #095a57;
+  --color-primary-active: #074944;
+  --color-primary-light: #e3f4f3;
+
+  --color-secondary: #ffd601;
+  --color-secondary-hover: #e6c200;
+  --color-secondary-active: #ccad00;
+
+  --color-tertiary: #5b4b3a;
+  --color-brand-white: #ffffff;
+  --color-brand-black: #000000;
+
+  --color-error: #b42318;
+  --color-error-light: #fee4e2;
+
+  --color-warning: #b54708;
+  --color-warning-light: #fef0c7;
+
+  --color-success: #027a48;
+  --color-success-light: #d1fadf;
+
+  --color-info: #175cd3;
+  --color-info-light: #e0f2fe;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* body,
+html {
+  width: 100%;
+} */
+
+body {
+  font-family: var(--font-primary);
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.heading {
+  @apply font-secondary text-tertiary text-xl;
+}
+
+.footer-link {
+  @apply text-primary hover:text-primary-hover transition-all duration-300 ease-in-out hover:scale-105;
+}
+
+.custom-margin-auto {
+  margin: auto;
+}
