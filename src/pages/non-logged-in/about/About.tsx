@@ -5,7 +5,6 @@ import IdentityCard from "./components/IdentityCard";
 const About = () => {
   return (
     <div className="">
-      <SectionTitle>About Us</SectionTitle>
       <section className="bg-primary-light">
         <SectionContainter className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 xl:gap-x-20 xl:py-10">
           <figure>

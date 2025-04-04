@@ -24,11 +24,11 @@ const Footer = () => {
         <Link to="recipes" className="footer-link">
           Recipes
         </Link>
-        <Link to="contact-us" className="footer-link">
-          Contact Us
-        </Link>
         <Link to="about" className="footer-link">
           About Us
+        </Link>
+        <Link to="contact-us" className="footer-link">
+          Contact Us
         </Link>
       </nav>
 
