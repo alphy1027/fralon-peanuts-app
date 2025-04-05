@@ -7,7 +7,7 @@ type TitleProps = {
 };
 
 const SectionTitle = ({ children, className }: TitleProps) => {
-  return <h2 className={twMerge("font-secondary text-tertiary text-heading-4 sm:text-heading-3 text-center", className)}>{children}</h2>;
+  return <h2 className={twMerge("font-secondary text-tertiary text-heading-3 text-center", className)}>{children}</h2>;
 };
 
 export default SectionTitle;

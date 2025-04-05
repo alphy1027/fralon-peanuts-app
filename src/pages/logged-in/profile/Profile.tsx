@@ -18,8 +18,8 @@ interface UserResponse {
 const Profile = () => {
   const { data, loading, error } = useFetch<UserResponse>({ url: "/profile" });
   const { client: user } = data || {};
-  if (loading) return <p>loading...</p>;
-  if (error) return <p>error</p>;
+  if (loading) return <p className="text-center">loading...</p>;
+  if (error) return <p className="text-center">{error.message}</p>;
   return (
     <section className="">
       <SectionTitle>Profile</SectionTitle>

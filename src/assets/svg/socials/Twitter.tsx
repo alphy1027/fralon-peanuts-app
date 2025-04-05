@@ -1,5 +1,5 @@
 const Twitter = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 24 24" fill="none">
     <g clipPath="url(#a)">
       <mask id="b" width="24" height="25" x="0" y="0" maskUnits="userSpaceOnUse" style={{ maskType: "luminance" }}>
         <path fill="#fff" d="M0 .766h24v24H0v-24Z" />

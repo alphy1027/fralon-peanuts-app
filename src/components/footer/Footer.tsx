@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-light flex w-full flex-col items-center justify-center gap-6 px-4 pt-6 pb-2">
+    <footer className="bg-primary-light flex w-full flex-col items-center justify-center gap-8 px-4 pt-6 pb-2">
       <section className="mb-4 flex flex-col items-center gap-1">
         <Logo width={60} height={33} />
         <h3 className="text-heading-5 sm:text-heading-4 font-secondary text-tertiary">Fralon Peanuts</h3>
