@@ -16,8 +16,8 @@ const ContactCard = () => {
   };
 
   return (
-    <section className="mx-auto flex w-[50%] justify-center">
-      <form onSubmit={handleSubmit(handleContactForm)} className="mx-auto flex w-[50%] flex-col bg-teal-200 p-4">
+    <section>
+      <form onSubmit={handleSubmit(handleContactForm)} className="contact-form w-[50%] bg-teal-200 p-4">
         <div>
           <label htmlFor="username">Username :</label>
           <input type="username" placeholder="Enter your username..." {...register("username", { required: "Username is required..." })} />

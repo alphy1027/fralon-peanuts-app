@@ -8,7 +8,7 @@ import ContactCard from "@/components/contact/ContactCard";
 
 const Contacts = () => {
   return (
-    <div>
+    <div className="w-full text-center">
       <h1>Contact Us</h1>
       <ContactCard />
     </div>

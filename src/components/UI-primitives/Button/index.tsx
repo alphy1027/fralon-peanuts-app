@@ -3,7 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
-  children: ReactNode;
+  children?: ReactNode;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
 }
@@ -15,7 +15,7 @@ const buttonVariants = cva("flex gap-4 items-center justify-center rounded-xl fo
       secondary: "bg-secondary text-brand-black hover:bg-secondary-hover active:bg-secondary-active",
       outline: "bg-transparent text-primary border-2 border-primary",
       "secondary-outline": "bg-transparent text-secondary border-2 border-secondary",
-      transparent: "bg-transparent",
+      transparent: "bg-transparent text-secondary",
       danger: "bg-error text-error-light hover:contrast-125",
       "secondary-danger": "bg-error-light text-error",
     },
@@ -47,7 +47,7 @@ const Button = ({ children, className, variant, size, width, leftIcon, rightIcon
   return (
     <button className={cn(buttonVariants({ variant, size, width }), className)} {...props}>
       {leftIcon && <span className="">{leftIcon}</span>}
-      <span className="">{children}</span>
+      {children}
       {rightIcon && <span className="">{rightIcon}</span>}
     </button>
   );

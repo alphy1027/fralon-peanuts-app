@@ -10,9 +10,9 @@ interface ApiResponse {
 
 const Products = () => {
   const { data, loading, error } = useFetch<ApiResponse>({ url: "/products" });
-  if (!data) return <p>No Products found</p>;
   const { products = [] } = data || {};
 
+  if (!data) return <p>No Products found</p>;
   if (loading) return <p>loading...</p>;
   if (error) return <p>error</p>;
 
