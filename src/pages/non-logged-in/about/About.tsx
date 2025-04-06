@@ -5,6 +5,8 @@ import ReasonCard from "./components/why-us/ReasonCard";
 import Button from "@/components/UI-primitives/Button";
 import LeftArrow from "@/assets/svg/nav/LeftArrow";
 import RightArrow from "@/assets/svg/nav/RightArrow";
+import Quotes from "@/assets/svg/Quotes";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -99,7 +101,7 @@ const About = () => {
         </div>
       </SectionContainter>
 
-      <section className="bg-primary h-[600px]">
+      <section className="bg-primary py-6">
         <SectionContainter className="flex flex-col gap-4">
           <div className="flex flex-col items-start gap-2">
             <h2 className="text-brand-white font-secondary text-heading-3 pb-3 text-center">Our Products</h2>
@@ -112,13 +114,57 @@ const About = () => {
               <Button variant="secondary-outline" rightIcon={<RightArrow />}></Button>
             </div>
           </div>
-          <section className="h-[280px] bg-red-400"></section>
+          <section className="bg-primary-active h-[280px]"></section>
 
           <Button variant="transparent" className="self-end" rightIcon={<RightArrow />}>
             More Products
           </Button>
         </SectionContainter>
       </section>
+
+      <SectionContainter className="flex flex-col items-center gap-4">
+        <SectionTitle>
+          What Our Customers
+          <br /> Say About Us
+        </SectionTitle>
+        <p className="text-body text-body-default max-w-[710px] text-center">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+          vitae dicta sunt explicabo. Nemo enim ipsam voluptatem{" "}
+        </p>
+        <Quotes />
+        <article className="flex flex-col items-center gap-4">
+          <p className="text-body text-body-default max-w-[550px] text-center">
+            "I’ve been a peanut butter lover for years, but nothing compares to the rich, creamy texture and authentic taste of this brand. The fact that they use fresh, high-quality peanuts makes all
+            the difference. Their attention to detail and commitment to quality are truly unmatched!"
+          </p>
+          <figure className="">
+            <img src="none" alt="" className="bg-secondary h-14 w-14 rounded-full" />
+            <figcaption className="sr-only">Customer image</figcaption>
+          </figure>
+          <div className="text-center">
+            <h4 className="text-heading-4 font-secondary font">Jonathan Doe</h4>
+            <h5 className="text-caption text-gray-600 italic">Satisfied Customer</h5>
+          </div>
+        </article>
+        <div className="flex gap-2 pt-2">
+          <Button variant="outline" leftIcon={<LeftArrow className="fill-primary" />}></Button>
+          <Button variant="outline" rightIcon={<RightArrow className="fill-primary" />}></Button>
+        </div>
+      </SectionContainter>
+      <SectionContainter className="">
+        <div className="bg-primary custom-margin-auto flex max-w-[850px] flex-col items-center gap-4 rounded-2xl px-4 py-8">
+          <p className="text-primary-light text-heading-3 max-w-[450px] text-center font-semibold">Get yourself a Our tasty peanut butter to brighten your days</p>
+          <Button variant="secondary" className="" rightIcon={<RightArrow className="fill-brand-black" />}>
+            Shop Now
+          </Button>
+        </div>
+        <p className="text-heading-5 pt-12 text-center font-semibold">
+          Want to learn more about Our business, or you got further enquiries?{" "}
+          <Link to="contact-us" className="text-primary underline">
+            Contact Us
+          </Link>
+        </p>
+      </SectionContainter>
     </div>
   );
 };
