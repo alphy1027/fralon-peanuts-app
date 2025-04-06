@@ -153,7 +153,7 @@ const About = () => {
       </SectionContainter>
       <SectionContainter className="">
         <div className="bg-primary custom-margin-auto flex max-w-[850px] flex-col items-center gap-4 rounded-2xl px-4 py-8">
-          <p className="text-primary-light text-heading-3 max-w-[450px] text-center font-semibold">Get yourself a Our tasty peanut butter to brighten your days</p>
+          <p className="text-primary-light text-heading-5 max-w-[450px] text-center font-semibold">Get yourself a Our tasty peanut butter to brighten your days</p>
           <Button variant="secondary" className="" rightIcon={<RightArrow className="fill-brand-black" />}>
             Shop Now
           </Button>
