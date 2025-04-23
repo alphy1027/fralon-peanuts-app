@@ -1,4 +1,3 @@
-import Logo from "@/assets/svg/logo/Logo";
 import Button from "../UI-primitives/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
