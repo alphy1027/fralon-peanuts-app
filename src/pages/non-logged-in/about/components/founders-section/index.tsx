@@ -13,7 +13,7 @@ const FoundersSection = () => {
           <div className="bg-secondary border-primary relative flex h-full min-h-fit w-full max-w-[576px] flex-col rounded-lg border-2 p-2 sm:justify-center sm:p-4">
             <h4 className="text-caption md:text-body text-body-default font-bold">Lawrence Nunda</h4>
             <h5 className="text-extra-sm text-gray-600 italic">Co-founder Fralon</h5>
-            <p className="text-extra-sm md:text-caption pt-2 text-gray-700">
+            <p className="text-caption pt-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
               beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem{" "}
             </p>

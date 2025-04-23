@@ -14,18 +14,20 @@ const SingleRecipe = () => {
 
   return (
     <SectionContainter className="flex flex-col items-center gap-y-4">
-      <section className="flex flex-col justify-center gap-x-10 gap-y-6 lg:flex-row">
+      <section className="flex flex-col justify-center gap-x-10 gap-y-8 lg:flex-row">
         <figure className="h-[204px] w-full max-w-[510px] rounded-2xl bg-yellow-200 lg:h-[650px] lg:w-[510px]">
           <img src="null" alt="" />
           <figcaption className="sr-only">Peanut Butter recipe</figcaption>
         </figure>
 
-        <div className="flex max-w-[510px] flex-col justify-center gap-y-6">
-          <h4 className="font-secondary text-tertiary text-heading-3">Peanut Butter Crunchy Baked Cookies with Chocolate</h4>
-          <BodyText>
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-            vitae dicta sunt explicabo. Nemo enim ipsam
-          </BodyText>
+        <div className="flex max-w-[510px] flex-col justify-center gap-y-8">
+          <div className="flex flex-col gap-y-4">
+            <h4 className="font-secondary text-tertiary text-heading-3">Peanut Butter Crunchy Baked Cookies with Chocolate</h4>
+            <BodyText>
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            </BodyText>
+          </div>
 
           <div className="bg-primary-light text-caption flex h-8 items-center justify-around rounded-lg text-gray-600">
             <span className="">Serves 2</span>

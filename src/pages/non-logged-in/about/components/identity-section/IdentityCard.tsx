@@ -12,7 +12,7 @@ type IdentityCardProps = {
 };
 const IdentityCard = ({ children, title, className, titleClassName, index }: IdentityCardProps) => {
   return (
-    <article className={twMerge(clsx("flex min-h-[180px] max-w-[488px] flex-col justify-center gap-y-2 rounded-2xl p-3 sm:p-4", { "max-w-[590px]": index === 2 || index === 1 }), className)}>
+    <article className={twMerge(clsx("flex min-h-[180px] max-w-[488px] flex-col justify-center gap-y-2 rounded-2xl p-4 sm:p-6", { "max-w-[590px]": index === 2 || index === 1 }), className)}>
       {index === 1 && (
         <SectionTitle className="text-start">
           Unveiling Our Identity,

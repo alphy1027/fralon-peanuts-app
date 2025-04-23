@@ -47,9 +47,11 @@ const Products = () => {
           <Button variant="outline" className="border-gray-300" leftIcon={<LeftArrow className="fill-gray-300" />}></Button>
           <Button variant="outline" rightIcon={<RightArrow className="fill-primary" />}></Button>
         </div>
-        <div className="bg-primary custom-margin-auto flex w-[60%] min-w-fit flex-col items-center gap-4 rounded-2xl px-4 py-4 sm:gap-6 sm:py-8">
-          <p className="text-primary-light text-heading-5 max-w-[400px] text-center font-semibold">Do you have a business and would like us to supply you with our products</p>
-          <Button variant="secondary">Contact us</Button>
+        <div className="bg-primary custom-margin-auto flex w-[60%] min-w-fit flex-col items-center gap-4 rounded-2xl px-6 py-8 sm:gap-6">
+          <p className="text-primary-light text-body-lg max-w-[400px] text-center font-bold">Do you have a business and would like us to supply you with our products</p>
+          <Button size="md" variant="secondary">
+            Contact us
+          </Button>
         </div>
       </SectionContainter>
     </section>
