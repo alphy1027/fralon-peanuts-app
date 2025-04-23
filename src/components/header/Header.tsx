@@ -24,9 +24,9 @@ const Header = () => {
   };
   /*  const cartItemCount = cartData?.cart.items.length || 0; */
   return (
-    <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-4 py-4 sm:px-8 sm:py-6">
+    <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-4 py-6 sm:px-8">
       <Link to="/" className="flex flex-col items-center">
-        <Badge size="extraSmall" />
+        <Badge size="small" />
       </Link>
 
       <Nav />
