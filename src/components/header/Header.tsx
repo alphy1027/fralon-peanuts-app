@@ -5,6 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import Nav from "./components/Nav";
 import CartIcon from "@/assets/svg/nav/CartIcon";
 import UserIcon from "@/assets/svg/nav/UserIcon";
+import Badge from "../logo+title/Badge";
 /* import useFetch from "@/hooks/useFetch";
 import { CartResponse } from "@/types";
 import { useCart } from "@/context/CartContext"; */
@@ -24,10 +25,9 @@ const Header = () => {
   };
   /*  const cartItemCount = cartData?.cart.items.length || 0; */
   return (
-    <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-8 py-6">
+    <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-4 py-4 sm:px-8 sm:py-6">
       <Link to="/" className="flex flex-col items-center">
-        <Logo width={60} height={33} />
-        <h4 className="text-heading-5 font-secondary">fralon peanuts</h4>
+        <Badge size="extraSmall" />
       </Link>
 
       <Nav />

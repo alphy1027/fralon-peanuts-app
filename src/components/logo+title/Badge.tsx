@@ -11,7 +11,7 @@ const Badge = ({ size }: BadgeProps) => {
     large: { width: 87, height: 52, labelSize: "text-heading-3" },
     medium: { width: 60, height: 33, labelSize: "text-heading-4" },
     small: { width: 44, height: 27, labelSize: "text-heading-5" },
-    extraSmall: { width: 32, height: 19, labelSize: "text-heading-6" },
+    extraSmall: { width: 32, height: 19, labelSize: "text-heading-7" },
   };
 
   return (
