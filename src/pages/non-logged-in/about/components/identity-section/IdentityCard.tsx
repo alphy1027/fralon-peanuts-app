@@ -20,7 +20,7 @@ const IdentityCard = ({ children, title, className, titleClassName, index }: Ide
         </SectionTitle>
       )}
       <h4 className={twMerge(clsx("text-heading-3 text-body-default font-extrabold", { "text-brand-white": index === 4 }), titleClassName)}>{title}</h4>
-      <p className={twMerge(clsx("text-caption text-body-default sm:text-body", { "text-primary-light": index === 4 }))}>{children}</p>
+      <p className={twMerge(clsx("text-caption text-body-default", { "text-primary-light": index === 4 }))}>{children}</p>
     </article>
   );
 };
