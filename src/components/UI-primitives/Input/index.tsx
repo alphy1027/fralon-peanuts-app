@@ -1,30 +1,49 @@
-import cn from "@/lib/utils/cn"
-import { cva, VariantProps } from "class-variance-authority"
-import { InputHTMLAttributes } from "react"
+import cn from "@/lib/utils/cn";
+import { cva, VariantProps } from "class-variance-authority";
+import { InputHTMLAttributes, ReactNode } from "react";
 
-interface inputProps extends InputHTMLAttributes<HTMLInputElement>,
-    VariantProps<typeof inputVariants> { }
-
-const inputVariants = cva('rounded-md w-80 h-10 border-2 border-teal-500', {
-    variants: {
-        variant: {
-            primary: 'bg-teal-300',
-            secondary: 'bg-red-400',
-            default: 'bg-slate-300',
-        }
-    },
-    defaultVariants: {
-        variant: 'default'
-    }
-})
-
-const Input = ({ className, variant, ...props }: inputProps) => {
-    return (
-        <input
-            className={cn(inputVariants({ variant }), className)}
-            {...props}
-        />
-    )
+interface inputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {
+  label?: string;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
+  error?: string;
 }
 
-export default Input
+const inputVariants = cva("rounded-lg block w-full py-2 px-4 border text-body font-medium", {
+  variants: {
+    variant: {
+      primary: "text-body-default border-gray-300 focus:outline-none focus:border-2 focus:border-primary",
+      secondary: "bg-red-400",
+      disabled: "bg-gray-200 text-gray-700 border-gray-300",
+    },
+    inputSize: {
+      sm: "px-2 py-1 text-body",
+      md: "px-4 py-2 text-body",
+      lg: "px-6 py-3 text-body-lg",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    inputSize: "md",
+  },
+});
+
+const Input = ({ className, variant, inputSize, error, label, rightIcon, leftIcon, ...props }: inputProps) => {
+  return (
+    <div className="">
+      {label && (
+        <label htmlFor={props.id} className="text-body-lg font-semibold text-gray-700">
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        {leftIcon && <span className="absolute top-1/2 left-2 -translate-y-1/2 text-gray-500">{leftIcon}</span>}
+        <input className={cn(inputVariants({ variant, inputSize }), leftIcon && "pl-9", rightIcon && "pr-9", className)} {...props} />
+        {rightIcon && <span className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-500">{rightIcon}</span>}
+      </div>
+      {error && <span className="text-error text-sm">{error}</span>}
+    </div>
+  );
+};
+
+export default Input;

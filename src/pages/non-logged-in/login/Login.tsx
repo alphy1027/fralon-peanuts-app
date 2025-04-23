@@ -1,34 +1,25 @@
-
-import LoginForm from "./components/LoginForm/LoginForm"
+import Badge from "@/components/logo+title/Badge";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 interface FormData {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
-
 
 interface LoginProps {
-    handleLogin: (data: FormData) => void;
-    loading:boolean;
-    loginSuccess:boolean;
-    loginErrorMsg:string;
+  handleLogin: (data: FormData) => void;
+  loading: boolean;
+  loginSuccess: boolean;
+  loginErrorMsg: string;
 }
 
-const Login = ({ handleLogin ,loading,loginSuccess,loginErrorMsg}:LoginProps) => {
+const Login = ({ handleLogin, loading, loginSuccess, loginErrorMsg }: LoginProps) => {
+  return (
+    <section className="flex flex-col items-center gap-8 p-4">
+      <Badge size="large" />
+      <LoginForm handleLogin={handleLogin} loading={loading} loginSuccess={loginSuccess} loginErrorMsg={loginErrorMsg} />
+    </section>
+  );
+};
 
-
-
-    return (
-        <div>
-            <h1>Login to your Account</h1>
-            <LoginForm 
-            handleLogin={handleLogin}
-            loading={loading}
-            loginSuccess={loginSuccess}
-            loginErrorMsg={loginErrorMsg}
-            />
-        </div>
-    )
-}
-
-export default Login
+export default Login;

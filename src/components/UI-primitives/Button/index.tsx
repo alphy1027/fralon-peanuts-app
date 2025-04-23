@@ -8,14 +8,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantPr
   rightIcon?: ReactNode;
 }
 
-const buttonVariants = cva("flex gap-4 items-center justify-center rounded-xl font-semibold cursor-pointer hover:scale-105 active:scale-95 transition-all duration-200 ease-in", {
+const buttonVariants = cva("flex gap-4 items-center justify-center rounded-xl font-semibold cursor-pointer tracking-wider hover:scale-105 active:scale-95 transition-all duration-200 ease-in", {
   variants: {
     variant: {
-      primary: "bg-primary text-white hover:bg-primary-hover active:bg-primary-active",
+      primary: "bg-primary text-brand-white hover:bg-primary-hover active:bg-primary-active",
       secondary: "bg-secondary text-brand-black hover:bg-secondary-hover active:bg-secondary-active",
       outline: "bg-transparent text-primary border-2 border-primary",
       "secondary-outline": "bg-transparent text-secondary border-2 border-secondary",
-      transparent: "bg-transparent text-secondary",
+      transparent: "bg-transparent text-primary",
+      "secondary-transparent": "bg-transparent text-secondary",
       danger: "bg-error text-error-light hover:contrast-125",
       "secondary-danger": "bg-error-light text-error",
     },

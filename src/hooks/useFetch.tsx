@@ -30,7 +30,6 @@ const useFetch = <T,>({ url, method = "GET", body = null }: fetchOptions) => {
       console.log("Fetched data", response.data);
 
       setState({ data: response.data.payload !== undefined ? response.data.payload : response.data, loading: false, error: null });
-      console.log("State after fetch:", state);
     } catch (err) {
       const axiosError = err as AxiosError;
       setState((prevState) => ({ ...prevState, loading: false, error: axiosError }));
@@ -44,7 +43,7 @@ const useFetch = <T,>({ url, method = "GET", body = null }: fetchOptions) => {
     }
   }, [fetchData]);
 
-  const refetch = () => fetchData();
+  const refetch = (overrideOptions?: fetchOptions) => fetchData(overrideOptions);
 
   return { ...state, refetch };
 };

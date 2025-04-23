@@ -12,6 +12,7 @@
   --text-heading-3: 24px;
   --text-heading-4: 20px;
   --text-heading-5: 18px;
+  --text-heading-6: 16px;
 
   --text-body: 16px;
   --text-body-lg: 18px;
@@ -77,6 +78,10 @@ body {
   @apply text-primary hover:text-primary-hover transition-all duration-300 ease-in-out hover:scale-105;
 }
 
+.dropdown-list {
+  @apply text-body-default bg-primary-light p-2;
+}
+
 .custom-margin-auto {
   margin: auto;
 }
@@ -85,4 +90,33 @@ body {
 }
 .contact-form {
   margin: auto;
+}
+
+/* Cart Table */
+thead tr th {
+  text-align: center;
+  font-weight: bold;
+  font-size: var(--text-heading-4);
+  padding-block: 0.8rem;
+}
+
+thead tr > :nth-child(2) {
+  text-align: start;
+}
+
+tbody tr > :nth-child(2) {
+  text-align: start;
+}
+
+tbody > *:not(:last-child) {
+  border-bottom: 2px solid #e1e1e1;
+}
+
+td {
+  padding-block: 1rem;
+  text-align: center;
+}
+
+tfoot td {
+  padding: 0.4rem 2rem;
 }

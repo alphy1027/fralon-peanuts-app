@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import Button from "../UI-primitives/Button";
+import { axiosPrivate } from "@/services/axios";
+import axios from "axios";
 
 interface ContactData {
   username: string;
@@ -10,7 +12,21 @@ interface ContactData {
 const ContactCard = () => {
   const { register, handleSubmit, reset } = useForm<ContactData>();
 
-  const handleContactForm = (data: ContactData) => {
+  const handleContactForm = async (data: ContactData) => {
+    try {
+      const response = await axiosPrivate.post("/contacts", { ...data });
+      console.log(response.data);
+    } catch (error) {
+      let errorMessage: string = "Something went wrong. Please try again.";
+
+      if (axios.isAxiosError(error)) {
+        errorMessage = error.response?.data?.message || error.message || errorMessage;
+      } else if (error instanceof Error) {
+        errorMessage = error.message || errorMessage;
+      }
+
+      console.log("Error submitting contact form;", errorMessage);
+    }
     console.log("Contact form submitted;", data);
     reset();
   };

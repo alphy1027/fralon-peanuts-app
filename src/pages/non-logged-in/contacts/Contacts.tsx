@@ -1,16 +1,13 @@
-import ContactCard from "@/components/contact/ContactCard";
-
-// interface ContactData {
-//   username: string;
-//   email: string;
-//   message: string;
-// }
+import LocationSection from "./components/location-section";
+import WorkingHoursSection from "./components/working-hours-section";
+import ContactUsSection from "./components/contact-us-section";
 
 const Contacts = () => {
   return (
-    <div className="w-full text-center">
-      <h1>Contact Us</h1>
-      <ContactCard />
+    <div className="flex flex-col gap-y-10">
+      <ContactUsSection />
+      <WorkingHoursSection />
+      <LocationSection />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Button from "@/components/UI-primitives/Button";
+import Input from "@/components/UI-primitives/Input";
 import { useAuth } from "@/context/AuthContext";
 import useRefreshToken from "@/hooks/useRefreshToken";
 
@@ -24,6 +25,8 @@ const Home = () => {
         <h3 className="text-red-400">Please Login to view your information</h3>
       )}
       <Button onClick={handleRefresh}>Refresh tokens</Button>
+      <Input variant="disabled" placeholder="Enter your text here" />
+      <Input variant="disabled" />
     </section>
   );
 };

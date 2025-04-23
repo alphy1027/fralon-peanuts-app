@@ -3,7 +3,6 @@ import axiosInstance from "@/services/axios";
 import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";
-import { useNavigate } from "react-router-dom";
 
 interface ErrorResponse {
   statusCode: number;
@@ -18,7 +17,6 @@ interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
 const useAxiosInstance = () => {
   const { user, logout } = useAuth();
   const refresh = useRefreshToken();
-  const navigate = useNavigate();
   const accessToken = user.accessToken;
 
   useEffect(() => {
@@ -52,7 +50,7 @@ const useAxiosInstance = () => {
               //Logout user and redirect to home page
               console.log("Error during token refresh ::", refreshError);
               logout();
-              navigate("/auth/login");
+              window.location.assign("/auth/login");
               return Promise.reject(refreshError);
             }
           }
@@ -65,7 +63,7 @@ const useAxiosInstance = () => {
       axiosInstance.interceptors.request.eject(requestInterceptor);
       axiosInstance.interceptors.response.eject(responseInterceptor);
     };
-  }, [accessToken, refresh, logout, navigate]);
+  }, [accessToken, refresh, logout]);
 
   return axiosInstance;
 };

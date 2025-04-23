@@ -1,5 +1,7 @@
-const UserIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+import { twMerge } from "tailwind-merge";
+
+const UserIcon = ({ className }: { className?: string }) => (
+  <svg className={twMerge("h-6 w-6", className)} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M19.7269 20.447C19.2719 19.171 18.267 18.044 16.87 17.24C15.473 16.436 13.7609 16 11.9999 16C10.2389 16 8.52695 16.436 7.12995 17.24C5.73295 18.044 4.72795 19.171 4.27295 20.447"
       stroke="#0B706A"

@@ -1,16 +1,11 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider
-} from "react-router-dom"
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 // Routes
-import ProtectedRoutes from "./ProtectedRoutes"
-import PublicRoutes from "./PublicRoutes"
-import AuthRoutes from "./AuthRoutes"
+import ProtectedRoutes from "./ProtectedRoutes";
+import PublicRoutes from "./PublicRoutes";
+import AuthRoutes from "./AuthRoutes";
 // Layouts
-import MainLayout from "@/layouts/MainLayout"
-import AuthLayout from "@/layouts/AuthLayout"
+import MainLayout from "@/layouts/MainLayout";
+import AuthLayout from "@/layouts/AuthLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,10 +18,10 @@ const router = createBrowserRouter(
       <Route path="auth" element={<AuthLayout />}>
         {...AuthRoutes}
       </Route>
-    </>
-  )
-)
+    </>,
+  ),
+);
 
-const AppRouter = () => <RouterProvider router={router} />
+const AppRouter = () => <RouterProvider router={router} />;
 
-export default AppRouter
+export default AppRouter;
