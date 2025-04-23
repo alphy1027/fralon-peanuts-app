@@ -5,7 +5,7 @@ import { FC } from "react";
 import Input from "@/components/UI-primitives/Input";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
-import Visible from "@/assets/svg/nav/visible";
+/* import Visible from "@/assets/svg/nav/Visible"; */
 
 interface FormData {
   username: string;
@@ -93,7 +93,7 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
 
           <Input
             leftIcon={<Password />}
-            rightIcon={<Visible />}
+            /* rightIcon={<Visible />} */
             type="password"
             id="password"
             label="Password"
@@ -113,7 +113,7 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
 
           <Input
             leftIcon={<Password />}
-            rightIcon={<Visible />}
+            /* rightIcon={<Visible />} */
             type="password"
             id="password"
             label="Confirm Password"

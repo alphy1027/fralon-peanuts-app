@@ -43,7 +43,7 @@ const useFetch = <T,>({ url, method = "GET", body = null }: fetchOptions) => {
     }
   }, [fetchData]);
 
-  const refetch = (overrideOptions?: fetchOptions) => fetchData(overrideOptions);
+  const refetch = () => fetchData();
 
   return { ...state, refetch };
 };
