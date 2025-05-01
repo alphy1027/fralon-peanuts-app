@@ -61,7 +61,7 @@ const LoginForm: FC<LoginFormProps> = ({ handleLogin }) => {
             })}
           />
         </div>
-        <Link to="" className="text-primary self-end">
+        <Link to="/auth/forgot-password" className="text-primary self-end">
           Forgot password?
         </Link>
         <Button width="full">Login</Button>
