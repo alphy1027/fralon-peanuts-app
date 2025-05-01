@@ -2,6 +2,7 @@ import Button from "@/components/UI-primitives/Button";
 import Input from "@/components/UI-primitives/Input";
 import { useAuth } from "@/context/AuthContext";
 import useRefreshToken from "@/hooks/useRefreshToken";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { user } = useAuth();
@@ -27,6 +28,21 @@ const Home = () => {
       <Button onClick={handleRefresh}>Refresh tokens</Button>
       <Input variant="disabled" placeholder="Enter your text here" />
       <Input variant="disabled" />
+      <Link to="auth/reset-password" className="text-primary font-semibold underline">
+        Reset Password
+      </Link>
+      <Link to="auth/forgot-password" className="text-primary font-semibold underline">
+        Forgot Password
+      </Link>
+      <Link to="auth/successful-reset" className="text-primary font-semibold underline">
+        Successful Reset
+      </Link>
+      <Link to="auth/successful-verification" className="text-primary font-semibold underline">
+        Successful Verification
+      </Link>
+      <Link to="auth/verification-sent" className="text-primary font-semibold underline">
+        Verification Sent
+      </Link>
     </section>
   );
 };
