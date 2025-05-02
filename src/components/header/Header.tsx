@@ -6,6 +6,8 @@ import CartIcon from "@/assets/svg/nav/CartIcon";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Badge from "../logo+title/Badge";
 import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 /* import useFetch from "@/hooks/useFetch";
 import { CartResponse } from "@/types";
 import { useCart } from "@/context/CartContext"; */
@@ -13,6 +15,7 @@ import { useCart } from "@/context/CartContext"; */
 const Header = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+  const [dropdown, setDropdown] = useState(false);
   /* const { data: cartData } = useFetch<CartResponse | undefined>({ url: "/cart" }); */
   /* const { getCartCount, fetchCart } = useCart();
   fetchCart(); */
@@ -24,6 +27,11 @@ const Header = () => {
     navigate("/auth/login");
   };
   /*  const cartItemCount = cartData?.cart.items.length || 0; */
+
+  const handleDropdownClick = () => {
+    setDropdown((prev) => !prev);
+  };
+
   return (
     <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-4 py-6 sm:px-8">
       <Link to="/" className="flex flex-col items-center">
@@ -38,9 +46,9 @@ const Header = () => {
             <CartIcon />
             <span className="absolute -top-1/2 -right-1/2 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
           </Link>
-          <Link to="profile" className="relative">
+          <Link to="" onClick={handleDropdownClick} className="relative">
             <UserIcon />
-            <ProfileDropdown />
+            <AnimatePresence>{dropdown && <ProfileDropdown />}</AnimatePresence>
           </Link>
         </nav>
 
