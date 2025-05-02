@@ -1,4 +1,11 @@
+import AccountIcon from "@/assets/svg/profile/AccountIcon";
 import ProfileDropdownItem from "./ProfileDropdownItem";
+import NotificationIcon from "@/assets/svg/profile/NotificationIcon";
+import OrdersIcon from "@/assets/svg/profile/OrdersIcon";
+import HelpIcon from "@/assets/svg/profile/HelpIcon";
+import SettingsIcon from "@/assets/svg/profile/SettingsIcon";
+import LogoutIcon from "@/assets/svg/profile/LogoutIcon";
+import ProfileFavoriteIcon from "@/assets/svg/profile/ProfileFavoriteIcon";
 
 const ProfileDropdown = () => {
   return (
@@ -11,15 +18,34 @@ const ProfileDropdown = () => {
         </div>
       </div>
 
-      <section className="flex flex-col gap-y-1 p-2">
-        <ProfileDropdownItem to="/profile/account">Account</ProfileDropdownItem>
-        <ProfileDropdownItem to="/profile/notifications">Notifications</ProfileDropdownItem>
-        <ProfileDropdownItem to="/profile/order-history">Order History</ProfileDropdownItem>
-        <ProfileDropdownItem to="/profile/favorites">Favorites</ProfileDropdownItem>
+      <section className="flex flex-col gap-y-1 border-b border-slate-400 p-2">
+        <ProfileDropdownItem Icon={<AccountIcon />} to="/profile/account">
+          Account
+        </ProfileDropdownItem>
+        <ProfileDropdownItem Icon={<NotificationIcon />} to="/profile/notifications">
+          Notifications
+        </ProfileDropdownItem>
+        <ProfileDropdownItem Icon={<OrdersIcon />} to="/profile/order-history">
+          Order History
+        </ProfileDropdownItem>
+        <ProfileDropdownItem Icon={<ProfileFavoriteIcon />} to="/profile/favorites">
+          Favorites
+        </ProfileDropdownItem>
+      </section>
 
-        <ProfileDropdownItem to="/profile/help">Help and Support</ProfileDropdownItem>
-        <ProfileDropdownItem to="/profile/settings">Settings</ProfileDropdownItem>
-        <ProfileDropdownItem to="/">Log out</ProfileDropdownItem>
+      <section className="flex flex-col gap-y-1 border-b border-slate-400 p-2">
+        <ProfileDropdownItem Icon={<HelpIcon />} to="/profile/help">
+          Help and Support
+        </ProfileDropdownItem>
+        <ProfileDropdownItem Icon={<SettingsIcon />} to="/profile/settings">
+          Settings
+        </ProfileDropdownItem>
+      </section>
+
+      <section className="flex flex-col gap-y-1 p-2">
+        <ProfileDropdownItem Icon={<LogoutIcon />} to="/" className="text-error hover:bg-error-light">
+          Log out
+        </ProfileDropdownItem>
       </section>
     </section>
   );
