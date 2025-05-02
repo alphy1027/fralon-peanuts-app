@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import CartIcon from "@/assets/svg/nav/CartIcon";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Badge from "../logo+title/Badge";
+import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
 /* import useFetch from "@/hooks/useFetch";
 import { CartResponse } from "@/types";
 import { useCart } from "@/context/CartContext"; */
@@ -37,8 +38,9 @@ const Header = () => {
             <CartIcon />
             <span className="absolute -top-1/2 -right-1/2 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
           </Link>
-          <Link to="profile">
+          <Link to="profile" className="relative">
             <UserIcon />
+            <ProfileDropdown />
           </Link>
         </nav>
 
