@@ -1,4 +1,4 @@
-import SectionTitle from "@/components/UI-primitives/SectionTitle"; /* 
+/*import SectionTitle from "@/components/UI-primitives/SectionTitle"; 
 import useFetch from "@/hooks/useFetch";
 import dateFormatter from "@/utils/dateFormatter";*/
 import { Outlet } from "react-router-dom";
