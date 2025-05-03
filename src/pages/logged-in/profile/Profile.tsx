@@ -23,7 +23,6 @@ const Profile = () => {
   if (error) return <p className="text-center">{error.message}</p>; */
   return (
     <section className="">
-      <SectionTitle>Profile</SectionTitle>
       <section className="">
         {/*  {user ? (
           <>
