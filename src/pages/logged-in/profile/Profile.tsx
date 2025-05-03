@@ -17,28 +17,9 @@ interface User {
 } */
 
 const Profile = () => {
-  /* const { data, loading, error } = useFetch<UserResponse>({ url: "/profile" });
-  const { client: user } = data || {};
-  if (loading) return <p className="text-center">loading...</p>;
-  if (error) return <p className="text-center">{error.message}</p>; */
   return (
     <section className="">
-      <section className="">
-        {/*  {user ? (
-          <>
-            <p>ID : {user._id}</p>
-            <h3>Username : {user.username}</h3>
-            <p>Email : {user.email}</p>
-            <p>Phone : {user.phoneNumber}</p>
-            <p>Membership : {user.membership}</p>
-            <p>Phone : {dateFormatter(user.createdAt)}</p>
-          </>
-        ) : (
-          <p>User not found</p>
-        )} */}
-
-        <Outlet />
-      </section>
+      <Outlet />
     </section>
   );
 };
