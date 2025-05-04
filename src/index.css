@@ -47,6 +47,9 @@
 
   --color-info: #175cd3;
   --color-info-light: #e0f2fe;
+
+  --color-pending: #f59e0b;
+  --color-pending-light: #fef3c7;
 }
 
 *,

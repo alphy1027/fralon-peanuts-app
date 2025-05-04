@@ -10,7 +10,7 @@ const NotificationItem = ({ children }: NotificationProps) => {
     <article className="flex flex-col gap-y-2 border-b border-slate-300 py-3 sm:px-4">
       <section className="flex items-center gap-x-2">
         <h4 className="text-body-lg font-bold">Order Completed</h4>
-        <p className="text-caption text-slate-500">Nov 22, 2024</p>
+        <p className="text-caption text-slate-400">Nov 22, 2024</p>
       </section>
       <p className="text-body-default text-body">{children}</p>
       <Link to="" className="text-body text-primary self-end">

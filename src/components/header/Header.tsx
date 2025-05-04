@@ -41,15 +41,15 @@ const Header = () => {
       <Nav />
 
       <section className="flex items-center gap-2">
-        <nav className="flex gap-4">
+        <nav className="flex items-center gap-4">
           <Link to="cart" className="relative">
             <CartIcon />
             <span className="absolute -top-1/2 -right-1/2 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
           </Link>
-          <Link to="" onClick={handleDropdownClick} className="relative">
+          <Button variant="transparent" onClick={handleDropdownClick} className="relative rounded-none border-l border-slate-300 px-3">
             <UserIcon />
             <AnimatePresence>{dropdown && <ProfileDropdown />}</AnimatePresence>
-          </Link>
+          </Button>
         </nav>
 
         {user.isAuthenticated ? (
