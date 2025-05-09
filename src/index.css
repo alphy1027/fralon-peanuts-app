@@ -59,10 +59,9 @@
   margin: 0;
 }
 
-/* body,
 html {
-  width: 100%;
-} */
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: var(--font-primary);

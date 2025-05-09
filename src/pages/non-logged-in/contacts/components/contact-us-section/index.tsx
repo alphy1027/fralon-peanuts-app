@@ -7,6 +7,7 @@ import EmailIcon from "@/assets/svg/socials/EmailIcon";
 import LocationIcon from "@/assets/svg/socials/LocationIcon";
 import Button from "@/components/UI-primitives/Button";
 import Input from "@/components/UI-primitives/Input";
+import TextArea from "@/components/UI-primitives/Input/TextArea";
 
 const ContactUsSection = () => {
   return (
@@ -33,7 +34,7 @@ const ContactUsSection = () => {
       <form className="flex w-full max-w-[486px] flex-col gap-y-6 sm:p-4">
         <Input type="text" placeholder="Name" />
         <Input type="email" placeholder="Email" />
-        <Input type="text" placeholder="Message" className="flex h-[186px]" />
+        <TextArea name="message" placeholder="Message" rows={6} className=""></TextArea>
         <Button size="md" width="full">
           Submit
         </Button>

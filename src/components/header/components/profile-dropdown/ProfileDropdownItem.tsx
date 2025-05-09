@@ -6,12 +6,14 @@ type ItemProps = {
   children: ReactNode;
   to: string;
   className?: string;
+  closeDropdown: () => void;
 };
 
-const ProfileDropdownItem = ({ Icon, children, to, className }: ItemProps) => {
+const ProfileDropdownItem = ({ Icon, children, closeDropdown, to, className }: ItemProps) => {
   return (
     <Link
       to={to}
+      onClick={closeDropdown}
       className={twMerge(
         "hover:bg-primary-light hover:text-primary text-body-default flex items-center gap-x-4 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ease-in-out",
         className,

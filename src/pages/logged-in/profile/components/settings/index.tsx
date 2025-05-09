@@ -1,4 +1,4 @@
-import ToggleButton from "@/components/custom/ToggleButton";
+import ToggleButton from "@/components/sidebar/components/ToggleButton";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 

@@ -1,0 +1,33 @@
+import { ReactNode } from "react";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+type LinkProps = {
+  to: string;
+  children: ReactNode;
+};
+
+const navVariants = {
+  hidden: {
+    y: 30,
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: "easeInOut",
+    },
+  },
+};
+
+const SidebarLink = ({ to, children }: LinkProps) => {
+  return (
+    <motion.li variants={navVariants} className="flex">
+      <NavLink className={({ isActive }) => `flex-1 px-4 py-2 font-semibold ${isActive ? "text-primary" : "text-slate-600"}`} to={to}>
+        {children}
+      </NavLink>
+    </motion.li>
+  );
+};
+
+export default SidebarLink;

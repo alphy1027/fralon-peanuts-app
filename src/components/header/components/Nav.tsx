@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <nav className="hidden md:block">
+    <nav className="hidden lg:block">
       <ul className="flex gap-4">
         <li>
           <Link to="/">Home</Link>
