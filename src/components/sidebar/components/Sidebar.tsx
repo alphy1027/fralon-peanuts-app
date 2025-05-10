@@ -76,6 +76,7 @@ const navLinks = [
   { to: "about", link: "About Us" },
   { to: "contact-us", link: "Contact Us" },
 ];
+
 const Sidebar = ({ closeSidebar }: SidebarProps) => {
   return (
     <motion.aside key="aside" variants={asideVariants} initial="hidden" animate="visible" exit="exit" className="relative z-50 flex h-full w-3/4 flex-col justify-between bg-white p-4 pb-2">

@@ -6,9 +6,11 @@ import CartIcon from "@/assets/svg/nav/CartIcon";
 import Badge from "../logo+title/Badge";
 import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
 import MenuIcon from "@/assets/svg/sidebar/MenuIcon";
+
 type HeaderProps = {
   openSidebar: () => void;
 };
+
 const Header = ({ openSidebar }: HeaderProps) => {
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -33,7 +35,6 @@ const Header = ({ openSidebar }: HeaderProps) => {
             <CartIcon />
             <span className="absolute -top-1/2 -right-1/4 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
           </Link>
-          <div className="h-8 w-[1px] bg-slate-300" />
           <ProfileDropdown />
         </nav>
 
