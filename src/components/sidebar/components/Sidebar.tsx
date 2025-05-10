@@ -41,7 +41,7 @@ const asideVariants = {
     transition: {
       ease: "easeInOut",
       duration: 0.5,
-      staggerChildren: 0.3,
+      staggerChildren: 0.2,
       when: "beforeChildren",
     },
   },
@@ -49,7 +49,6 @@ const asideVariants = {
     x: -500,
     transition: {
       duration: 0.5,
-      when: "afterParent",
     },
   },
 };
@@ -83,7 +82,7 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
       <motion.div exit={{ opacity: 0 }} onClick={closeSidebar} className="absolute top-0 right-0 bottom-0 w-full translate-x-full transform bg-black/40" />
 
       <motion.nav variants={navVariants} className="flex items-center justify-between">
-        <Logo width={42} height={25} />
+        <Logo width={47} height={28} />
         <Button onClick={closeSidebar} variant="transparent" rightIcon={<CloseSidebarIcon />} className="translate-x-1/4 transform" />
       </motion.nav>
 
@@ -103,7 +102,7 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
           <span className="text-body text-body-default font-semibold">Dark Mode</span>
         </div>
         <hr className="text-slate-300" />
-        <Button variant="transparent" leftIcon={<LogoutIcon />} className="text-error px-8">
+        <Button variant="transparent" size="md" leftIcon={<LogoutIcon />} className="text-error">
           Log out
         </Button>
       </motion.div>

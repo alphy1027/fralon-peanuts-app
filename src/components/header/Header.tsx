@@ -11,39 +11,33 @@ type HeaderProps = {
 };
 const Header = ({ openSidebar }: HeaderProps) => {
   const navigate = useNavigate();
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
-  const handleLogout = () => {
-    logout();
-  };
   const handleLogin = () => {
     navigate("/auth/login");
   };
 
   return (
-    <header className="bg-amber-20 bg-primary-light flex items-center justify-between px-4 py-4 sm:px-8">
+    <header className="relative flex items-center justify-between px-3 py-3.5 sm:px-8">
       <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="-translate-x-1/4 transform lg:hidden" />
 
-      <Link to="/" className="flex flex-col items-center">
+      <Link to="/" className="absolute top-1/4 left-1/2 -translate-x-1/2 lg:static lg:translate-x-0">
         <Badge size="small" />
       </Link>
 
       <Nav />
 
       <section className="flex items-center gap-4">
-        <nav className="flex translate-x-1/4 transform items-center gap-4 sm:transform-none">
-          <Link to="cart" className="relative">
+        <nav className="flex transform items-center gap-2 sm:transform-none">
+          <Link to="cart" className="relative p-1">
             <CartIcon />
-            <span className="absolute -top-1/2 -right-1/2 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
+            <span className="absolute -top-1/2 -right-1/4 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{/* {getCartCount()} */}0</span>
           </Link>
+          <div className="h-8 w-[1px] bg-slate-300" />
           <ProfileDropdown />
         </nav>
 
-        {user.isAuthenticated ? (
-          <Button variant="danger" size="sm" onClick={handleLogout}>
-            Logout
-          </Button>
-        ) : (
+        {!user.isAuthenticated && (
           <Button size="sm" variant="outline" className="hidden lg:block" onClick={handleLogin}>
             Login
           </Button>

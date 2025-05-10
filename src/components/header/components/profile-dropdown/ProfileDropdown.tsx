@@ -51,7 +51,7 @@ const ProfileDropdown = () => {
 
   return (
     <div ref={dropdownRef} className="relative">
-      <Button variant="transparent" onClick={toggleDropdown} className="rounded-none border-l border-slate-300 px-3">
+      <Button variant="transparent" onClick={toggleDropdown} className="rounded-none p-1">
         <UserIcon />
       </Button>
       <AnimatePresence>

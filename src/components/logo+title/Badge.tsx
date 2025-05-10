@@ -15,9 +15,9 @@ const Badge = ({ size }: BadgeProps) => {
   };
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="text-primary flex flex-col items-center gap-y-2">
       <Logo width={badgeSize[size].width} height={badgeSize[size].height} />
-      <h4 className={twMerge("font-secondary text-primary", badgeSize[size].labelSize)}>fralon peanuts</h4>
+      <h4 className={twMerge("font-secondary", badgeSize[size].labelSize)}>fralon peanuts</h4>
     </section>
   );
 };
