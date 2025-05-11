@@ -1,19 +1,13 @@
-import Button from "@/components/UI-primitives/Button";
-import Input from "@/components/UI-primitives/Input";
+import ProductsSection from "@/components/sections/ProductsSection";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import { useAuth } from "@/context/AuthContext";
-import useRefreshToken from "@/hooks/useRefreshToken";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const { user } = useAuth();
-  const useRefresh = useRefreshToken();
-  const handleRefresh = async () => {
-    const refreshToken = await useRefresh();
-    console.log("New Access Token :: ", refreshToken);
-  };
 
   return (
-    <section className="flex flex-col items-center gap-4">
+    <section className="flex flex-col gap-4">
       <h1 className="text-blue-600">Welcome to Fralon Peanuts App.</h1>
       {user.isAuthenticated ? (
         <>
@@ -25,9 +19,7 @@ const Home = () => {
       ) : (
         <h3 className="text-red-400">Please Login to view your information</h3>
       )}
-      <Button onClick={handleRefresh}>Refresh tokens</Button>
-      <Input variant="disabled" placeholder="Enter your text here" />
-      <Input variant="disabled" />
+
       <Link to="auth/reset-password" className="text-primary font-semibold underline">
         Reset Password
       </Link>
@@ -43,6 +35,8 @@ const Home = () => {
       <Link to="auth/verification-sent" className="text-primary font-semibold underline">
         Verification Sent
       </Link>
+      <ProductsSection />
+      <TestimonialsSection />
     </section>
   );
 };
