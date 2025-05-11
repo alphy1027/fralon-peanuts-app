@@ -50,7 +50,7 @@ const Header = ({ openSidebar }: HeaderProps) => {
     <motion.header
       variants={headerVariants}
       animate={isHeaderHidden ? "hidden" : "visible"}
-      className="bg-brand-white sticky top-0 right-0 left-0 z-40 flex h-24 items-center justify-between px-3 shadow sm:px-8"
+      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex h-24 items-center justify-between px-3 shadow sm:px-8"
     >
       <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="-translate-x-1/4 transform lg:hidden" />
 
