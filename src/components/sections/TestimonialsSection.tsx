@@ -12,10 +12,7 @@ const TestimonialsSection = () => {
         What Our Customers
         <br /> Say About Us
       </SectionTitle>
-      <p className="text-body text-body-default max-w-[710px] text-center">
-        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-        vitae dicta sunt explicabo. Nemo enim ipsam voluptatem{" "}
-      </p>
+
       <Quotes />
       <article className="flex flex-col items-center gap-4">
         <p className="text-body text-body-default max-w-[550px] text-center">

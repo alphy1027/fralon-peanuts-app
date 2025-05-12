@@ -5,12 +5,14 @@ import { Link } from "react-router-dom";
 import AboutSection from "./components/about-section";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
+import WhyUsSection from "../about/components/why-us-section";
+import ContactUsSection from "../contacts/components/contact-us-section";
 
 const Home = () => {
   const { user } = useAuth();
 
   return (
-    <section className="flex flex-col gap-10">
+    <section className="flex flex-col gap-12">
       <SectionContainter className="flex flex-col items-center gap-4">
         <SectionTitle className="text-blue-600">Welcome to Fralon Peanuts App.</SectionTitle>
         {user.isAuthenticated ? (
@@ -43,7 +45,11 @@ const Home = () => {
       </SectionContainter>
       <AboutSection />
       <ProductsSection />
-      <TestimonialsSection />
+      <WhyUsSection />
+      <div className="bg-primary-light py-4">
+        <TestimonialsSection />
+      </div>
+      <ContactUsSection />
     </section>
   );
 };
