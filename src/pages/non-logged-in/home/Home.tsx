@@ -33,14 +33,14 @@ const Home = () => {
         <Link to="auth/forgot-password" className="text-primary font-semibold underline">
           Forgot Password
         </Link>
-        <Link to="auth/successful-verification" className="text-primary font-semibold underline">
-          Successful Verification
-        </Link>
         <Link to="auth/successful-reset" className="text-primary font-semibold underline">
           Successful Reset
         </Link>
         <Link to="auth/verification-sent" className="text-primary font-semibold underline">
           Verification Sent
+        </Link>
+        <Link to="auth/successful-verification" className="text-primary font-semibold underline">
+          Successful Verification
         </Link>
       </SectionContainter>
       <AboutSection />
