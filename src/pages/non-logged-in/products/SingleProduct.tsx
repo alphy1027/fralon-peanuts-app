@@ -4,11 +4,13 @@ import Button from "@/components/UI-primitives/Button";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 import { Rating } from "@mui/material";
+import ProductOptions from "./components/single-product/ProductOptions";
+import DescriptionSelect from "./components/single-product/DescriptionSelect";
 
 const SingleProduct = () => {
   return (
     <SectionContainter className="flex flex-col">
-      <div className="flex flex-col gap-y-8">
+      <div className="flex flex-col justify-center gap-8">
         <div className="flex flex-col items-center justify-center gap-3">
           <figure className="h-[300px] max-h-[512px] w-full max-w-[512px] overflow-hidden rounded-lg bg-red-300">
             <img src="none" alt="" className="h-full w-full bg-yellow-200" />
@@ -21,7 +23,7 @@ const SingleProduct = () => {
           </section>
         </div>
 
-        <section className="flex flex-col gap-y-4">
+        <section className="flex max-w-[566px] flex-col gap-y-4 self-center">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs">Butter</h4>
             <div className="flex items-center justify-between">
@@ -34,12 +36,29 @@ const SingleProduct = () => {
             </div>
           </div>
 
-          <article className="">
+          <article className="border-b border-slate-300">
             <h4 className="text-body-lg font-semibold underline">Description</h4>
-            <BodyText className="text-caption">
+            <BodyText className="text-sm text-slate-600">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
               laboris nisi ut aliquip ex ea commodo consequat.
             </BodyText>
+            <div className="flex flex-col gap-y-1 px-3 py-4">
+              <ProductOptions label="Status">
+                <p className="text-primary">30 in Stock</p>
+              </ProductOptions>
+              <ProductOptions label="Cat">
+                <p className="text-slate-600">Butter</p>
+              </ProductOptions>
+              <ProductOptions label="Size">
+                <p className="text-slate-600">800g</p>
+              </ProductOptions>
+              <ProductOptions label="Type">
+                <DescriptionSelect />
+              </ProductOptions>
+              <ProductOptions label="Price">
+                <DescriptionSelect />
+              </ProductOptions>
+            </div>
           </article>
           <div className="flex flex-col gap-y-4">
             <SectionTitle className="text-primary w-fit">Ksh 500</SectionTitle>

@@ -8,10 +8,12 @@ import RightArrow from "@/assets/svg/nav/RightArrow";
 import useFetch from "@/hooks/useFetch";
 import { ApiResponse, Product } from "@/types";
 import CategorySelect from "./components/CategorySelect";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const { data } = useFetch<ApiResponse>({ url: "/products" });
   const { products = [] } = data || {};
+  const navigate = useNavigate();
 
   /* if (!data) return <p>No Products found</p>;
   if (loading) return <p>loading...</p>;
@@ -22,7 +24,7 @@ const Products = () => {
       <SectionContainter className="flex flex-col gap-y-8">
         <SectionTitle>Our Products</SectionTitle>
         <CategorySelect />
-        <section className="bg-primary-light h-[600px]">
+        <section onClick={() => navigate("single")} className="bg-primary-light h-[600px]">
           <section className="flex flex-wrap gap-4">
             {products?.length > 0 &&
               products.map((product: Product) => (
