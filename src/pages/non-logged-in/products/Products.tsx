@@ -7,6 +7,7 @@ import LeftArrow from "@/assets/svg/nav/LeftArrow";
 import RightArrow from "@/assets/svg/nav/RightArrow";
 import useFetch from "@/hooks/useFetch";
 import { ApiResponse, Product } from "@/types";
+import CategorySelect from "./components/CategorySelect";
 
 const Products = () => {
   const { data } = useFetch<ApiResponse>({ url: "/products" });
@@ -20,19 +21,7 @@ const Products = () => {
     <section className="">
       <SectionContainter className="flex flex-col gap-y-8">
         <SectionTitle>Our Products</SectionTitle>
-        <div className="flex items-center gap-4 sm:gap-6">
-          <label htmlFor="category" className="text-body-default text-heading-5 font-semibold">
-            Categories
-          </label>
-          <select name="category" id="category" className="w-[300px] min-w-[150px] rounded-md border border-gray-300 px-1 py-1.5">
-            <option value="butter">All Products</option>
-            <option value="butter">Butter</option>
-            <option value="powder">Powder</option>
-            <option value="roasted">Roasted</option>
-            <option value="raw">Raw</option>
-            <option value="butter">Butter</option>
-          </select>
-        </div>
+        <CategorySelect />
         <section className="bg-primary-light h-[600px]">
           <section className="flex flex-wrap gap-4">
             {products?.length > 0 &&

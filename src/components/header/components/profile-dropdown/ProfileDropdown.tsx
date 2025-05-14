@@ -50,8 +50,8 @@ const ProfileDropdown = () => {
   }, [closeDropdown]);
 
   return (
-    <div ref={dropdownRef} className="relative">
-      <Button variant="transparent" onClick={toggleDropdown} className="rounded-none p-1">
+    <div role="combobox" aria-haspopup="true" ref={dropdownRef} className="relative">
+      <Button aria-controls="menu" variant="transparent" onClick={toggleDropdown} className="rounded-none p-1">
         <UserIcon />
       </Button>
       <AnimatePresence>

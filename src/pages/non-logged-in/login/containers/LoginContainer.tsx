@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Login from "../Login";
 import { SubmitHandler } from "react-hook-form";
-import { axiosPrivate } from "@/services/axios";
+import { axiosPrivate } from "@/api/axios";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";

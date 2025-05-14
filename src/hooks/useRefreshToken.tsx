@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/AuthContext";
-import { axiosPrivate } from "@/services/axios";
+import { axiosPrivate } from "@/api/axios";
 import { AxiosResponse } from "axios";
 import { useCallback } from "react";
 

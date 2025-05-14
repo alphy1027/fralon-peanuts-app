@@ -1,5 +1,5 @@
 import { useAuth } from "@/context/AuthContext";
-import axiosInstance from "@/services/axios";
+import axiosInstance from "@/api/axios";
 import { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { useEffect } from "react";
 import useRefreshToken from "./useRefreshToken";

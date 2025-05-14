@@ -8,10 +8,15 @@ import About from "@/pages/non-logged-in/about/About";
 import Contacts from "@/pages/non-logged-in/contacts/Contacts";
 import RecipesLayout from "@/layouts/RecipesLayout";
 import SingleRecipe from "@/pages/non-logged-in/recipe/SingleRecipe";
+import ProductsLayout from "@/layouts/ProductsLayout";
+import SingleProduct from "@/pages/non-logged-in/products/SingleProduct";
 
 const PublicRoutes = [
   <Route index element={<Home />} />,
-  <Route path="products" element={<Products />} />,
+  <Route path="products" element={<ProductsLayout />}>
+    <Route index element={<Products />} />
+    <Route path="single" element={<SingleProduct />} />
+  </Route>,
   <Route path="cart" element={<Cart />} />,
   <Route path="recipes" element={<RecipesLayout />}>
     <Route index element={<Recipes />} />
