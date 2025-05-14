@@ -7,8 +7,8 @@ type OptionsTypes = {
 
 const ProductOptions = ({ label, children }: OptionsTypes) => {
   return (
-    <h6 className="flex items-center gap-x-4">
-      <span className="text-body-default text-body-lg font-semibold">{label} : </span>
+    <h6 className="flex items-center gap-x-6">
+      <span className="text-body-default text-body font-semibold">{label} : </span>
       <div className="">{children}</div>
     </h6>
   );

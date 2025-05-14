@@ -26,8 +26,11 @@ const SingleProduct = () => {
         <section className="flex max-w-[566px] flex-col gap-y-4 self-center">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs">Butter</h4>
-            <div className="flex items-center justify-between">
-              <SectionTitle className="text-start">Fralon Peanut Butter (800g)</SectionTitle>
+            <div className="flex justify-between">
+              <SectionTitle className="text-start">
+                Fralon Peanut Butter <br />
+                (800g)
+              </SectionTitle>
               <FavouriteIcon />
             </div>
             <div className="flex items-center gap-x-1 pt-1.5 text-slate-500">
@@ -42,7 +45,7 @@ const SingleProduct = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
               laboris nisi ut aliquip ex ea commodo consequat.
             </BodyText>
-            <div className="flex flex-col gap-y-1 px-3 py-4">
+            <div className="flex flex-col gap-y-2 px-3 py-4">
               <ProductOptions label="Status">
                 <p className="text-primary">30 in Stock</p>
               </ProductOptions>
