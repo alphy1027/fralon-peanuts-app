@@ -10,9 +10,9 @@ import DescriptionSelect from "./components/single-product/DescriptionSelect";
 const SingleProduct = () => {
   return (
     <SectionContainter className="flex flex-col">
-      <div className="flex flex-col justify-center gap-8">
+      <div className="flex flex-col justify-center gap-8 lg:flex-row">
         <div className="flex flex-col items-center justify-center gap-3">
-          <figure className="h-[300px] max-h-[512px] w-full max-w-[512px] overflow-hidden rounded-lg bg-red-300">
+          <figure className="h-[300px] max-h-[512px] w-full max-w-[450px] overflow-hidden rounded-lg lg:h-[450px] lg:w-[430px]">
             <img src="none" alt="" className="h-full w-full bg-yellow-200" />
             <figcaption className="sr-only">Peanut butter image</figcaption>
           </figure>
@@ -23,7 +23,7 @@ const SingleProduct = () => {
           </section>
         </div>
 
-        <section className="flex max-w-[566px] flex-col gap-y-4 self-center">
+        <section className="flex max-w-[566px] flex-col gap-y-4 self-center md:px-4">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs">Butter</h4>
             <div className="flex justify-between">
@@ -63,9 +63,9 @@ const SingleProduct = () => {
               </ProductOptions>
             </div>
           </article>
-          <div className="flex flex-col gap-y-4">
-            <SectionTitle className="text-primary w-fit">Ksh 500</SectionTitle>
-            <Button width="full" size="md">
+          <div className="flex items-center justify-between">
+            <SectionTitle className="text-primary w-fit text-3xl whitespace-nowrap">Ksh 500</SectionTitle>
+            <Button size="md" className="w-1/2">
               Add to Cart
             </Button>
           </div>
