@@ -38,33 +38,33 @@ This web application allows users to browse products, log in or sign up, manage 
 
 ```bash
 src/
-├── api/           # Axios instance & API functions
+├── api/           # API functions
 ├── services/      # Data logic (fetching, caching)
-├── hooks/         # Custom hooks (e.g., useCart)
+├── hooks/         # Custom hooks intergrated with tanstack query hooks (e.g., useCart)
 ├── pages/    # Page-level components
-├── types/    # Page-level components
-├── services/    # Page-level components
-├── utils/    # Page-level components
-├── layouts/    # Page-level components
-├── lib/    # Page-level components
+├── types/    # Global types
+├── utils/    # Helper functions
+├── layouts/    # Layout screens (e.g., AuthLayout)
+├── lib/    # Libraries configurations
 ├── components/    # Reusable UI components
-├── assets/        # Images & static assets
+├── assets/        # Images, icons & static assets
 ├── routes/        # App routing
 └── main.tsx       # Entry point
 
-## 🏁 Getting Started
-### 1. Clone the repo
-git clone https://github.com/your-username/fralon-peanuts-frontend.git
-cd fralon-peanuts-frontend
+🏁 Getting Started
 
-### 2. Install dependencies
+1. Clone the repo
+git clone https://github.com/alphy1027/fralon-peanuts-app.git
+cd fralon-peanuts-app
+
+2. Install dependencies
 npm install
 
-### 3. Set up environment variables
+3. Set up environment variables
 Create a .env file in the root:
 VITE_API_URL=https://your-backend-url.com/api
 
-### 4. Start the development server
+4. Start the development server
 npm run dev
 
 The app will be running at http://localhost:5173
