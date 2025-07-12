@@ -1,5 +1,5 @@
-import { useAuth } from "@/context/AuthContext";
-import { axiosPrivate } from "@/api/axios";
+import { useAuthContext } from "@/context/AuthContext";
+import { axiosPrivate } from "@/lib/axios";
 import { AxiosResponse } from "axios";
 import { useCallback } from "react";
 
@@ -13,7 +13,7 @@ interface ResponseType {
 }
 
 const useRefreshToken = () => {
-  const { login, user } = useAuth();
+  const { login, user } = useAuthContext();
   const refresh = useCallback(async () => {
     try {
       const response: AxiosResponse<ResponseType> = await axiosPrivate.post("/auth/refresh", {});

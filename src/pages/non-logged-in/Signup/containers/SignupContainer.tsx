@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { SubmitHandler } from "react-hook-form";
 import Signup from "../Signup";
-import axiosPrivate from "@/api/axios";
+import axiosPrivate from "@/lib/axios";
 import axios from "axios";
 
 interface FormData {

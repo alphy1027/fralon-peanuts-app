@@ -14,7 +14,7 @@ const AboutSection = () => {
           At Fralon Peanuts, we’re more than just a peanut butter company—we’re a family-run business with a passion for crafting high-quality peanut products. From our humble beginnings, we’ve
           dedicated ourselves to sourcing the finest peanuts and transforming them into products that bring joy to every table.
         </BodyText>
-        <Button onClick={() => navigate("about")} size="md">
+        <Button onClick={() => navigate("/about")} size="md">
           Learn More
         </Button>
       </div>

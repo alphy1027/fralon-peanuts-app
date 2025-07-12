@@ -15,7 +15,7 @@ const PublicRoutes = [
   <Route index element={<Home />} />,
   <Route path="products" element={<ProductsLayout />}>
     <Route index element={<Products />} />
-    <Route path="single" element={<SingleProduct />} />
+    <Route path=":productId" element={<SingleProduct />} />
   </Route>,
   <Route path="cart" element={<Cart />} />,
   <Route path="recipes" element={<RecipesLayout />}>

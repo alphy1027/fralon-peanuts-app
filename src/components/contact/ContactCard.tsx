@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import Button from "../UI-primitives/Button";
-import { axiosPrivate } from "@/api/axios";
+import { axiosPrivate } from "@/lib/axios";
 import axios from "axios";
 
 interface ContactData {

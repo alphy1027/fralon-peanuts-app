@@ -32,10 +32,10 @@ const ContactUsSection = () => {
       </section>
 
       <form className="flex w-full max-w-[486px] flex-col gap-y-6 sm:p-4">
-        <Input type="text" placeholder="Name" />
-        <Input type="email" placeholder="Email" />
-        <TextArea name="message" placeholder="Message" rows={6} className=""></TextArea>
-        <Button size="md" width="full">
+        <Input required type="text" placeholder="Name" />
+        <Input required type="email" placeholder="Email" />
+        <TextArea required name="message" placeholder="Message" rows={6} className=""></TextArea>
+        <Button type="submit" size="md" width="full">
           Submit
         </Button>
       </form>

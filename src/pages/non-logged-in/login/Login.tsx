@@ -1,4 +1,3 @@
-import Badge from "@/components/logo+title/Badge";
 import LoginForm from "./components/LoginForm/LoginForm";
 
 interface FormData {
@@ -14,12 +13,7 @@ interface LoginProps {
 }
 
 const Login = ({ handleLogin, loading, loginSuccess, loginErrorMsg }: LoginProps) => {
-  return (
-    <section className="flex flex-col items-center gap-8 p-4">
-      <Badge size="large" />
-      <LoginForm handleLogin={handleLogin} loading={loading} loginSuccess={loginSuccess} loginErrorMsg={loginErrorMsg} />
-    </section>
-  );
+  return <LoginForm handleLogin={handleLogin} loading={loading} loginSuccess={loginSuccess} loginErrorMsg={loginErrorMsg} />;
 };
 
 export default Login;

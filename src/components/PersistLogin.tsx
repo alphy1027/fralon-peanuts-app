@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
 import useRefreshToken from "@/hooks/useRefreshToken";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 const PersistLogin = () => {
   const [loading, setLoading] = useState(true);
   const refresh = useRefreshToken();
-  const { user } = useAuth();
+  const { user } = useAuthContext();
 
   useEffect(() => {
     const verifyRefreshToken = async () => {

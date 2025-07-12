@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-light flex w-full flex-col items-center justify-center gap-8 px-4 pt-6 pb-2">
+    <footer className="bg-primary-light flex w-full flex-col items-center justify-center gap-8 px-4 py-6">
       <section className="mb-4 flex flex-col items-center gap-2">
         <Logo width={44} height={27} />
         <h3 className="text-heading-5 sm:text-heading-4 font-secondary text-tertiary">Fralon Peanuts</h3>
@@ -32,7 +32,7 @@ const Footer = () => {
         </Link>
       </nav>
 
-      <section className="flex gap-8 sm:gap-16 md:gap-21">
+      <section className="flex gap-8 sm:gap-16">
         <Whatsapp />
         <Instagram />
         <Twitter />

@@ -5,29 +5,25 @@ import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import Button from "@/components/UI-primitives/Button";
 import LeftArrow from "@/assets/svg/nav/LeftArrow";
 import RightArrow from "@/assets/svg/nav/RightArrow";
-import useFetch from "@/hooks/useFetch";
-import { ApiResponse, Product } from "@/types";
+import { Product } from "@/types";
 import CategorySelect from "./components/CategorySelect";
-import { useNavigate } from "react-router-dom";
+import { useProductsQuery } from "@/hooks/query-hooks/products/useProductsQuery";
 
 const Products = () => {
-  const { data } = useFetch<ApiResponse>({ url: "/products" });
-  const { products = [] } = data || {};
-  const navigate = useNavigate();
-
-  /* if (!data) return <p>No Products found</p>;
-  if (loading) return <p>loading...</p>;
-  if (error) return <p>error</p>; */
+  const { data, isPending } = useProductsQuery();
+  if (!data?.payload?.products) return <p className="">Loading products</p>;
+  if (isPending) return <p className="">Pending Products</p>;
+  console.log(data.payload);
 
   return (
     <section className="">
       <SectionContainter className="flex flex-col gap-y-8">
         <SectionTitle>Our Products</SectionTitle>
         <CategorySelect />
-        <section onClick={() => navigate("single")} className="bg-primary-light h-[600px]">
+        <section className="h-[600px]">
           <section className="flex flex-wrap gap-4">
-            {products?.length > 0 &&
-              products.map((product: Product) => (
+            {data?.payload?.products?.length > 0 &&
+              data.payload.products.map((product: Product) => (
                 <React.Fragment key={product._id}>
                   <ProductCard product={product} />
                 </React.Fragment>

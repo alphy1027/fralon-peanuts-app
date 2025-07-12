@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Button from "@/components/UI-primitives/Button";
@@ -20,13 +19,13 @@ interface LoginFormProps {
   loginErrorMsg: string;
 }
 
-const LoginForm: FC<LoginFormProps> = ({ handleLogin }) => {
+const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
   const { register, handleSubmit } = useForm<FormData>();
 
   return (
-    <>
-      <form className="flex w-[300px] flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
-        <h2 className="text-body-default text-heading-3 font-bold">Login</h2>
+    <div className="flex w-[75%] max-w-[350px] flex-col gap-y-9 sm:w-[50%] md:w-[55%] lg:w-[40%]">
+      <h2 className="text-body-default text-heading-1 text-center font-bold">Login</h2>
+      <form className="w- flex flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
         <div className="">
           <Input
             leftIcon={<UserIcon className="h-5 w-5" />}
@@ -64,7 +63,9 @@ const LoginForm: FC<LoginFormProps> = ({ handleLogin }) => {
         <Link to="/auth/forgot-password" className="text-primary self-end">
           Forgot password?
         </Link>
-        <Button width="full">Login</Button>
+        <Button type="submit" size="md" width="full" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
+        </Button>
 
         <p className="text-center">
           Don't have an account?{" "}
@@ -73,7 +74,7 @@ const LoginForm: FC<LoginFormProps> = ({ handleLogin }) => {
           </Link>
         </p>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const MainLayout = () => {
     <section className="flex min-h-screen w-full flex-col">
       <AnimatePresence>{isSidebarOpen && <MobileSidebar closeSidebar={closeSidebar} />}</AnimatePresence>
       <Header openSidebar={openSidebar} />
-      <main className="min-h-fit flex-1 pt-16 pb-20">
+      <main className="min-h-[75vh] flex-1 pt-2 pb-20">
         <Outlet />
       </main>
       <Footer />

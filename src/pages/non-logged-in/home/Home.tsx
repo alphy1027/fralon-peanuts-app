@@ -1,20 +1,21 @@
 import ProductsSection from "@/components/sections/ProductsSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import { useAuth } from "@/context/AuthContext";
 import { Link } from "react-router-dom";
 import AboutSection from "./components/about-section";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 import WhyUsSection from "../about/components/why-us-section";
 import ContactUsSection from "../contacts/components/contact-us-section";
+import { useAuthContext } from "@/context/AuthContext";
 
 const Home = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
 
   return (
     <section className="flex flex-col gap-12">
       <SectionContainter className="flex flex-col items-center gap-4">
         <SectionTitle className="text-blue-600">Welcome to Fralon Peanuts App.</SectionTitle>
+
         {user.isAuthenticated ? (
           <>
             <h2 className="">Logged in as :</h2>

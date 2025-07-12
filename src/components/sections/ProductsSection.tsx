@@ -10,8 +10,8 @@ const ProductsSection = () => {
         <div className="flex flex-col items-start gap-2">
           <h2 className="text-brand-white font-secondary text-heading-3 pb-3 text-center">Our Products</h2>
           <p className="text-primary-light text-caption max-w-[650px]">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
-            vitae dicta sunt explicabo. Nemo enim ipsam voluptatem{" "}
+            At Fralon Peanuts, we take pride in crafting the finest peanut-based products that are perfect for every moment—from quick snacks to hearty meals. Each product is made with premium-grade
+            peanuts, roasted to perfection, and packed with love and nutrition.
           </p>
           <div className="flex gap-2 self-end pt-2">
             <Button variant="secondary-outline" leftIcon={<LeftArrow />}></Button>

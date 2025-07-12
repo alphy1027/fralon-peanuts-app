@@ -5,6 +5,8 @@ import CloseSidebarIcon from "@/assets/svg/sidebar/CloseSidebarIcon";
 import LogoutIcon from "@/assets/svg/profile/LogoutIcon";
 import { motion } from "framer-motion";
 import ToggleButton from "./ToggleButton";
+import { useAuthContext } from "@/context/AuthContext";
+import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
 
 type SidebarProps = {
   closeSidebar: () => void;
@@ -25,15 +27,12 @@ const navVariants = {
       stiffness: 80,
     },
   },
-  exit: {
-    opacity: 0,
-  },
 };
 
 const asideVariants = {
   hidden: {
     opacity: 0,
-    x: -500,
+    x: -1000,
   },
   visible: {
     opacity: 1,
@@ -46,9 +45,9 @@ const asideVariants = {
     },
   },
   exit: {
-    x: -500,
+    x: -1000,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
     },
   },
 };
@@ -78,6 +77,14 @@ const navLinks = [
 ];
 
 const Sidebar = ({ closeSidebar }: SidebarProps) => {
+  const { user } = useAuthContext();
+  const loginMutate = useLogoutMutation();
+
+  const handleLogout = () => {
+    loginMutate.mutate();
+    closeSidebar();
+  };
+
   return (
     <motion.aside key="aside" variants={asideVariants} initial="hidden" animate="visible" exit="exit" className="relative z-50 flex h-full w-3/4 flex-col justify-between bg-white p-4 pb-2">
       <motion.div exit={{ opacity: 0 }} onClick={closeSidebar} className="absolute top-0 right-0 bottom-0 w-full translate-x-full transform bg-black/40" />
@@ -103,9 +110,11 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
           <span className="text-body text-body-default font-semibold">Dark Mode</span>
         </div>
         <hr className="text-slate-300" />
-        <Button variant="transparent" size="md" leftIcon={<LogoutIcon />} className="text-error">
-          Log out
-        </Button>
+        {user.isAuthenticated && (
+          <Button disabled={loginMutate.isPending} variant="transparent" size="md" leftIcon={<LogoutIcon />} onClick={handleLogout} className="text-error">
+            {loginMutate.isPending ? "Logging out..." : "Log out"}
+          </Button>
+        )}
       </motion.div>
     </motion.aside>
   );

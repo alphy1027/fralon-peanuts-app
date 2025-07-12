@@ -1,5 +1,15 @@
-export interface ApiResponse {
-  products: Product[];
+export interface ApiResponse<T = unknown, K extends string = string> {
+  success: boolean;
+  message: string;
+  statusCode: number;
+  payload?: { [key in K]: T };
+  error?: string | object;
+}
+
+export interface ActiveUser {
+  userId: string;
+  username: string;
+  roles: string[];
 }
 
 export interface Product {
@@ -10,8 +20,12 @@ export interface Product {
   productName: string;
   unitPrice: number;
   packageSize: string;
-  category: string;
+  category: {
+    _id: string;
+    name: string;
+  };
   type: string;
+  wholesaleUnitPrice: number;
   description: string;
   reviews: string[];
 }
@@ -29,4 +43,13 @@ export interface Cart {
 
 export interface CartResponse {
   cart: Cart;
+}
+
+export interface Client {
+  _id: string;
+  username: string;
+  email: string;
+  phoneNumber: string;
+  membership: string;
+  createdAt: Date;
 }

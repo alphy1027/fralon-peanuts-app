@@ -10,9 +10,14 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Button from "@/components/UI-primitives/Button";
 import UserIcon from "@/assets/svg/nav/UserIcon";
+import { useAuthContext } from "@/context/AuthContext";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProfileDropdown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const { user } = useAuthContext();
+  const navigate = useNavigate();
+  const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const closeDropdown = useCallback(() => {
@@ -51,7 +56,7 @@ const ProfileDropdown = () => {
 
   return (
     <div role="combobox" aria-haspopup="true" ref={dropdownRef} className="relative">
-      <Button aria-controls="menu" variant="transparent" onClick={toggleDropdown} className="rounded-none p-1">
+      <Button aria-controls="menu" variant="transparent" onClick={user.isAuthenticated ? toggleDropdown : () => navigate("auth/login", { state: { from: location } })} className="rounded-none p-1">
         <UserIcon />
       </Button>
       <AnimatePresence>

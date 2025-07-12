@@ -12,10 +12,9 @@ const StorySection = () => {
         <div className="flex max-w-[500px] flex-col items-start gap-4">
           <SectionTitle>Our Story</SectionTitle>
           <p className="text-body text-body-default">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto nesciunt ut voluptas aliquam, fuga impedit obcaecati possimus, tenetur libero deserunt, eius minus maiores hic ipsa vero
-            exercitationem odit natus totam. Mollitia, sequi hic, accusantium voluptas culpa quidem tempora rerum iusto eos, sit excepturi. Iure maxime vel nobis aut facere, recusandae enim. Quas vel
-            eveniet quia quisquam officiis quod eaque sint? Vel voluptates maiores debitis laudantium nam repudiandae ducimus non eaque tempora mollitia architecto harum, est omnis quia vitae corrupti
-            animi fugit accusantium nesciunt. Reiciendis magni sed, eaque fugit obcaecati expedita. Quas quibusdam itaque placeat cumque consequuntur. Ipsum fugit exercitationem autem ipsa in
+            Fralon Peanuts was born from a simple idea: to create peanut products that are as wholesome as they are delicious. What started as a small kitchen experiment has grown into a beloved brand
+            known for quality, authenticity, and heart.Our journey began with a deep love for peanuts and a desire to bring something different to the market—products that reflect both traditional
+            goodness and modern-day quality. We believed that everyone deserved snacks that are not only tasty but also nourishing and responsibly made.
           </p>
         </div>
       </SectionContainter>
