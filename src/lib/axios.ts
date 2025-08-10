@@ -1,7 +1,6 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { tokenManager } from "@/utils/tokenManager";
 import { authService } from "@/services/authService.";
-import { useAuthContext } from "@/context/AuthContext";
 
 interface ErrorResponse {
   statusCode: number;
