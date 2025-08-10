@@ -1,7 +1,6 @@
 import DecrementIcon from "@/assets/svg/nav/DecrementIcon";
 import IncrementIcon from "@/assets/svg/nav/IncrementIcon";
 import Button from "@/components/UI-primitives/Button";
-import { useCartActionsMutation } from "@/hooks/query-hooks/cart/useCartActionsMutation";
 import { useState } from "react";
 
 type InputProps = {
@@ -10,11 +9,11 @@ type InputProps = {
 
 const QuantityInput = ({ quantity }: InputProps) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
-  const { updateItemQuantity } = useCartActionsMutation();
+  /*  const { updateItemQuantity } = useCartActionsMutation(); */
 
-  const handleUpdateItem = (productId: string, quantity: number) => {
+  /*  const handleUpdateItem = (productId: string, quantity: number) => {
     updateItemQuantity.mutate({ productId, quantity });
-  };
+  }; */
 
   const handleIncrement = () => {
     setItemQuantity((prev) => (prev += 1));

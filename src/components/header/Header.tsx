@@ -2,13 +2,11 @@ import Button from "../UI-primitives/Button";
 import { Link, useNavigate } from "react-router-dom";
 import Nav from "./components/Nav";
 import CartIcon from "@/assets/svg/nav/CartIcon";
-import Badge from "../logo+title/Badge";
 import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
 import MenuIcon from "@/assets/svg/sidebar/MenuIcon";
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 import { useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
-import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
 import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
 
 type HeaderProps = {
@@ -20,8 +18,7 @@ const Header = ({ openSidebar }: HeaderProps) => {
   const navigate = useNavigate();
   const { user } = useAuthContext();
   const { scrollY } = useScroll();
-  const loginMutate = useLogoutMutation();
-  const { data: cart, isPending } = useCartQuery();
+  const { data: cart } = useCartQuery();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
@@ -34,10 +31,6 @@ const Header = ({ openSidebar }: HeaderProps) => {
 
   const handleLogin = () => {
     navigate("/auth/login");
-  };
-
-  const handleLogout = () => {
-    loginMutate.mutate();
   };
 
   const headerVariants = {
@@ -56,7 +49,7 @@ const Header = ({ openSidebar }: HeaderProps) => {
   };
   return (
     <motion.header
-      variants={headerVariants}
+      variants={{ headerVariants }}
       animate={isHeaderHidden ? "hidden" : "visible"}
       className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-3 py-2 sm:px-8"
     >

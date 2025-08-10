@@ -1,6 +1,4 @@
-import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
 import CartTable from "../components/CartTable";
-import { useCartActionsMutation } from "@/hooks/query-hooks/cart/useCartActionsMutation";
 import { useAuthContext } from "@/context/AuthContext";
 import EmptyPage from "@/components/sections/EmptyPage";
 import EmptyCartIcon from "@/assets/svg/cart/EmptyCartIcon";

@@ -10,7 +10,7 @@ type SummaryProps = {
 };
 
 const CartSummary = ({ buttonLabel, onClickFn, form, type }: SummaryProps) => {
-  const { data: cart, isPending, error } = useCartQuery();
+  const { data: cart } = useCartQuery();
 
   const grandTotal =
     cart?.items.reduce((acc, current) => {

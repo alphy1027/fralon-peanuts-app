@@ -2,11 +2,7 @@ import Logo from "@/assets/svg/logo/Logo";
 import SidebarLink from "./SidebarLink";
 import Button from "@/components/UI-primitives/Button";
 import CloseSidebarIcon from "@/assets/svg/sidebar/CloseSidebarIcon";
-import LogoutIcon from "@/assets/svg/profile/LogoutIcon";
 import { motion } from "framer-motion";
-import ToggleButton from "./ToggleButton";
-import { useAuthContext } from "@/context/AuthContext";
-import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
 
 type SidebarProps = {
   closeSidebar: () => void;
@@ -77,25 +73,17 @@ const navLinks = [
 ];
 
 const Sidebar = ({ closeSidebar }: SidebarProps) => {
-  const { user } = useAuthContext();
-  const loginMutate = useLogoutMutation();
-
-  const handleLogout = () => {
-    loginMutate.mutate();
-    closeSidebar();
-  };
-
   return (
-    <motion.aside key="aside" variants={asideVariants} initial="hidden" animate="visible" exit="exit" className="relative z-50 flex h-full w-3/4 flex-col justify-between bg-white p-4 pb-2">
+    <motion.aside key="aside" variants={{ asideVariants }} initial="hidden" animate="visible" exit="exit" className="relative z-50 flex h-full w-3/4 flex-col justify-between bg-white p-4 pb-2">
       <motion.div exit={{ opacity: 0 }} onClick={closeSidebar} className="absolute top-0 right-0 bottom-0 w-full translate-x-full transform bg-black/40" />
 
-      <motion.nav variants={navVariants} className="flex items-center justify-between">
+      <motion.nav variants={{ navVariants }} className="flex items-center justify-between">
         <Logo width={47} height={28} />
         <Button onClick={closeSidebar} variant="transparent" rightIcon={<CloseSidebarIcon />} className="translate-x-1/4 transform" />
       </motion.nav>
 
-      <motion.nav variants={navVariants} onClick={closeSidebar} className="">
-        <motion.ul variants={ulVariants} className="flex flex-col gap-2 divide-y divide-slate-300">
+      <motion.nav variants={{ navVariants }} onClick={closeSidebar} className="">
+        <motion.ul variants={{ ulVariants }} className="flex flex-col gap-2 divide-y divide-slate-300">
           {navLinks.map((item) => (
             <SidebarLink key={item.link} to={item.to}>
               {item.link}
@@ -104,18 +92,6 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
         </motion.ul>
       </motion.nav>
       <p className=""></p>
-      {/* <motion.div variants={navVariants} animate={{ transition: { delay: 0.1 } }} className="flex flex-col gap-y-2">
-        <div className="flex items-center gap-2">
-          <ToggleButton />
-          <span className="text-body text-body-default font-semibold">Dark Mode</span>
-        </div>
-        <hr className="text-slate-300" />
-        {user.isAuthenticated && (
-          <Button disabled={loginMutate.isPending} variant="transparent" size="md" leftIcon={<LogoutIcon />} onClick={handleLogout} className="text-error">
-            {loginMutate.isPending ? "Logging out..." : "Log out"}
-          </Button>
-        )}
-      </motion.div> */}
     </motion.aside>
   );
 };

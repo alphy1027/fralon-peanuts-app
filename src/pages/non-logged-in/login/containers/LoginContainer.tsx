@@ -14,7 +14,7 @@ const LoginContainer = () => {
     loginMutate(data);
   };
 
-  return <Login handleLogin={handleLogin} loading={isPending} loginSuccess={isSuccess} loginErrorMsg={error?.message || ""} />;
+  return <Login handleLogin={handleLogin} loading={isPending} loginSuccess={isSuccess} loginErrorMsg={error?.AxiosError || ""} />;
 };
 
 export default LoginContainer;

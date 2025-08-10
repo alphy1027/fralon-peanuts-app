@@ -20,7 +20,7 @@ const Table = () => {
       <tbody className="">
         {cartItems &&
           cartItems.map((cartItem) => (
-            <tr key={cartItem._id} className="">
+            <tr key={cartItem.product._id} className="">
               <td>
                 <Button
                   variant="secondary-danger"

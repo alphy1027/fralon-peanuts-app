@@ -14,7 +14,7 @@ const OrderHistoryItem = ({ order }: OrderProps) => {
         <OrderStatusIndicator>{order.status}</OrderStatusIndicator>
       </div>
       {order.items?.map((item) => (
-        <h4 key={item._id} className="text-body-lg w-fit py-1 font-semibold">
+        <h4 key={item.product._id} className="text-body-lg w-fit py-1 font-semibold">
           <span className="">
             {item.product?.productName}({item.product?.packageSize})
           </span>{" "}
