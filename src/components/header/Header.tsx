@@ -55,13 +55,20 @@ const Header = ({ openSidebar }: HeaderProps) => {
     },
   };
   return (
-    <motion.header variants={headerVariants} animate={isHeaderHidden ? "hidden" : "visible"} className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-3 sm:px-8">
+    <motion.header
+      variants={headerVariants}
+      animate={isHeaderHidden ? "hidden" : "visible"}
+      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-3 py-2 sm:px-8"
+    >
       <div className="flex w-full flex-col gap-y-2 py-2">
         <div className="flex items-center justify-between border-b border-slate-200 pb-2">
           <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="-translate-x-1/4 transform lg:hidden" />
 
-          <Link to="/" className="custom-margin-auto">
-            <Badge size="small" />
+          <Link to="/" className="custom-margin-auto rounded-md px-4">
+            <h1 className="text-primary text-[22px] font-bold tracking-wide uppercase">
+              Fralon
+              <span className="text-secondary">Peanuts</span>
+            </h1>
           </Link>
 
           <section className="flex items-center gap-4">

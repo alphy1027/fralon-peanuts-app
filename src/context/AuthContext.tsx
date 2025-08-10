@@ -1,8 +1,5 @@
-import { useLoginMutation } from "@/hooks/query-hooks/auth/useLoginMutation";
 import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
-import useAuth from "@/hooks/useAuth";
 import { createContext, ReactNode, useContext, useState } from "react";
-// User state from the backend on login
 
 // Authentication state
 export interface UserAuthState {
@@ -15,24 +12,45 @@ export interface UserAuthState {
 interface AuthContextType {
   user: UserAuthState;
   setUser: React.Dispatch<React.SetStateAction<UserAuthState>>;
+  logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const useAuthContext = (): AuthContextType => {
   const context = useContext(AuthContext);
-  if (!context) throw new Error("useAuth must be used within an AuthProvider");
+  if (!context) throw new Error("useAuth must be used within AuthProvider");
   return context;
 };
 
+const initialUserState = {
+  userId: null,
+  username: null,
+  roles: [],
+  isAuthenticated: false,
+};
+
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<UserAuthState>({
-    userId: null,
-    username: null,
-    roles: [],
-    isAuthenticated: false,
-  });
-  const value: AuthContextType = { user, setUser };
+  const [user, setUser] = useState<UserAuthState>(initialUserState);
+  const logoutMutate = useLogoutMutation();
+
+  const logout = async () => {
+    const response = await logoutMutate.mutateAsync();
+    if (!response.success) {
+      throw new Error(response.message || "Failed to logout");
+    }
+    setUser({
+      userId: null,
+      username: null,
+      roles: [],
+      isAuthenticated: false,
+    });
+    window.location.href = "/";
+    alert(response.message);
+    console.log("Logged out successfully");
+  };
+
+  const value: AuthContextType = { user, setUser, logout };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 

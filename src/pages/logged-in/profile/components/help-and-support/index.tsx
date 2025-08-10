@@ -27,7 +27,7 @@ const HelpAndSupport = () => {
         <BodyText>
           For any inquiries about our product and services please get in touch with us through our Email <span className="text-primary underline">fralonpeanuts@gmail.com</span>. You can also get in
           touch through our help lines <span className="text-primary underline">+254797000000</span> or
-          <span className="text-primary underline">+254735000000</span> or Whatsapp us through the number <span className="text-primary underline">+254796000000</span>. You can also reach us through
+          <span className="text-primary underline"> +254735000000</span> or Whatsapp us through the number <span className="text-primary underline">+254796000000</span>. You can also reach us through
           our Contact Form by clicking the Contact us button below
         </BodyText>
         <Button size="md">Contact Us</Button>

@@ -7,7 +7,7 @@ const PriceSelect = ({ handlePriceChange }: SelectProps) => {
     { value: "wholesaleUnitPrice", label: "Wholesale" },
   ];
   return (
-    <select onChange={handlePriceChange} aria-label="Select product category" name="category" id="category" className="min-w-[130px] rounded-md border border-gray-300 px-1 py-1">
+    <select onChange={handlePriceChange} aria-label="Select product category" name="category" id="category" className="min-w-[130px] rounded-sm border border-gray-300 px-1 py-1">
       {options.map((option) => (
         <option key={option.value} value={option.value}>
           {option.label}

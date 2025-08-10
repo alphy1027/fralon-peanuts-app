@@ -19,7 +19,7 @@ const AboutSection = () => {
         </Button>
       </div>
       <figure className="w-fit">
-        <img src="none" alt="" className="bg-secondary h-[370px] w-[300px] rounded-lg" />
+        <img src="none" alt="" className="bg-secondary h-[370px] w-[300px] rounded-md" />
         <figcaption className="sr-only">Company photo</figcaption>
       </figure>
     </SectionContainter>

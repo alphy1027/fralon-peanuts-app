@@ -2,8 +2,18 @@ import SectionContainter from "../UI-primitives/SectionContainter";
 import LeftArrow from "@/assets/svg/nav/LeftArrow";
 import Button from "../UI-primitives/Button";
 import RightArrow from "@/assets/svg/nav/RightArrow";
+import ProductCard from "../product/ProductCard";
+import { useProductsQuery } from "@/hooks/query-hooks/products/useProductsQuery";
+import { useNavigate } from "react-router-dom";
 
 const ProductsSection = () => {
+  const navigate = useNavigate();
+  const { data, isPending, error } = useProductsQuery();
+  if (!data?.payload) return <p className="">NO PRODUCTS FOUND</p>;
+  if (isPending) return <p className="">LOADING PRODUCTS</p>;
+  if (error) return <p className="">ERROR {error.message}</p>;
+  const products = data.payload.products || [];
+  console.log(data);
   return (
     <section className="bg-primary py-6">
       <SectionContainter className="flex flex-col gap-6">
@@ -18,9 +28,13 @@ const ProductsSection = () => {
             <Button variant="secondary-outline" rightIcon={<RightArrow />}></Button>
           </div>
         </div>
-        <section className="bg-primary-active h-[280px]"></section>
+        <section className="flex items-center gap-4 p-2">
+          {products.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </section>
 
-        <Button variant="transparent" className="text-secondary self-end" rightIcon={<RightArrow />}>
+        <Button onClick={() => navigate("/products")} variant="transparent" className="text-secondary self-end" rightIcon={<RightArrow />}>
           More Products
         </Button>
       </SectionContainter>

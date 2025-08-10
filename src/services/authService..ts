@@ -32,8 +32,13 @@ export class AuthService {
     return { success: response.success, message: response.message };
   }
 
-  async refreshUserToken(): Promise<ApiResponse<LoginResponse, "newToken">> {
-    return await this.api.refresh();
+  async refreshUserToken(): Promise<{ newToken: LoginResponse }> {
+    const response = await this.api.refresh();
+    if (!response.success || !response.payload?.newToken) {
+      throw new Error(response.message || "Failed to refresh the user");
+    }
+    tokenManager.setToken(response.payload.newToken.accessToken);
+    return response.payload;
   }
 }
 

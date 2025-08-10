@@ -1,6 +1,5 @@
 import { useLoginMutation } from "@/hooks/query-hooks/auth/useLoginMutation";
 import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
-import { ActiveUser } from "@/types";
 import { useState } from "react";
 
 // Authentication state

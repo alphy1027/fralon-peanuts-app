@@ -15,10 +15,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const ProfileDropdown = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-  const { user } = useAuthContext();
+  const { user, logout } = useAuthContext();
   const navigate = useNavigate();
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  const handleLogout = () => {
+    logout();
+    closeDropdown();
+  };
 
   const closeDropdown = useCallback(() => {
     setIsDropdownOpen(false);
@@ -66,17 +71,17 @@ const ProfileDropdown = () => {
             animate={{ y: 1, height: "auto" }}
             exit={{ y: 0, height: 0 }}
             transition={{ ease: "easeInOut" }}
-            className={`absolute right-0 -bottom-1 z-50 flex translate-y-full flex-col overflow-hidden rounded-sm bg-slate-300`}
+            className={`bg-brand-white absolute right-0 -bottom-1 z-50 flex translate-y-full flex-col overflow-hidden rounded-sm border border-slate-300 shadow-md`}
           >
-            <div className="flex items-center gap-x-4 border-b border-slate-500 px-4 py-2">
+            <div className="flex items-center gap-x-4 border-b border-slate-400 px-4 py-2">
               <div className="bg-secondary h-8 w-8 rounded-full"></div>
               <div className="pr-6">
-                <h4 className="text-body-default text-sm font-bold text-nowrap">Raymond Reddington</h4>
-                <p className="text-extra-sm text-gray-600">raymond@gmail.com</p>
+                <h4 className="text-body-default text-body font-bold text-nowrap">{user.username}</h4>
+                <p className="text-extra-sm text-gray-500">{user.userId}</p>
               </div>
             </div>
 
-            <section className="flex flex-col gap-y-1 border-b border-slate-400 p-2">
+            <section className="flex flex-col gap-y-1 border-b border-slate-300 p-2">
               <ProfileDropdownItem closeDropdown={closeDropdown} Icon={<AccountIcon />} to="/profile/account">
                 Account
               </ProfileDropdownItem>
@@ -91,7 +96,7 @@ const ProfileDropdown = () => {
               </ProfileDropdownItem>
             </section>
 
-            <section className="flex flex-col gap-y-1 border-b border-slate-400 p-2">
+            <section className="flex flex-col gap-y-1 border-b border-slate-300 p-2">
               <ProfileDropdownItem closeDropdown={closeDropdown} Icon={<HelpIcon />} to="/profile/help">
                 Help and Support
               </ProfileDropdownItem>
@@ -101,9 +106,9 @@ const ProfileDropdown = () => {
             </section>
 
             <section className="flex flex-col gap-y-1 p-2">
-              <ProfileDropdownItem closeDropdown={closeDropdown} Icon={<LogoutIcon />} to="/" className="text-error hover:bg-error-light">
+              <Button variant="transparent" width="full" onClick={handleLogout} leftIcon={<LogoutIcon />} className="text-error hover:bg-error-light justify-start">
                 Log out
-              </ProfileDropdownItem>
+              </Button>
             </section>
           </motion.div>
         )}

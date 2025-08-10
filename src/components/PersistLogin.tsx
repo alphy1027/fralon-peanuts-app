@@ -1,19 +1,22 @@
 import { useAuthContext } from "@/context/AuthContext";
-import useRefreshToken from "@/hooks/useRefreshToken";
 import { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import EmptyPage from "./sections/EmptyPage";
+import { useRefreshMutation } from "@/hooks/query-hooks/auth/useRefreshMutation";
 
 const PersistLogin = () => {
   const [loading, setLoading] = useState(true);
-  const refresh = useRefreshToken();
+  const navigate = useNavigate();
+  const refreshMutate = useRefreshMutation();
   const { user } = useAuthContext();
 
   useEffect(() => {
     const verifyRefreshToken = async () => {
       try {
-        await refresh();
+        await refreshMutate.mutateAsync();
       } catch (err) {
-        console.log(err);
+        console.log("Refresh, persist login error ::", err);
+        navigate("/");
       } finally {
         setLoading(false);
       }
@@ -22,7 +25,7 @@ const PersistLogin = () => {
     !user.isAuthenticated ? verifyRefreshToken() : setLoading(false);
   }, []);
 
-  return <>{loading ? <p>Refreshing, Loading...</p> : <Outlet />}</>;
+  return <>{loading ? <EmptyPage>Refreshing tokens in process ...</EmptyPage> : <Outlet />}</>;
 };
 
 export default PersistLogin;

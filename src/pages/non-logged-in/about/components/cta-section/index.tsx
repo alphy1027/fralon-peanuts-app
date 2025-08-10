@@ -13,7 +13,7 @@ const CtaSection = () => {
       </div>
       <p className="text-heading-5 pt-12 text-center font-semibold">
         Want to learn more about Our business, or you got further enquiries?{" "}
-        <Link to="contact-us" className="text-primary underline">
+        <Link to="/contact-us" className="text-primary underline">
           Contact Us
         </Link>
       </p>

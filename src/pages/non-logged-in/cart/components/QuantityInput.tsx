@@ -25,10 +25,10 @@ const QuantityInput = ({ quantity }: InputProps) => {
   };
 
   return (
-    <div className="border-body-default custom-margin-auto flex w-fit rounded-sm border">
-      <Button onClick={handleIncrement} variant="outline" leftIcon={<IncrementIcon />} className="rounded-none border-none px-1" />
-      <input type="number" value={itemQuantity} onChange={() => setItemQuantity(itemQuantity)} className="w-[36px] text-center" />
+    <div className="custom-margin-auto flex h-8 w-fit rounded-sm border border-slate-400">
       <Button onClick={handleDecrement} variant="outline" rightIcon={<DecrementIcon />} className="rounded-none border-none px-1" />
+      <input type="number" value={itemQuantity} onChange={() => setItemQuantity(itemQuantity)} className="w-[36px] text-center" />
+      <Button onClick={handleIncrement} variant="outline" leftIcon={<IncrementIcon />} className="rounded-none border-none px-1" />
     </div>
   );
 };

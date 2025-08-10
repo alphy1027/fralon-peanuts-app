@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 type ItemProps = {
   Icon?: ReactNode;
@@ -11,17 +11,20 @@ type ItemProps = {
 
 const ProfileDropdownItem = ({ Icon, children, closeDropdown, to, className }: ItemProps) => {
   return (
-    <Link
+    <NavLink
       to={to}
       onClick={closeDropdown}
-      className={twMerge(
-        "hover:bg-primary-light hover:text-primary text-body-default flex items-center gap-x-4 rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200 ease-in-out",
-        className,
-      )}
+      className={({ isActive }) =>
+        twMerge(
+          "hover:bg-primary-light hover:text-primary flex items-center gap-x-4 rounded-md px-4 py-2 text-sm font-semibold transition-all duration-200 ease-in-out",
+          className,
+          isActive ? "text-primary" : "text-body-default",
+        )
+      }
     >
       {Icon && <div className="">{Icon}</div>}
       <span className="">{children}</span>
-    </Link>
+    </NavLink>
   );
 };
 

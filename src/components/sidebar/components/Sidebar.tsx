@@ -103,8 +103,8 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
           ))}
         </motion.ul>
       </motion.nav>
-
-      <motion.div variants={navVariants} animate={{ transition: { delay: 0.1 } }} className="flex flex-col gap-y-2">
+      <p className=""></p>
+      {/* <motion.div variants={navVariants} animate={{ transition: { delay: 0.1 } }} className="flex flex-col gap-y-2">
         <div className="flex items-center gap-2">
           <ToggleButton />
           <span className="text-body text-body-default font-semibold">Dark Mode</span>
@@ -115,7 +115,7 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
             {loginMutate.isPending ? "Logging out..." : "Log out"}
           </Button>
         )}
-      </motion.div>
+      </motion.div> */}
     </motion.aside>
   );
 };

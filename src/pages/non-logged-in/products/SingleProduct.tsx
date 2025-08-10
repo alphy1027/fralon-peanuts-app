@@ -9,14 +9,15 @@ import { useSingleProductQuery } from "@/hooks/query-hooks/products/useSinglePro
 import { useParams } from "react-router-dom";
 import PriceSelect from "./components/single-product/PriceSelect";
 import { useState } from "react";
-import TypeSelect from "./components/single-product/TypeSelect";
 import { useCartActionsMutation } from "@/hooks/query-hooks/cart/useCartActionsMutation";
+import { useCartContext } from "@/context/CartContext";
+import ProductInCartNav from "@/components/product/ProductInCartNav";
 
 const SingleProduct = () => {
   const [price, setPrice] = useState("unitPrice");
-  const [type, setType] = useState("smooth");
   const { productId } = useParams<{ productId: string }>();
   const { addToCart } = useCartActionsMutation();
+  const { isProductInCart } = useCartContext();
 
   if (!productId) return <p className="">No product ID provided</p>;
   const { data, isPending, error } = useSingleProductQuery(productId);
@@ -25,12 +26,9 @@ const SingleProduct = () => {
   if (error) return <p className="">{error.message}</p>;
 
   const product = data?.payload?.product;
+  const productInCart = isProductInCart(productId);
   const handlePriceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrice(e.target.value);
-  };
-
-  const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setType(e.target.value);
   };
 
   const handleAddToCart = () => {
@@ -41,7 +39,7 @@ const SingleProduct = () => {
     <SectionContainter className="flex flex-col">
       <div className="flex flex-col justify-center gap-8 lg:flex-row">
         <div className="flex flex-col items-center justify-center gap-3">
-          <figure className="h-[300px] max-h-[512px] w-full max-w-[450px] overflow-hidden rounded-lg lg:h-[450px] lg:w-[430px]">
+          <figure className="h-[300px] max-h-[512px] w-full max-w-[450px] overflow-hidden rounded-md lg:h-[450px] lg:w-[430px]">
             <img src={product.productImage.image} alt="" className="h-full w-full bg-yellow-200" />
             <figcaption className="sr-only">Fralon peanut butter photo</figcaption>
           </figure>
@@ -73,16 +71,14 @@ const SingleProduct = () => {
             <div className="flex flex-col gap-y-2 px-3 py-4">
               {/* <ProductOptions label="Status">
                 <p className="text-primary">30 in Stock</p>
-              </ProductOptions>
+              </ProductOptions>*/}
               <ProductOptions label="Cat">
-                <p className="text-slate-600">Butter</p>
-              </ProductOptions> */}
+                <p className="text-slate-600">{product.category.name}</p>
+              </ProductOptions>
               <ProductOptions label="Size">
                 <p className="text-slate-600">{product.packageSize}</p>
               </ProductOptions>
-              <ProductOptions label="Type">
-                <TypeSelect handleTypeChange={handleTypeChange} />
-              </ProductOptions>
+
               <ProductOptions label="Price">
                 <PriceSelect handlePriceChange={handlePriceChange} />
               </ProductOptions>
@@ -90,9 +86,14 @@ const SingleProduct = () => {
           </article>
           <div className="flex items-center justify-between">
             <SectionTitle className="text-primary w-fit text-3xl whitespace-nowrap">Ksh {price === "unitPrice" ? product.unitPrice : product.wholesaleUnitPrice}</SectionTitle>
-            <Button size="md" className="w-1/2" onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
+
+            {productInCart ? (
+              <ProductInCartNav quantity={productInCart} />
+            ) : (
+              <Button size="md" className="w-1/2" onClick={handleAddToCart}>
+                Add to Cart
+              </Button>
+            )}
           </div>
         </section>
       </div>

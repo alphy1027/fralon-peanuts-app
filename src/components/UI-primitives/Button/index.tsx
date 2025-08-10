@@ -9,7 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantPr
 }
 
 const buttonVariants = cva(
-  "flex gap-4 items-center justify-center rounded-lg font-semibold cursor-pointer tracking-wider disabled:bg-slate-500 disabled:text-body-default disabled:cursor-not-allowed hover:scale-105 active:scale-95 transition-all duration-200 ease-in",
+  "flex gap-4 items-center justify-center rounded-md font-semibold cursor-pointer tracking-wider disabled:bg-slate-500 disabled:text-body-default disabled:cursor-not-allowed hover:scale-105 active:scale-95 transition-all duration-200 ease-in",
   {
     variants: {
       variant: {

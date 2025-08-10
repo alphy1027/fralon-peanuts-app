@@ -9,12 +9,12 @@ class AuthApi {
   }
 
   async refresh(): Promise<ApiResponse<LoginResponse, "newToken">> {
-    const response = await instance.post<ApiResponse<LoginResponse, "newToken">>("auth/refresh", {});
+    const response = await instance.post<ApiResponse<LoginResponse, "newToken">>("/auth/refresh", {});
     return response.data;
   }
 
   async logout(): Promise<ApiResponse> {
-    const response = await instance.post<ApiResponse>("auth/logout", {});
+    const response = await instance.post<ApiResponse>("/auth/logout", {});
     return response.data;
   }
 }

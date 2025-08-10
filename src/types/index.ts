@@ -1,3 +1,4 @@
+// RESPONSE
 export interface ApiResponse<T = unknown, K extends string = string> {
   success: boolean;
   message: string;
@@ -5,13 +6,22 @@ export interface ApiResponse<T = unknown, K extends string = string> {
   payload?: { [key in K]: T };
   error?: string | object;
 }
+// USER
+export interface Client {
+  _id: string;
+  username: string;
+  email: string;
+  phoneNumber: string;
+  membership: string;
+  createdAt: Date;
+}
 
 export interface ActiveUser {
   userId: string;
   username: string;
   roles: string[];
 }
-
+// PRODUCT
 export interface Product {
   _id: string;
   productImage: {
@@ -19,19 +29,18 @@ export interface Product {
   };
   productName: string;
   unitPrice: number;
-  packageSize: string;
+  packageSize: "200gms" | "400gms" | "800gms" | "1kg" | "1.5kg";
   category: {
     _id: string;
     name: string;
   };
-  type: string;
+  type: "smooth" | "crunchy";
   wholesaleUnitPrice: number;
   description: string;
   reviews: string[];
 }
-
+// CART
 export interface CartItem {
-  _id: string;
   product: Product;
   quantity: number;
 }
@@ -44,12 +53,48 @@ export interface Cart {
 export interface CartResponse {
   cart: Cart;
 }
-
-export interface Client {
+// ORDER
+export interface UserOrders {
   _id: string;
-  username: string;
-  email: string;
-  phoneNumber: string;
-  membership: string;
+  orders: Order[];
+}
+
+export interface OrderItem {
+  product: string;
+  quantity: number;
+  price: number;
+  priceType?: "retail" | "wholesale";
+  subTotal: number;
+}
+
+export interface PopulatedOrderItem extends Omit<OrderItem, "product"> {
+  product: Product;
+}
+
+export interface Order {
+  _id: string;
+  client: {
+    _id: string;
+    username: string;
+    email: string;
+  };
+  items: PopulatedOrderItem[];
+  address: {
+    county?: string;
+    subCounty: string;
+    ward: string;
+    area: string;
+    additionalDetails?: string;
+  };
+  totalPrice: number;
+  paymentStatus: "unpaid" | "paid" | "failed";
+  status: "pending" | "processing" | "completed" | "shipped" | "delivered" | "cancelled";
+  paymentMethod: "cash" | "mpesa" | "bank" | "paypal";
+  transaction: string | null;
+  notes?: string;
   createdAt: Date;
+}
+
+export interface OrderPayload extends Pick<Order, "address" | "paymentMethod" | "notes"> {
+  items: OrderItem[];
 }

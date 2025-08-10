@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { tokenManager } from "@/utils/tokenManager";
 import { authService } from "@/services/authService.";
+import { useAuthContext } from "@/context/AuthContext";
 
 interface ErrorResponse {
   statusCode: number;
@@ -12,7 +13,7 @@ interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
 }
 
-const API_BASE_URL: string = import.meta.env.VITE_APP_BACKEND_URL;
+const API_BASE_URL: string = import.meta.env.VITE_BACKEND_URL || 3000;
 
 export const axiosPrivate = axios.create({
   baseURL: API_BASE_URL,
@@ -51,17 +52,19 @@ const responseInterceptorError = async (error: AxiosError<ErrorResponse>) => {
       try {
         // request a new access token using the refresh tokens
         const accessTokenResponse = await authService.refreshUserToken();
-        const newAccessToken = accessTokenResponse.payload?.newToken.accessToken ?? null;
+        const newAccessToken = accessTokenResponse.newToken.accessToken;
+        if (!newAccessToken) {
+          throw new Error("New access token not found");
+        }
         tokenManager.setToken(newAccessToken);
         // Update the headers and retry the original request
         originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
         return axiosInstance(originalRequest);
       } catch (refreshError) {
         //Logout user and redirect to home page
+        await authService.logoutUser();
+        window.location.href = "/";
         console.log("Error during token refresh ::", refreshError);
-        authService.logoutUser();
-        tokenManager.setToken(null);
-        window.location.assign("/auth/login");
         return Promise.reject(refreshError);
       }
     }

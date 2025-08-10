@@ -21,6 +21,10 @@
   --text-caption: 14px;
   --text-extra-sm: 12px;
 
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
   --color-body-default: #303030;
 
   --color-primary: #0b706a;
@@ -35,6 +39,8 @@
   --color-tertiary: #5b4b3a;
   --color-brand-white: #ffffff;
   --color-brand-black: #000000;
+
+  --color-outline: #cad5e2;
 
   --color-error: #b42318;
   --color-error-light: #fee4e2;
@@ -95,13 +101,16 @@ body {
 }
 
 /* Cart Table */
+
 thead tr th {
   text-align: center;
-  font-weight: bold;
-  font-size: var(--text-heading-4);
-  padding-block: 0.8rem;
+  font-weight: semibold;
+  font-size: var(--text-heading-5);
+  padding-block: 0.6rem;
 }
-
+thead {
+  border-radius: 2rem;
+}
 thead tr > :nth-child(2) {
   text-align: start;
 }
@@ -111,11 +120,11 @@ tbody tr > :nth-child(2) {
 }
 
 tbody > *:not(:last-child) {
-  border-bottom: 2px solid #e1e1e1;
+  border-bottom: 1.4px solid #e1e1e1;
 }
 
 td {
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   text-align: center;
 }
 
