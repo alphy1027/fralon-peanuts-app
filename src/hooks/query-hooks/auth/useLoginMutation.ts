@@ -1,6 +1,7 @@
 import { useAuthContext } from "@/context/AuthContext";
 import { authService } from "@/services/authService.";
 import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface LoginCredentials {
@@ -30,7 +31,7 @@ export const useLoginMutation = () => {
         isAuthenticated: true,
       });
       navigate(from, { replace: true });
-      alert(`Welcome back, ${userData.username}`);
+      toast.success("Login was successful");
     },
     onError: (error: ErrorProp) => {
       console.log("Login Mutation Error :: ", error);

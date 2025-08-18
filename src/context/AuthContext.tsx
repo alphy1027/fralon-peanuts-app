@@ -1,5 +1,6 @@
 import { useLogoutMutation } from "@/hooks/query-hooks/auth/useLogoutMutation";
 import { createContext, ReactNode, useContext, useState } from "react";
+import toast from "react-hot-toast";
 
 // Authentication state
 export interface UserAuthState {
@@ -46,8 +47,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
       isAuthenticated: false,
     });
     window.location.href = "/";
-    alert(response.message);
-    console.log("Logged out successfully");
+    toast.error("Logout was successfull");
   };
 
   const value: AuthContextType = { user, setUser, logout };

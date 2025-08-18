@@ -14,12 +14,12 @@ const AboutSection = () => {
           At Fralon Peanuts, we’re more than just a peanut butter company—we’re a family-run business with a passion for crafting high-quality peanut products. From our humble beginnings, we’ve
           dedicated ourselves to sourcing the finest peanuts and transforming them into products that bring joy to every table.
         </BodyText>
-        <Button onClick={() => navigate("/about")} size="md">
+        <Button variant="outline" onClick={() => navigate("/about")} className="px-6 py-3">
           Learn More
         </Button>
       </div>
       <figure className="w-fit">
-        <img src="none" alt="" className="bg-secondary h-[370px] w-[300px] rounded-md" />
+        <img src="none" alt="" className="bg-primary-light h-[370px] w-[300px] rounded-sm" />
         <figcaption className="sr-only">Company photo</figcaption>
       </figure>
     </SectionContainter>

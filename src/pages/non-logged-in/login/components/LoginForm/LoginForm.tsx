@@ -4,8 +4,6 @@ import Button from "@/components/UI-primitives/Button";
 import Input from "@/components/UI-primitives/Input";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
-/* import Visible from "@/assets/svg/nav/Visible"; */
-/* import Hidden from "@/assets/svg/nav/hidden"; */
 
 interface FormData {
   email: string;

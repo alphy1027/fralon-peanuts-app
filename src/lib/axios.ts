@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { tokenManager } from "@/utils/tokenManager";
 import { authService } from "@/services/authService.";
+import toast from "react-hot-toast";
 
 interface ErrorResponse {
   statusCode: number;
@@ -46,6 +47,7 @@ const responseInterceptorError = async (error: AxiosError<ErrorResponse>) => {
   if (error.config) {
     const originalRequest: CustomAxiosRequestConfig = error.config;
     //Check if the error is due to expired access token (401)
+    toast.error(`Error ${error.response?.data.statusCode} : ${error.response?.data.message}`);
     if (error?.response?.status === 401 && error?.response?.data?.message === "Unauthorized, token expired" && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
@@ -53,7 +55,7 @@ const responseInterceptorError = async (error: AxiosError<ErrorResponse>) => {
         const accessTokenResponse = await authService.refreshUserToken();
         const newAccessToken = accessTokenResponse.newToken.accessToken;
         if (!newAccessToken) {
-          throw new Error("New access token not found");
+          throw new Error("New token not found");
         }
         tokenManager.setToken(newAccessToken);
         // Update the headers and retry the original request

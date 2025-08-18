@@ -8,6 +8,7 @@ import LocationIcon from "@/assets/svg/socials/LocationIcon";
 import Button from "@/components/UI-primitives/Button";
 import Input from "@/components/UI-primitives/Input";
 import TextArea from "@/components/UI-primitives/Input/TextArea";
+import SubmitIcon from "@/assets/svg/nav/SubmitIcon";
 
 const ContactUsSection = () => {
   return (
@@ -35,7 +36,7 @@ const ContactUsSection = () => {
         <Input required type="text" placeholder="Name" />
         <Input required type="email" placeholder="Email" />
         <TextArea required name="message" placeholder="Message" rows={6} className=""></TextArea>
-        <Button type="submit" size="md" width="full">
+        <Button type="submit" size="md" leftIcon={<SubmitIcon />} className="self-end">
           Submit
         </Button>
       </form>

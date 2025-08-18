@@ -2,7 +2,7 @@
 
 @theme {
   --font-primary: "Sofia Sans", "sans-serif";
-  --font-secondary: "Mate SC", "serif";
+  --font-secondary: "Oswald", "sans-serif";
 
   --text-display: 48px;
   --text-display-lg: 60px;
@@ -27,16 +27,16 @@
 
   --color-body-default: #303030;
 
-  --color-primary: #0b706a;
+  --color-primary: /* #0b706a */ #592207;
   --color-primary-hover: #095a57;
   --color-primary-active: #074944;
-  --color-primary-light: #e3f4f3;
+  --color-primary-light: /* #e3f4f3 */ #ffecc4;
 
-  --color-secondary: #ffd601;
+  --color-secondary: /* #ffd601 */ #f9d29b;
   --color-secondary-hover: #e6c200;
   --color-secondary-active: #ccad00;
 
-  --color-tertiary: #5b4b3a;
+  --color-tertiary: #dfb270;
   --color-brand-white: #ffffff;
   --color-brand-black: #000000;
 

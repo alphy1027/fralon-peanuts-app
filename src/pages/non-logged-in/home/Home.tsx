@@ -5,26 +5,37 @@ import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import WhyUsSection from "../about/components/why-us-section";
 import ContactUsSection from "../contacts/components/contact-us-section";
 import Button from "@/components/UI-primitives/Button";
-import mainImage from "@/assets/images/800g-product.png";
+import heroImg from "@/assets/images/hero-img.png";
+import SectionTitle from "@/components/UI-primitives/SectionTitle";
 
 const Home = () => {
   return (
     <section className="flex flex-col gap-12">
-      <SectionContainter className="flex flex-col items-center gap-10">
-        <div className="flex flex-col gap-y-1">
-          <div className="flex flex-col items-center">
-            <h2 className="font-secondary text-body-lg text-primary tracking-wide">pure happiness!</h2>
-            <h1 className="text-heading-1 font-secondary text-primary text-center font-semibold tracking-wider uppercase">The Perfect Peanut</h1>
-          </div>
-          <p className="text-body-default font-medium">Experience our refreshening, creamy peanut butter. No preservatives, No additives, All Natural</p>
-          <div className="flex items-center justify-center gap-x-6 p-2">
-            <Button>Order Now!</Button>
-            <Button variant="outline">Order Now!</Button>
+      <SectionContainter className="bg-secondary flex items-center justify-center gap-x-10 rounded-sm">
+        <div className="flex w-1/2 flex-col gap-y-2 p-2">
+          <h1 className="text-heading-2 font-secondary text-primary font-semibold tracking-wider uppercase">
+            Crafted for the{" "}
+            <span className="text-tertiary">
+              Peanut
+              <br /> Butter
+            </span>{" "}
+            Lover in You
+          </h1>
+          <p className="text-slate-700">
+            Not Just Any Butter, It's Peanut Perfection. Nutty, But in the Best Way. We offer quality peanut butter products. You can get all our products in a store nearby.
+          </p>
+          <div className="flex w-fit items-center justify-center gap-x-6">
+            <Button size="md">View Products</Button>
+            <Button variant="outline" size="md">
+              Order Now!
+            </Button>
           </div>
         </div>
-        <div className="bg-primary flex h-[220px] w-full rounded-md p-6">
-          <img src={mainImage} alt="" className="h-[200px] -translate-y-[10px] opacity-90" />
-        </div>
+        <img src={heroImg} className="h-[400px] w-[300px]" />
+      </SectionContainter>
+      <SectionContainter className="flex flex-col items-center">
+        <SectionTitle>We do everything Peanuts</SectionTitle>
+        <div className="bg-secondary h-[300px] w-full"></div>
       </SectionContainter>
       <AboutSection />
       <ProductsSection />
