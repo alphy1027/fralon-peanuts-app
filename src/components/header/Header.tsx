@@ -51,37 +51,39 @@ const Header = ({ openSidebar }: HeaderProps) => {
     <motion.header
       variants={{ headerVariants }}
       animate={isHeaderHidden ? "hidden" : "visible"}
-      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-3 py-2 sm:px-8"
+      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-2 py-2 sm:px-8"
     >
       <div className="flex w-full items-center justify-between py-2">
-        <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="-translate-x-1/4 transform lg:hidden" />
+        <div className="flex items-center gap-x-2">
+          <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="transform px-2 lg:hidden" />
 
-        <Link to="/" className="crounded-md px-4">
-          <h1 className="text-primary font-secondary text-[22px] font-semibold tracking-wide uppercase">
-            Fralon
-            <span className="text-secondary">Peanuts</span>
-          </h1>
-        </Link>
-
-        <div className="">
-          <Nav />
+          <Link to="/" className="rounded-md px-2">
+            <h1 className="text-primary font-secondary text-[22px] font-semibold tracking-wide uppercase">
+              Fralon
+              <span className="text-secondary">Peanuts</span>
+            </h1>
+          </Link>
         </div>
 
-        <section className="flex items-center gap-4">
-          <nav className="flex transform items-center gap-2 sm:transform-none">
-            <Link to="cart" className="relative p-1">
-              <CartIcon />
-              {cart && <span className="absolute -top-1/2 -right-1/4 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{cart?.items.length}</span>}
-            </Link>
-            <ProfileDropdown />
-          </nav>
+        <div className="flex items-center gap-x-6">
+          <Nav />
 
-          {!user.isAuthenticated && (
-            <Button size="sm" variant="outline" className="hidden lg:block" onClick={handleLogin}>
-              Login
-            </Button>
-          )}
-        </section>
+          <section className="flex items-center gap-4">
+            <nav className="flex transform items-center gap-2 sm:transform-none">
+              <Link to="cart" className="relative p-1">
+                <CartIcon />
+                {cart && <span className="absolute -top-1/2 -right-1/4 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{cart?.items.length}</span>}
+              </Link>
+              <ProfileDropdown />
+            </nav>
+
+            {!user.isAuthenticated && (
+              <Button size="sm" variant="outline" className="hidden lg:block" onClick={handleLogin}>
+                Login
+              </Button>
+            )}
+          </section>
+        </div>
       </div>
     </motion.header>
   );

@@ -24,7 +24,7 @@ const Home = () => {
           <p className="text-slate-700">
             Not Just Any Butter, It's Peanut Perfection. Nutty, But in the Best Way. We offer quality peanut butter products. You can get all our products in a store nearby.
           </p>
-          <div className="flex w-fit flex-wrap items-center justify-center gap-x-6 gap-y-3">
+          <div className="flex w-fit flex-wrap items-center justify-center gap-x-3 gap-y-3 sm:gap-x-6">
             <Button size="md">View Products</Button>
             <Button variant="outline" size="md">
               Order Now!

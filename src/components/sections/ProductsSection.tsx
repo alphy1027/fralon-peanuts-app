@@ -15,25 +15,22 @@ const ProductsSection = () => {
   console.log(data);
 
   return (
-    <section className="">
-      <SectionContainter className="flex flex-col gap-6">
-        <div className="flex flex-col items-center gap-2">
-          <SectionTitle>Our Products</SectionTitle>
-          <p className="text-body-default text-body max-w-[750px] text-center">
-            At Fralon Peanuts, we take pride in crafting the finest peanut-based products that are perfect for every moment—from quick snacks to hearty meals. Each product is made with premium-grade
-            peanuts, roasted to perfection, and packed with love and nutrition.
-          </p>
-        </div>
-        <section className="flex justify-center gap-4 p-2">
-          {products.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
-        </section>
-
-        <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end" rightIcon={<RightArrow className="fill-primary" />}>
-          More Products
-        </Button>
+    <section className="flex flex-col gap-y-4">
+      <SectionContainter className="flex flex-col items-center gap-2">
+        <SectionTitle>Our Products</SectionTitle>
+        <p className="text-body-default text-body max-w-[750px] text-center">
+          At Fralon Peanuts, we take pride in crafting the finest peanut-based products that are perfect for every moment—from quick snacks to hearty meals. Each product is made with premium-grade
+          peanuts, roasted to perfection, and packed with love and nutrition.
+        </p>
       </SectionContainter>
+      <section className="flex justify-center gap-4 overflow-x-auto p-2">
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
+      </section>
+      <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end py-2" rightIcon={<RightArrow className="fill-primary" />}>
+        More Products
+      </Button>
     </section>
   );
 };

@@ -9,7 +9,7 @@ interface inputProps extends TextareaHTMLAttributes<HTMLTextAreaElement>, Varian
   error?: string;
 }
 
-const textAreaVariants = cva("rounded-sm block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
+const textAreaVariants = cva("rounded-lg block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
   variants: {
     variant: {
       primary: "text-body-default border-gray-300 focus:outline-none focus:border-primary",

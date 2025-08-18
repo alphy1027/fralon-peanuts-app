@@ -39,7 +39,7 @@ const SingleProduct = () => {
     <SectionContainter className="flex flex-col">
       <div className="flex flex-col justify-center gap-8 lg:flex-row">
         <div className="flex flex-col items-center justify-center gap-3">
-          <figure className="h-[300px] max-h-[512px] w-full max-w-[450px] overflow-hidden rounded-md lg:h-[450px] lg:w-[430px]">
+          <figure className="h-[300px] max-h-[512px] w-full max-w-[450px] overflow-hidden rounded-sm lg:h-[450px] lg:w-[430px]">
             <img src={product.productImage.image} alt="" className="h-full w-full bg-yellow-200" />
             <figcaption className="sr-only">Fralon peanut butter photo</figcaption>
           </figure>
@@ -50,7 +50,7 @@ const SingleProduct = () => {
           </section>
         </div>
 
-        <section className="flex flex-col gap-y-6 self-center px-2 sm:w-[550px] md:w-[600px] md:px-4 lg:max-w-[450px] lg:self-start">
+        <section className="flex w-full flex-col gap-y-6 self-center px-2 sm:w-[550px] md:w-[600px] md:px-4 lg:max-w-[450px] lg:self-start">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs font-medium tracking-wide">Butter</h4>
             <div className="flex justify-between gap-x-10">

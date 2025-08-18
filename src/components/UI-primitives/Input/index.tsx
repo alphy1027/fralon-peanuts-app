@@ -9,7 +9,7 @@ interface inputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps
   error?: string;
 }
 
-const inputVariants = cva("rounded-sm block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
+const inputVariants = cva("rounded-full block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
   variants: {
     variant: {
       primary: "text-body-default border-gray-300 focus:outline-none focus:border-primary",
@@ -38,9 +38,9 @@ const Input = ({ className, variant, inputSize, error, label, rightIcon, leftIco
         </label>
       )}
       <div className="relative">
-        {leftIcon && <span className="absolute top-1/2 left-2 -translate-y-1/2 text-gray-500">{leftIcon}</span>}
-        <input className={cn(inputVariants({ variant, inputSize }), leftIcon && "pl-9", rightIcon && "pr-9", className)} {...props} />
-        {rightIcon && <span className="absolute top-1/2 right-2 -translate-y-1/2 text-gray-500">{rightIcon}</span>}
+        {leftIcon && <span className="absolute top-1/2 left-4 -translate-y-1/2 text-gray-500">{leftIcon}</span>}
+        <input className={cn(inputVariants({ variant, inputSize }), leftIcon && "pl-11", rightIcon && "pr-9", className)} {...props} />
+        {rightIcon && <span className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-500">{rightIcon}</span>}
       </div>
       {error && <span className="text-error text-sm">{error}</span>}
     </div>
