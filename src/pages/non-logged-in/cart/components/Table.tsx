@@ -8,7 +8,7 @@ const Table = () => {
 
   return (
     <table className="hidden w-full lg:table">
-      <thead className="bg-primary text-primary-light rounded-md">
+      <thead className="text-primary bg-primary-light">
         <tr>
           <th></th>
           <th>Product</th>
@@ -30,7 +30,7 @@ const Table = () => {
                 />
               </td>
               <td className="flex items-center gap-x-2">
-                <img src={cartItem.product.productImage.image} alt="" className="h-20 w-20 rounded-sm bg-yellow-200" />
+                <img src={cartItem.product.productImage.image} alt="" className="h-20 w-20 rounded-lg" />
                 <div className="flex flex-col gap-1">
                   <h4 className="text-body-default text-body-lg font-semibold">{cartItem.product.productName}</h4>
                   {/* <p className="text-body font-medium text-gray-600"> {cartItem.product.category.name}</p> */}

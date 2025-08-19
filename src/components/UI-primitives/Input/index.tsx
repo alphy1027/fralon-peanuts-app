@@ -9,7 +9,7 @@ interface inputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps
   error?: string;
 }
 
-const inputVariants = cva("rounded-full block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
+const inputVariants = cva("rounded-md block w-full py-2 px-4 border text-body focus:border-2 focus:outline-none font-medium", {
   variants: {
     variant: {
       primary: "text-body-default border-gray-300 focus:outline-none focus:border-primary",

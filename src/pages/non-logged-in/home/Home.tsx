@@ -7,6 +7,7 @@ import ContactUsSection from "../contacts/components/contact-us-section";
 import Button from "@/components/UI-primitives/Button";
 import heroImg from "@/assets/images/hero-img.png";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
+import BodyText from "@/components/UI-primitives/BodyText";
 
 const Home = () => {
   return (
@@ -33,11 +34,12 @@ const Home = () => {
         </div>
         <img src={heroImg} className="h-[400px] w-[300px]" />
       </SectionContainter>
-      <SectionContainter className="flex flex-col items-center">
-        <SectionTitle>We do everything Peanuts</SectionTitle>
-        <div className="bg-secondary h-[300px] w-full"></div>
-      </SectionContainter>
       <AboutSection />
+      <SectionContainter className="flex flex-col items-center gap-y-4">
+        <SectionTitle>We do everything Peanuts</SectionTitle>
+        <BodyText className="">Whether you love it creamy, crunchy, in your smoothie, or straight from the spoon – you belong here.</BodyText>
+        <div className="bg-secondary h-[250px] w-full"></div>
+      </SectionContainter>
       <ProductsSection />
       <WhyUsSection />
       <div className="bg-primary-light py-4">

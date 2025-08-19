@@ -7,21 +7,17 @@ import { useNavigate } from "react-router-dom";
 const AboutSection = () => {
   const navigate = useNavigate();
   return (
-    <SectionContainter className="flex flex-wrap items-center justify-center gap-12">
-      <div className="flex max-w-[400px] flex-col gap-y-8">
-        <SectionTitle className="text-start">About Our Business</SectionTitle>
-        <BodyText>
-          At Fralon Peanuts, we’re more than just a peanut butter company—we’re a family-run business with a passion for crafting high-quality peanut products. From our humble beginnings, we’ve
-          dedicated ourselves to sourcing the finest peanuts and transforming them into products that bring joy to every table.
-        </BodyText>
-        <Button variant="outline" onClick={() => navigate("/about")} className="px-6 py-3">
-          Learn More
-        </Button>
-      </div>
-      <figure className="w-fit">
-        <img src="none" alt="" className="bg-secondary h-[370px] w-[300px] rounded-sm" />
-        <figcaption className="sr-only">Company photo</figcaption>
-      </figure>
+    <SectionContainter className="flex flex-col items-center gap-4">
+      <SectionTitle>Hi we're Fralon Peanuts</SectionTitle>
+      <BodyText className="max-w-[750px] text-center">
+        It all started with a simple love for peanuts – roasted to perfection, ground with care, and shared around the table. What began as a small family recipe has grown into a community of peanut
+        butter lovers who believe that the best things in life are natural, simple, and shared. Every jar we craft carries that same spirit of home and togetherness, a taste of tradition made for
+        today. With each spoonful, you’re not just enjoying peanut butter—you’re joining a family that celebrates real, wholesome goodness.
+      </BodyText>
+      <Button variant="outline" onClick={() => navigate("/about")} className="px-6 py-3">
+        Learn More
+      </Button>
+      <div className="bg-secondary h-[300px] w-full"></div>
     </SectionContainter>
   );
 };
