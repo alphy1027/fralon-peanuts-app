@@ -8,6 +8,7 @@ import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 import { useState } from "react";
 import { useAuthContext } from "@/context/AuthContext";
 import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
+import BrandLogo from "../logo+title/BrandLogo";
 
 type HeaderProps = {
   openSidebar: () => void;
@@ -57,12 +58,7 @@ const Header = ({ openSidebar }: HeaderProps) => {
         <div className="flex items-center gap-x-2">
           <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="transform px-2 lg:hidden" />
 
-          <Link to="/" className="rounded-md px-2">
-            <h1 className="text-primary font-secondary text-[22px] font-semibold tracking-wide uppercase">
-              Fralon
-              <span className="text-secondary">Peanuts</span>
-            </h1>
-          </Link>
+          <BrandLogo />
         </div>
 
         <div className="flex items-center gap-x-6">

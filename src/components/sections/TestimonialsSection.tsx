@@ -28,7 +28,7 @@ const TestimonialsSection = () => {
           <h5 className="text-caption text-gray-600 italic">Satisfied Customer</h5>
         </div>
       </article>
-      <div className="flex gap-2 pt-2">
+      <div className="flex gap-4 pt-2">
         <Button variant="outline" className="p-2" leftIcon={<LeftArrow className="fill-primary" />}></Button>
         <Button variant="outline" className="p-2" rightIcon={<RightArrow className="fill-primary" />}></Button>
       </div>

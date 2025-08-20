@@ -3,6 +3,7 @@
 @theme {
   --font-primary: "Sofia Sans", "sans-serif";
   --font-secondary: "Oswald", "sans-serif";
+  --font-tertiary: "Lora", "serif";
 
   --text-display: 48px;
   --text-display-lg: 60px;

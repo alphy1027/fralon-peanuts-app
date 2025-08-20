@@ -8,6 +8,7 @@ import Button from "@/components/UI-primitives/Button";
 import heroImg from "@/assets/images/hero-img.png";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 import BodyText from "@/components/UI-primitives/BodyText";
+import CategorySection from "./components/category-section";
 
 const Home = () => {
   return (
@@ -35,12 +36,16 @@ const Home = () => {
         <img src={heroImg} className="h-[400px] w-[300px]" />
       </SectionContainter>
       <AboutSection />
-      <SectionContainter className="flex flex-col items-center gap-y-4">
-        <SectionTitle>We do everything Peanuts</SectionTitle>
-        <BodyText className="">Whether you love it creamy, crunchy, in your smoothie, or straight from the spoon – you belong here.</BodyText>
-        <div className="bg-secondary h-[250px] w-full"></div>
-      </SectionContainter>
+      <CategorySection />
       <ProductsSection />
+      <SectionContainter className="flex flex-col items-center gap-y-6">
+        <SectionTitle>Get discounts!</SectionTitle>
+        <BodyText className="text-heading-4 max-w-[850px] text-center italic">
+          At Fralon Peanuts, we believe in keeping it real. That’s why we open our doors and invite you to visit our space, see how every jar of peanut butter is crafted, and experience the care that
+          goes into every step. And here’s a treat for making the trip—enjoy up to 20% off any products you buy when you visit us in person. Because peanut butter tastes even better when you know the
+          story behind it.
+        </BodyText>
+      </SectionContainter>
       <WhyUsSection />
       <div className="bg-primary-light py-4">
         <TestimonialsSection />
