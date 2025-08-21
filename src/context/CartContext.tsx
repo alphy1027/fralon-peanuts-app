@@ -3,11 +3,14 @@ import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
 import { RemoveFromCartAction } from "@/pages/non-logged-in/cart/types";
 import { CartItem } from "@/types";
 import { createContext, ReactNode, useContext } from "react";
+import { useAuthContext } from "./AuthContext";
+import toast from "react-hot-toast";
 
 interface CartContextType {
   handleRemoveFromCart: RemoveFromCartAction;
   cartItems: CartItem[] | undefined;
   isProductInCart: (productId: string) => number | null;
+  handleAddToCart: (productId: string) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -20,7 +23,8 @@ export const useCartContext = () => {
 
 const CartProvider = ({ children }: { children: ReactNode }) => {
   const { data: cart } = useCartQuery();
-  const { removeFromCart } = useCartActionsMutation();
+  const { removeFromCart, addToCart } = useCartActionsMutation();
+  const { user } = useAuthContext();
 
   const cartItems = cart?.items;
   const handleRemoveFromCart = (productId: string) => {
@@ -33,10 +37,18 @@ const CartProvider = ({ children }: { children: ReactNode }) => {
     return productInCart.quantity;
   };
 
+  const handleAddToCart = (productId: string) => {
+    if (!user.isAuthenticated) {
+      return toast.error("Please login to add item to cart");
+    }
+    addToCart.mutate(productId);
+  };
+
   const value: CartContextType = {
     handleRemoveFromCart,
     cartItems,
     isProductInCart,
+    handleAddToCart,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

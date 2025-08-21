@@ -9,18 +9,16 @@ import { useSingleProductQuery } from "@/hooks/query-hooks/products/useSinglePro
 import { useParams } from "react-router-dom";
 import PriceSelect from "./components/single-product/PriceSelect";
 import { useState } from "react";
-import { useCartActionsMutation } from "@/hooks/query-hooks/cart/useCartActionsMutation";
 import { useCartContext } from "@/context/CartContext";
 import ProductInCartNav from "@/components/product/ProductInCartNav";
 
 const SingleProduct = () => {
   const [price, setPrice] = useState("unitPrice");
   const { productId } = useParams<{ productId: string }>();
-  const { addToCart } = useCartActionsMutation();
-  const { isProductInCart } = useCartContext();
-
+  const { isProductInCart, handleAddToCart } = useCartContext();
   if (!productId) return <p className="">No product ID provided</p>;
   const { data, isPending, error } = useSingleProductQuery(productId);
+
   if (!data?.payload?.product) return <p className="">Loading product</p>;
   if (isPending) return <p className="">Pending Product</p>;
   if (error) return <p className="">{error.message}</p>;
@@ -29,10 +27,6 @@ const SingleProduct = () => {
   const productInCart = isProductInCart(productId);
   const handlePriceChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setPrice(e.target.value);
-  };
-
-  const handleAddToCart = () => {
-    addToCart.mutate(productId);
   };
 
   return (
@@ -90,7 +84,7 @@ const SingleProduct = () => {
             {productInCart ? (
               <ProductInCartNav quantity={productInCart} />
             ) : (
-              <Button size="md" className="w-1/2" onClick={handleAddToCart}>
+              <Button size="md" className="w-1/2" onClick={() => handleAddToCart(product._id)}>
                 Add to Cart
               </Button>
             )}

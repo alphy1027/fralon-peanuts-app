@@ -15,7 +15,7 @@ const ProductsSection = () => {
   console.log(data);
 
   return (
-    <section className="flex flex-col gap-y-4">
+    <section className="bg-secondary flex flex-col gap-y-4">
       <SectionContainter className="flex flex-col items-center gap-2">
         <SectionTitle>Our Products</SectionTitle>
         <p className="text-body-default text-body max-w-[750px] text-center">
@@ -28,9 +28,11 @@ const ProductsSection = () => {
           <ProductCard key={product._id} product={product} />
         ))}
       </section>
-      <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end py-2" rightIcon={<RightArrow className="fill-primary" />}>
-        More Products
-      </Button>
+      <SectionContainter className="flex justify-end">
+        <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end py-2" rightIcon={<RightArrow className="fill-primary" />}>
+          More Products
+        </Button>
+      </SectionContainter>
     </section>
   );
 };

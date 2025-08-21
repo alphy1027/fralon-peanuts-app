@@ -1,5 +1,7 @@
 import { cartService } from "@/services/cartService";
+import { log } from "@/utils/log";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 type UpdateData = {
   productId: string;
@@ -12,10 +14,12 @@ export const useCartActionsMutation = () => {
     mutationFn: (productId: string) => cartService.addToCart(productId),
     onSuccess: (updatedCart) => {
       queryClient.setQueryData(["cart"], updatedCart);
-      console.log("update success ::", updatedCart);
+      log("update success ::", updatedCart);
+      toast.success("Item added to cart successfully");
     },
     onError: (error) => {
-      console.log("update error ::", error);
+      log("update error ::", error);
+      toast.success("Error adding item to cart");
     },
   });
 
@@ -23,10 +27,12 @@ export const useCartActionsMutation = () => {
     mutationFn: (productId: string) => cartService.removeFromCart(productId),
     onSuccess: (updatedCart) => {
       queryClient.setQueryData(["cart"], updatedCart);
-      console.log("remove success ::", updatedCart);
+      log("remove success ::", updatedCart);
+      toast.success("Item removed from cart successfully");
     },
     onError: (error) => {
-      console.log("remove error ::", error);
+      log("remove error ::", error);
+      toast.error("Error removing item from cart");
     },
   });
 
@@ -34,10 +40,12 @@ export const useCartActionsMutation = () => {
     mutationFn: ({ productId, quantity }: UpdateData) => cartService.updateItemQuantity(productId, quantity),
     onSuccess: (updatedCart) => {
       queryClient.setQueryData(["cart"], updatedCart);
-      console.log("Updated quantity cart ::", updatedCart);
+      log("Updated quantity cart ::", updatedCart);
+      toast.success("Item quantity updated successfully");
     },
     onError: (error) => {
-      console.log("update quantity error ::", error);
+      log("update quantity error ::", error);
+      toast.error("Error updating item quantity in cart");
     },
   });
 

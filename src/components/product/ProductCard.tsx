@@ -11,8 +11,14 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  const { isProductInCart } = useCartContext();
+  const { isProductInCart, handleAddToCart } = useCartContext();
   const productInCart = isProductInCart(product._id);
+
+  const handleAddItemToCart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    e.preventDefault();
+    handleAddToCart(product._id);
+  };
 
   return (
     <Link to={`/products/${product._id}`} className="flex w-fit flex-col items-center gap-4 rounded-sm p-2">
@@ -32,7 +38,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         {productInCart ? (
           <ProductInCartNav quantity={productInCart} />
         ) : (
-          <Button size="md" leftIcon={<ShoppingCartIcon />} variant="transparent" className="gap-x-3 py-2">
+          <Button onClick={handleAddItemToCart} size="md" leftIcon={<ShoppingCartIcon />} variant="transparent" className="gap-x-3 py-2">
             Add to Cart
           </Button>
         )}
