@@ -1,7 +1,7 @@
-import { PaymentMethod } from "./CheckoutForm";
+import { DeliveryMethod, PaymentMethod } from "./CheckoutForm";
 
 type RadioOption = {
-  value: PaymentMethod;
+  value: PaymentMethod | DeliveryMethod;
   label: string;
 };
 
@@ -19,7 +19,7 @@ const RadioGroup = ({ items, name, value, onChange }: RadioProps) => {
         <label
           key={item.value}
           htmlFor={item.value}
-          className={`${value === item.value ? "border-primary border-2" : "border-outline border"} flex cursor-pointer items-center gap-x-4 rounded-md px-4 py-4`}
+          className={`${value === item.value ? "border-primary border-2" : "border-outline border"} flex w-full cursor-pointer items-center gap-x-4 rounded-md px-4 py-4`}
         >
           <input
             type="radio"

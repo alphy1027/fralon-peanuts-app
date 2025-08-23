@@ -33,7 +33,7 @@ const Input = ({ className, variant, inputSize, error, label, rightIcon, leftIco
   return (
     <div className="">
       {label && (
-        <label htmlFor={props.id} className="text-body-lg font-semibold text-gray-700">
+        <label htmlFor={props.id} className="text-body text-body-default font-semibold">
           {label}
         </label>
       )}

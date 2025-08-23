@@ -71,6 +71,14 @@ export interface PopulatedOrderItem extends Omit<OrderItem, "product"> {
   product: Product;
 }
 
+export interface OrderAddress {
+  county?: string;
+  subCounty?: string;
+  ward?: string;
+  area?: string;
+  additionalDetails?: string;
+}
+
 export interface Order {
   _id: string;
   client: {
@@ -79,13 +87,8 @@ export interface Order {
     email: string;
   };
   items: PopulatedOrderItem[];
-  address: {
-    county?: string;
-    subCounty: string;
-    ward: string;
-    area: string;
-    additionalDetails?: string;
-  };
+  deliveryMethod: "pickup" | "delivery";
+  address?: OrderAddress;
   totalPrice: number;
   paymentStatus: "unpaid" | "paid" | "failed";
   status: "pending" | "processing" | "completed" | "shipped" | "delivered" | "cancelled";

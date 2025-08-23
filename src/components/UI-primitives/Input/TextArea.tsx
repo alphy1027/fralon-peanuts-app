@@ -33,7 +33,7 @@ const TextArea = ({ className, variant, areaSize, error, label, rightIcon, leftI
   return (
     <div className="">
       {label && (
-        <label htmlFor={props.id} className="text-body-lg text-body-default font-semibold">
+        <label htmlFor={props.id} className="text-body text-body-default font-semibold">
           {label}
         </label>
       )}

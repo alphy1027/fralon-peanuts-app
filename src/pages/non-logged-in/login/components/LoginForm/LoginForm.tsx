@@ -4,6 +4,8 @@ import Button from "@/components/UI-primitives/Button";
 import Input from "@/components/UI-primitives/Input";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
+import Loading from "@/components/UI-primitives/Loading";
+import FormContainer from "@/components/sections/FormContainer";
 
 interface FormData {
   email: string;
@@ -21,9 +23,9 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
   const { register, handleSubmit } = useForm<FormData>();
 
   return (
-    <div className="flex w-[75%] max-w-[350px] flex-col gap-y-9 sm:w-[50%] md:w-[55%] lg:w-[40%]">
+    <FormContainer>
       <h2 className="text-body-default text-heading-1 text-center font-bold">Login</h2>
-      <form className="w- flex flex-col gap-4" onSubmit={handleSubmit(handleLogin)}>
+      <form className="flex flex-col gap-3" onSubmit={handleSubmit(handleLogin)}>
         <div className="">
           <Input
             leftIcon={<UserIcon className="h-5 w-5" />}
@@ -58,10 +60,12 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
             })}
           />
         </div>
+
         <Link to="/auth/forgot-password" className="text-primary self-end">
           Forgot password?
         </Link>
-        <Button type="submit" size="md" width="full" disabled={loading}>
+
+        <Button type="submit" size="md" width="full" leftIcon={loading && <Loading className="fill-brand-white h-6 w-6" />} disabled={loading}>
           {loading ? "Logging in..." : "Login"}
         </Button>
 
@@ -72,7 +76,7 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
           </Link>
         </p>
       </form>
-    </div>
+    </FormContainer>
   );
 };
 

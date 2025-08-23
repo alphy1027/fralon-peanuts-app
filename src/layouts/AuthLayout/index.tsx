@@ -8,10 +8,10 @@ const AuthLayout = () => {
 
   return user.isAuthenticated ? (
     <EmptyPage link="Back to Homepage" to="/" linkIcon={<LeftArrow className="fill-primary" />}>
-      LOGGED IN USERS CANNOT VIEW THIS ROUTE
+      LOGGED IN USERS CANNOT VIEW THIS PAGE
     </EmptyPage>
   ) : (
-    <div className="flex min-h-screen flex-col items-center pt-12">
+    <div className="flex min-h-screen flex-col items-center justify-center md:justify-start md:pt-14">
       <Outlet />
     </div>
   );

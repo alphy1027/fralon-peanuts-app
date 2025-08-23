@@ -5,7 +5,7 @@ import { FC } from "react";
 import Input from "@/components/UI-primitives/Input";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
-/* import Visible from "@/assets/svg/nav/Visible"; */
+import FormContainer from "@/components/sections/FormContainer";
 
 interface FormData {
   username: string;
@@ -22,7 +22,7 @@ interface SignupFormProps {
   signUpErrorMsg: string;
 }
 
-const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, signupSuccess, signUpErrorMsg }) => {
+const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {} }) => {
   const {
     register,
     handleSubmit,
@@ -38,9 +38,9 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
   };
 
   return (
-    <>
-      <form className="flex w-[300px] flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="text-body-default text-heading-3 font-bold">Sign Up</h2>
+    <FormContainer>
+      <h2 className="text-body-default text-heading-1 text-center font-bold">Sign up</h2>
+      <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
         <div className="">
           {errors.username && <p>{errors.username.message}</p>}
           <Input
@@ -78,7 +78,7 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
 
           <Input
             leftIcon={<UserIcon className="h-5 w-5" />}
-            type="number"
+            type="tel"
             id="phone"
             label="Phone"
             placeholder="Type your phone number..."
@@ -108,14 +108,14 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
           />
         </div>
 
-        <div className="">
+        <div className="pb-3">
           {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
 
           <Input
             leftIcon={<Password />}
             /* rightIcon={<Visible />} */
             type="password"
-            id="password"
+            id="confirmPassword"
             label="Confirm Password"
             placeholder="Type your confirm password..."
             {...register("confirmPassword", {
@@ -129,22 +129,18 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {}, loading, sig
           />
         </div>
 
-        <Button type="submit" className="w-full">
+        <Button size="md" type="submit" className="w-full">
           Sign Up
         </Button>
 
-        {loading && <p>Loading...</p>}
-        {signupSuccess && <p>Signup Successful!</p>}
-        {signUpErrorMsg && <p>Error: {signUpErrorMsg}</p>}
-
-        <p>
+        <p className="text-center">
           Already have an account?{" "}
           <Link to="/auth/login" className="text-primary">
             Log In
           </Link>
         </p>
       </form>
-    </>
+    </FormContainer>
   );
 };
 
