@@ -1,5 +1,6 @@
 import { useAuthContext } from "@/context/AuthContext";
-import { authService } from "@/services/authService.";
+import { authService } from "@/services/authService";
+import { log } from "@/utils/log";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ export const useLoginMutation = () => {
       return await authService.loginUser(email, password);
     },
     onSuccess: (userData) => {
-      console.log("Login Mutation response :: ", userData);
+      log("Login Mutation response :: ", userData);
       setUser({
         userId: userData.userId,
         username: userData.username,
@@ -34,7 +35,7 @@ export const useLoginMutation = () => {
       toast.success("Login was successful");
     },
     onError: (error: ErrorProp) => {
-      console.log("Login Mutation Error :: ", error);
+      log("Login Mutation Error :: ", error);
       alert(error);
     },
   });

@@ -1,4 +1,4 @@
-import SuccessfulEmailVerification from "@/pages/non-logged-in/email-verification/SuccessfulEmailVerification";
+import EmailVerification from "@/pages/non-logged-in/email-verification/EmailVerification";
 import VerificationEmailSent from "@/pages/non-logged-in/email-verification/VerificationEmailSent";
 import ForgotPassword from "@/pages/non-logged-in/forgot-password/ForgotPassword";
 import LoginContainer from "@/pages/non-logged-in/login/containers/LoginContainer";
@@ -13,7 +13,7 @@ const AuthRoutes = [
   <Route path="forgot-password" element={<ForgotPassword />} />,
   <Route path="reset-password" element={<ResetPassword />} />,
   <Route path="successful-reset" element={<SuccessfulPasswordReset />} />,
-  <Route path="successful-verification" element={<SuccessfulEmailVerification />} />,
+  <Route path="verify-email/:verificationToken" element={<EmailVerification />} />,
   <Route path="verification-sent" element={<VerificationEmailSent />} />,
 ];
 

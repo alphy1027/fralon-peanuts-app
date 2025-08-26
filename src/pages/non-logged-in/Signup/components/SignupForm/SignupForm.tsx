@@ -1,46 +1,38 @@
 import Button from "@/components/UI-primitives/Button";
 import { Link } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FC } from "react";
 import Input from "@/components/UI-primitives/Input";
 import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
 import FormContainer from "@/components/sections/FormContainer";
+import { useSignupMutation } from "@/hooks/query-hooks/auth/useSignupMutation";
+import Loading from "@/components/UI-primitives/Loading";
+import { SignupPayload } from "@/types";
+import toast from "react-hot-toast";
 
-interface FormData {
-  username: string;
-  email: string;
-  phoneNumber: number;
-  password: string;
-  confirmPassword: string;
-}
-
-interface SignupFormProps {
-  handleSignup: SubmitHandler<FormData>;
-  loading: boolean;
-  signupSuccess: boolean;
-  signUpErrorMsg: string;
-}
-
-const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {} }) => {
+const SignupForm = () => {
+  const { mutateAsync, isPending } = useSignupMutation();
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     watch,
-  } = useForm<FormData>();
+  } = useForm<SignupPayload>();
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const handleSignupUser: SubmitHandler<SignupPayload> = async (data) => {
     console.log("Signup Form data submitted:", data);
-    handleSignup(data);
-    reset();
+    const signupResponse = mutateAsync(data);
+    toast.promise(signupResponse, {
+      loading: "Creating account",
+      success: "Your account is ready",
+      error: "Oops, Failed to create account",
+    });
   };
 
   return (
     <FormContainer>
       <h2 className="text-body-default text-heading-1 text-center font-bold">Sign up</h2>
-      <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
+      <form className="flex flex-col gap-3" onSubmit={handleSubmit(handleSignupUser)}>
         <div className="">
           {errors.username && <p>{errors.username.message}</p>}
           <Input
@@ -74,26 +66,10 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {} }) => {
         </div>
 
         <div className="">
-          {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
-
-          <Input
-            leftIcon={<UserIcon className="h-5 w-5" />}
-            type="tel"
-            id="phone"
-            label="Phone"
-            placeholder="Type your phone number..."
-            {...register("phoneNumber", {
-              required: "Phone number is required",
-            })}
-          />
-        </div>
-
-        <div className="">
           {errors.password && <p>{errors.password.message}</p>}
 
           <Input
             leftIcon={<Password />}
-            /* rightIcon={<Visible />} */
             type="password"
             id="password"
             label="Password"
@@ -113,7 +89,6 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {} }) => {
 
           <Input
             leftIcon={<Password />}
-            /* rightIcon={<Visible />} */
             type="password"
             id="confirmPassword"
             label="Confirm Password"
@@ -129,8 +104,8 @@ const SignupForm: FC<SignupFormProps> = ({ handleSignup = () => {} }) => {
           />
         </div>
 
-        <Button size="md" type="submit" className="w-full">
-          Sign Up
+        <Button disabled={isPending} leftIcon={isPending && <Loading className="fill-brand-white h-6 w-6" />} size="md" type="submit" className="w-full">
+          {isPending ? "Signing up" : "Sign up"}
         </Button>
 
         <p className="text-center">

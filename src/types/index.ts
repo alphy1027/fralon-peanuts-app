@@ -16,6 +16,13 @@ export interface Client {
   createdAt: Date;
 }
 
+export interface SignupPayload extends Pick<Client, "username" | "email"> {
+  password: string;
+  confirmPassword: string;
+}
+
+export interface NewUser extends Pick<Client, "_id" | "email" | "username"> {}
+
 export interface ActiveUser {
   userId: string;
   username: string;

@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { tokenManager } from "@/utils/tokenManager";
-import { authService } from "@/services/authService.";
+import { authService } from "@/services/authService";
 import toast from "react-hot-toast";
 
 interface ErrorResponse {

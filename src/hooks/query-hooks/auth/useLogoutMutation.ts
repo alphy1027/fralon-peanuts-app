@@ -1,4 +1,4 @@
-import { authService } from "@/services/authService.";
+import { authService } from "@/services/authService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export const useLogoutMutation = () => {

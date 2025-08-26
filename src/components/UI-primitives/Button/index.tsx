@@ -1,11 +1,14 @@
 import cn from "@/lib/cn";
 import { cva, VariantProps } from "class-variance-authority";
 import { ButtonHTMLAttributes, ReactNode } from "react";
+import Loading from "../Loading";
+import clsx from "clsx";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
   children?: ReactNode;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
+  loading?: boolean;
 }
 
 const buttonVariants = cva(
@@ -47,9 +50,10 @@ const buttonVariants = cva(
   },
 );
 
-const Button = ({ children, className, variant, size, width, leftIcon, rightIcon, ...props }: ButtonProps) => {
+const Button = ({ children, className, variant, loading, size, width, leftIcon, rightIcon, ...props }: ButtonProps) => {
   return (
     <button className={cn(buttonVariants({ variant, size, width }), className)} {...props}>
+      {loading && <Loading className={clsx("fill-primary h-6 w-6", { "fill-brand-white": variant === "primary" })} />}
       {leftIcon && <span className="">{leftIcon}</span>}
       {children}
       {rightIcon && <span className="">{rightIcon}</span>}

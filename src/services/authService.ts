@@ -1,6 +1,6 @@
 import { authApi } from "@/api/authApi";
 import { LoginResponse } from "@/api/types/types";
-import { ActiveUser, ApiResponse } from "@/types";
+import { ActiveUser, ApiResponse, NewUser, SignupPayload } from "@/types";
 import { tokenManager } from "@/utils/tokenManager";
 
 export class AuthService {
@@ -23,6 +23,14 @@ export class AuthService {
     };
   }
 
+  async createUser(signupPayload: SignupPayload): Promise<NewUser> {
+    const response = await this.api.signup(signupPayload);
+    if (!response.success || !response.payload?.newUser) {
+      throw new Error(response.message || "Failed to Sign up new user");
+    }
+    return response.payload.newUser;
+  }
+
   async logoutUser(): Promise<Pick<ApiResponse, "success" | "message">> {
     const response = await this.api.logout();
     if (!response.success) {
@@ -39,6 +47,22 @@ export class AuthService {
     }
     tokenManager.setToken(response.payload.newToken.accessToken);
     return response.payload;
+  }
+
+  async resendVerificationEmail(email: string): Promise<Pick<ApiResponse, "success" | "message">> {
+    const response = await this.api.resendVerificationEmail_post(email);
+    if (!response.success) {
+      throw new Error(response.message || "Failed to resend for a new verification email");
+    }
+    return { success: response.success, message: response.message };
+  }
+
+  async verifyEmail(verificationToken: string): Promise<Pick<ApiResponse, "success" | "message" | "statusCode">> {
+    const response = await this.api.verifyEmail_get(verificationToken);
+    if (!response.success) {
+      throw new Error(response.message || "Failed to complete your Email verification");
+    }
+    return { success: response.success, message: response.message, statusCode: response.statusCode };
   }
 }
 
