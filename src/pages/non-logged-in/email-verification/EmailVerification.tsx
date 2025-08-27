@@ -12,18 +12,18 @@ const EmailVerification = () => {
     return <Navigate to="/auth/signup" replace />;
   }
   const { data, isPending } = useEmailVerificationQuery(verificationToken);
-  if (!data) return <EmptyPage>No data</EmptyPage>;
+  if (isPending) {
+    return (
+      <EmptyPage>
+        <Loading className="h-14 w-14" />
+      </EmptyPage>
+    );
+  }
+
+  if (!data) return <EmptyPage>We couldn’t verify your request. Please try again</EmptyPage>;
   if (data.success) return <SuccessfulEmailVerification navigate={navigate} />;
-  if (!data.success) return <FailureEmailVerification navigate={navigate} action={data.statusCode === 409 ? "login" : data.statusCode === 400 ? "resend" : "retry"} errorMsg={data.message} />;
-  return (
-    <>
-      {isPending && (
-        <EmptyPage>
-          <Loading className="h-14 w-14" />
-        </EmptyPage>
-      )}
-    </>
-  );
+
+  return <FailureEmailVerification navigate={navigate} action={data.statusCode === 409 ? "login" : data.statusCode === 400 ? "resend" : "retry"} errorMsg={data.message} />;
 };
 
 export default EmailVerification;

@@ -7,7 +7,7 @@ type TextProps = {
 };
 
 const ErrorText = ({ children, className }: TextProps) => {
-  return <p className={twMerge("text-body text-error font-medium", className)}>{children}</p>;
+  return <p className={twMerge("text-body text-error p-1 font-medium", className)}>{children}</p>;
 };
 
 export default ErrorText;

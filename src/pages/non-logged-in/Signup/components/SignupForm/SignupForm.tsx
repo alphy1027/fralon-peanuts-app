@@ -9,12 +9,14 @@ import { useSignupMutation } from "@/hooks/query-hooks/auth/useSignupMutation";
 import Loading from "@/components/UI-primitives/Loading";
 import { SignupPayload } from "@/types";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 const SignupForm = () => {
-  const { mutateAsync, isPending } = useSignupMutation();
+  const { mutateAsync, isPending, error } = useSignupMutation();
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
     watch,
   } = useForm<SignupPayload>();
@@ -29,13 +31,21 @@ const SignupForm = () => {
     });
   };
 
+  useEffect(() => {
+    if (error) {
+      setError("root", {
+        type: "server",
+        message: error.response?.data.message,
+      });
+    }
+  }, [error]);
+
   return (
-    <FormContainer>
-      <h2 className="text-body-default text-heading-1 text-center font-bold">Sign up</h2>
+    <FormContainer title="Sign up" errorMsg={errors.root && errors.root.message}>
       <form className="flex flex-col gap-3" onSubmit={handleSubmit(handleSignupUser)}>
         <div className="">
-          {errors.username && <p>{errors.username.message}</p>}
           <Input
+            error={errors.username && errors.username.message}
             leftIcon={<UserIcon className="h-5 w-5" />}
             type="text"
             id="username"
@@ -48,8 +58,8 @@ const SignupForm = () => {
         </div>
 
         <div className="">
-          {errors.email && <p>{errors.email.message}</p>}
           <Input
+            error={errors.email && errors.email.message}
             leftIcon={<UserIcon className="h-5 w-5" />}
             type="text"
             id="email"
@@ -66,9 +76,8 @@ const SignupForm = () => {
         </div>
 
         <div className="">
-          {errors.password && <p>{errors.password.message}</p>}
-
           <Input
+            error={errors.password && errors.password.message}
             leftIcon={<Password />}
             type="password"
             id="password"
@@ -85,9 +94,8 @@ const SignupForm = () => {
         </div>
 
         <div className="pb-3">
-          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-
           <Input
+            error={errors.confirmPassword && errors.confirmPassword.message}
             leftIcon={<Password />}
             type="password"
             id="confirmPassword"

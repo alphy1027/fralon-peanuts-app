@@ -6,6 +6,7 @@ import UserIcon from "@/assets/svg/nav/UserIcon";
 import Password from "@/assets/svg/nav/Password";
 import Loading from "@/components/UI-primitives/Loading";
 import FormContainer from "@/components/sections/FormContainer";
+import { useEffect } from "react";
 
 interface FormData {
   email: string;
@@ -14,20 +15,33 @@ interface FormData {
 
 interface LoginFormProps {
   handleLogin: SubmitHandler<FormData>;
-  loading: boolean;
-  loginSuccess: boolean;
-  loginErrorMsg: string;
+  isPending: boolean;
+  errorMsg?: string;
 }
 
-const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
-  const { register, handleSubmit } = useForm<FormData>();
+const LoginForm = ({ handleLogin, isPending, errorMsg }: LoginFormProps) => {
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  useEffect(() => {
+    if (errorMsg) {
+      setError("root", {
+        type: "server",
+        message: errorMsg,
+      });
+    }
+  }, [errorMsg]);
 
   return (
-    <FormContainer>
-      <h2 className="text-body-default text-heading-1 text-center font-bold">Login</h2>
+    <FormContainer errorMsg={errors.root && errors.root.message} title="Login">
       <form className="flex flex-col gap-3" onSubmit={handleSubmit(handleLogin)}>
         <div className="">
           <Input
+            error={errors.email && errors.email.message}
             leftIcon={<UserIcon className="h-5 w-5" />}
             type="text"
             id="email"
@@ -45,6 +59,7 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
 
         <div>
           <Input
+            error={errors.password && errors.password.message}
             leftIcon={<Password />}
             /* rightIcon={<Visible />} */
             type="text"
@@ -55,7 +70,7 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
               required: "Password is required",
               minLength: {
                 value: 6,
-                message: "Password must be at least 6 characters long",
+                message: "Password must be at least 6 characters",
               },
             })}
           />
@@ -65,8 +80,8 @@ const LoginForm = ({ handleLogin, loading }: LoginFormProps) => {
           Forgot password?
         </Link>
 
-        <Button type="submit" size="md" width="full" leftIcon={loading && <Loading className="fill-brand-white h-6 w-6" />} disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+        <Button type="submit" size="md" width="full" leftIcon={isPending && <Loading className="fill-brand-white h-6 w-6" />} disabled={isPending}>
+          {isPending ? "Logging in..." : "Login"}
         </Button>
 
         <p className="text-center">

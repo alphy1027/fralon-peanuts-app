@@ -11,7 +11,7 @@ const AuthLayout = () => {
       LOGGED IN USERS CANNOT VIEW THIS PAGE
     </EmptyPage>
   ) : (
-    <div className="flex min-h-screen flex-col items-center justify-center md:justify-start md:pt-14">
+    <div className="flex h-full flex-1 flex-col items-center justify-center bg-red-200 pt-28 md:justify-start md:pt-14">
       <Outlet />
     </div>
   );

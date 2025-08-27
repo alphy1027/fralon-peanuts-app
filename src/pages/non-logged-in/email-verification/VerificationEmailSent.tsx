@@ -19,7 +19,7 @@ const VerificationEmailSent = () => {
 
     toast.promise(verifyPromise, {
       loading: "Resending verification Email",
-      success: "Email successfull sent, check you Email",
+      success: "Email successfully sent, check you Email",
       error: "Failed to resend verification Email",
     });
   };

@@ -7,13 +7,12 @@ interface FormData {
 
 interface LoginProps {
   handleLogin: (data: FormData) => void;
-  loading: boolean;
-  loginSuccess: boolean;
-  loginErrorMsg: string;
+  isPending: boolean;
+  errorMsg?: string;
 }
 
-const Login = ({ handleLogin, loading, loginSuccess, loginErrorMsg }: LoginProps) => {
-  return <LoginForm handleLogin={handleLogin} loading={loading} loginSuccess={loginSuccess} loginErrorMsg={loginErrorMsg} />;
+const Login = ({ handleLogin, isPending, errorMsg }: LoginProps) => {
+  return <LoginForm handleLogin={handleLogin} isPending={isPending} errorMsg={errorMsg} />;
 };
 
 export default Login;

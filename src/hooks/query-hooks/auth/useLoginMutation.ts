@@ -1,16 +1,15 @@
 import { useAuthContext } from "@/context/AuthContext";
+import { ErrorResponse } from "@/lib/axios";
 import { authService } from "@/services/authService";
 import { log } from "@/utils/log";
 import { useMutation } from "@tanstack/react-query";
+import { AxiosError } from "axios";
 import toast from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface LoginCredentials {
   email: string;
   password: string;
-}
-interface ErrorProp {
-  AxiosError?: string;
 }
 
 export const useLoginMutation = () => {
@@ -34,9 +33,9 @@ export const useLoginMutation = () => {
       navigate(from, { replace: true });
       toast.success("Login was successful");
     },
-    onError: (error: ErrorProp) => {
+    onError: (error: AxiosError<ErrorResponse>) => {
       log("Login Mutation Error :: ", error);
-      alert(error);
+      toast.error(error.response?.data.message || "Failed to login");
     },
   });
 };

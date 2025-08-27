@@ -8,13 +8,13 @@ interface FormData {
 }
 
 const LoginContainer = () => {
-  const { mutate: loginMutate, isPending, error, isSuccess } = useLoginMutation();
+  const { mutate: loginMutate, isPending, error } = useLoginMutation();
 
   const handleLogin: SubmitHandler<FormData> = (data) => {
     loginMutate(data);
   };
 
-  return <Login handleLogin={handleLogin} loading={isPending} loginSuccess={isSuccess} loginErrorMsg={error?.AxiosError || ""} />;
+  return <Login handleLogin={handleLogin} isPending={isPending} errorMsg={error?.response?.data.message} />;
 };
 
 export default LoginContainer;

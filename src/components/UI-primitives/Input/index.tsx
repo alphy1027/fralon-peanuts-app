@@ -1,6 +1,7 @@
 import cn from "@/lib/cn";
 import { cva, VariantProps } from "class-variance-authority";
 import { InputHTMLAttributes, ReactNode } from "react";
+import ErrorText from "../ErrorText";
 
 interface inputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {
   label?: string;
@@ -39,10 +40,10 @@ const Input = ({ className, variant, inputSize, error, label, rightIcon, leftIco
       )}
       <div className="relative">
         {leftIcon && <span className="absolute top-1/2 left-4 -translate-y-1/2 text-gray-500">{leftIcon}</span>}
-        <input className={cn(inputVariants({ variant, inputSize }), leftIcon && "pl-11", rightIcon && "pr-9", className)} {...props} />
+        <input className={cn(inputVariants({ variant, inputSize }), error && "border-error focus:border-error border-2", leftIcon && "pl-11", rightIcon && "pr-9", className)} {...props} />
         {rightIcon && <span className="absolute top-1/2 right-4 -translate-y-1/2 text-gray-500">{rightIcon}</span>}
       </div>
-      {error && <span className="text-error text-sm">{error}</span>}
+      {error && <ErrorText className="">{error}</ErrorText>}
     </div>
   );
 };
