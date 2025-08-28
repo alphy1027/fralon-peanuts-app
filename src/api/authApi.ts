@@ -1,4 +1,4 @@
-import { ApiResponse, NewUser, SignupPayload } from "@/types";
+import { ApiResponse, NewUser, ResetPasswordPayload, SignupPayload } from "@/types";
 import instance from "@/lib/axios";
 import { LoginResponse } from "./types/types";
 
@@ -30,6 +30,16 @@ class AuthApi {
 
   async verifyEmail_get(verificationToken: string): Promise<ApiResponse> {
     const response = await instance.get<ApiResponse>(`/auth/verify-email/${verificationToken}`);
+    return response.data;
+  }
+
+  async forgotPassword_post(email: string): Promise<ApiResponse> {
+    const response = await instance.post<ApiResponse>("/auth/forgot-password", { email });
+    return response.data;
+  }
+
+  async resetPassword_post(data: ResetPasswordPayload): Promise<ApiResponse> {
+    const response = await instance.post<ApiResponse>(`/auth/reset-password/${data.resetPasswordToken}`, { password: data.password, confirmPassword: data.confirmPassword });
     return response.data;
   }
 }

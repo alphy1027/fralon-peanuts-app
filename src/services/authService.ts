@@ -1,6 +1,6 @@
 import { authApi } from "@/api/authApi";
 import { LoginResponse } from "@/api/types/types";
-import { ActiveUser, ApiResponse, NewUser, SignupPayload } from "@/types";
+import { ActiveUser, ApiResponse, NewUser, ResetPasswordPayload, SignupPayload } from "@/types";
 import { tokenManager } from "@/utils/tokenManager";
 
 export class AuthService {
@@ -63,6 +63,22 @@ export class AuthService {
       throw new Error(response.message || "Failed to complete your Email verification");
     }
     return { success: response.success, message: response.message, statusCode: response.statusCode };
+  }
+
+  async forgotPassword(email: string): Promise<Pick<ApiResponse, "success" | "message">> {
+    const response = await this.api.forgotPassword_post(email);
+    if (!response.success) {
+      throw new Error(response.message || "Failed to send password reset email");
+    }
+    return { success: response.success, message: response.message };
+  }
+
+  async resetPassword(data: ResetPasswordPayload): Promise<Pick<ApiResponse, "message" | "success">> {
+    const response = await this.api.resetPassword_post(data);
+    if (!response.success) {
+      throw new Error(response.message || "Failed to reset your password");
+    }
+    return { success: response.success, message: response.message };
   }
 }
 

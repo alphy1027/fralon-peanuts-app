@@ -21,6 +21,12 @@ export interface SignupPayload extends Pick<Client, "username" | "email"> {
   confirmPassword: string;
 }
 
+export interface ResetPasswordPayload {
+  password: string;
+  confirmPassword: string;
+  resetPasswordToken: string;
+}
+
 export interface NewUser extends Pick<Client, "_id" | "email" | "username"> {}
 
 export interface ActiveUser {

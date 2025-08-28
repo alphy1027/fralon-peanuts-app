@@ -11,7 +11,7 @@ const AuthRoutes = [
   <Route path="login" element={<LoginContainer />} />,
   <Route path="signup" element={<SignupContainer />} />,
   <Route path="forgot-password" element={<ForgotPassword />} />,
-  <Route path="reset-password" element={<ResetPassword />} />,
+  <Route path="reset-password/:resetPasswordToken" element={<ResetPassword />} />,
   <Route path="successful-reset" element={<SuccessfulPasswordReset />} />,
   <Route path="verify-email/:verificationToken" element={<EmailVerification />} />,
   <Route path="verification-sent" element={<VerificationEmailSent />} />,
