@@ -34,7 +34,7 @@ const Input = ({ className, variant, inputSize, error, label, rightIcon, leftIco
   return (
     <div className="">
       {label && (
-        <label htmlFor={props.id} className="text-body text-body-default font-semibold">
+        <label htmlFor={props.id} className="text-body text-body-default font-bold">
           {label}
         </label>
       )}
