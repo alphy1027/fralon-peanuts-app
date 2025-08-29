@@ -7,10 +7,11 @@ import Loading from "@/components/UI-primitives/Loading";
 import { useResetPasswordMutation } from "@/hooks/query-hooks/auth/useResetPasswordMutation";
 import { ResetPasswordPayload } from "@/types";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
+  const { resetPasswordToken } = useParams();
   const { mutate, isPending, error, isSuccess } = useResetPasswordMutation();
   const {
     register,
@@ -19,8 +20,12 @@ const ResetPassword = () => {
     formState: { errors },
   } = useForm<ResetPasswordPayload>();
 
-  const handleSetNewPassword = (data: ResetPasswordPayload) => {
-    mutate(data);
+  if (!resetPasswordToken) {
+    return <Navigate to="/auth/login" />;
+  }
+
+  const handleSetNewPassword = (data: Pick<ResetPasswordPayload, "password" | "confirmPassword">) => {
+    mutate({ ...data, resetPasswordToken });
   };
 
   if (isPending) return <Loading className="h-20 w-20" />;
