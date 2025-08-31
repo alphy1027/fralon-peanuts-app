@@ -1,12 +1,11 @@
 import Button from "../UI-primitives/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from "./components/Nav";
 import CartIcon from "@/assets/svg/nav/CartIcon";
 import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
 import MenuIcon from "@/assets/svg/sidebar/MenuIcon";
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 import { useState } from "react";
-import { useAuthContext } from "@/context/AuthContext";
 import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
 import BrandLogo from "../logo+title/BrandLogo";
 
@@ -16,8 +15,6 @@ type HeaderProps = {
 
 const Header = ({ openSidebar }: HeaderProps) => {
   const [isHeaderHidden, setIsHeaderHidden] = useState<boolean>(false);
-  const navigate = useNavigate();
-  const { user } = useAuthContext();
   const { scrollY } = useScroll();
   const { data: cart } = useCartQuery();
 
@@ -29,10 +26,6 @@ const Header = ({ openSidebar }: HeaderProps) => {
       setIsHeaderHidden(false);
     }
   });
-
-  const handleLogin = () => {
-    navigate("/auth/login");
-  };
 
   const headerVariants = {
     hidden: {
@@ -52,11 +45,11 @@ const Header = ({ openSidebar }: HeaderProps) => {
     <motion.header
       variants={{ headerVariants }}
       animate={isHeaderHidden ? "hidden" : "visible"}
-      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-2 py-2 sm:px-8"
+      className="bg-brand-white sticky top-0 right-0 left-0 z-30 flex items-center justify-between px-3 py-2 sm:px-8"
     >
       <div className="flex w-full items-center justify-between py-2">
-        <div className="flex items-center gap-x-2">
-          <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="transform px-2 lg:hidden" />
+        <div className="flex -translate-x-[4%] transform items-center gap-x-1 sm:gap-x-2">
+          <Button onClick={openSidebar} variant="transparent" rightIcon={<MenuIcon />} className="px-2 lg:hidden" />
 
           <BrandLogo />
         </div>
@@ -72,12 +65,6 @@ const Header = ({ openSidebar }: HeaderProps) => {
               </Link>
               <ProfileDropdown />
             </nav>
-
-            {!user.isAuthenticated && (
-              <Button size="sm" variant="outline" className="hidden lg:block" onClick={handleLogin}>
-                Login
-              </Button>
-            )}
           </section>
         </div>
       </div>

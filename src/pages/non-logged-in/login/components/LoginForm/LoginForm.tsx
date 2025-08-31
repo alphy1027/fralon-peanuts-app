@@ -81,7 +81,7 @@ const LoginForm = ({ handleLogin, isPending, errorMsg }: LoginFormProps) => {
         </Link>
 
         <Button type="submit" size="md" width="full" leftIcon={isPending && <Loading className="fill-brand-white h-6 w-6" />} disabled={isPending}>
-          {isPending ? "Logging in..." : "Login"}
+          {isPending ? "Logging in..." : "Log in"}
         </Button>
 
         <p className="text-center">
