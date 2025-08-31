@@ -40,7 +40,7 @@ const VerifyBody = ({ email, username }: { email: string; username: string }) =>
     <>
       <BodyText className="text-body-lg pb-4 font-bold">Welcome, {username}</BodyText>
       <BodyText>
-        We have sent you an email at <span className="text-primary font-bold">{email}</span>. Check your inbox and follow the link for to activate your account
+        We have sent you an email at <span className="text-primary font-bold">{email}</span>. Check your inbox and follow the link to activate your account
       </BodyText>
     </>
   );

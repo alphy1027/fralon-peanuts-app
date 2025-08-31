@@ -93,10 +93,10 @@ const CheckoutForm = () => {
   return (
     <form id="order-form" onSubmit={handleSubmit(submitOrder)} className="flex flex-col gap-y-4">
       <SectionTitle className="self-start">Checkout</SectionTitle>
-      <section className="border-outline flex flex-col gap-y-4 rounded-md border p-4">
+      <section className="border-outline flex flex-col gap-y-4 rounded-md border p-3">
         <section className="flex flex-col gap-y-2">
           <h3 className="text-heading-4 font-bold">Delivery Method</h3>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             <Controller
               name="deliveryMethod"
               control={control}
@@ -172,7 +172,7 @@ const CheckoutForm = () => {
         )}
       </section>
 
-      <section className="border-outline flex flex-col gap-y-2 rounded-md border p-4">
+      <section className="border-outline flex flex-col gap-y-2 rounded-md border p-3">
         <h3 className="text-heading-4 font-bold">Payment Method</h3>
         <div className="flex flex-col gap-y-2">
           <Controller
