@@ -26,7 +26,9 @@ const SidebarLink = ({ to, children }: LinkProps) => {
     <motion.li variants={{ navVariants }} className="flex">
       <NavLink
         to={to}
-        className={({ isActive }) => `text-heading-4 font-secondary flex-1 px-4 py-2 text-end font-medium tracking-wide uppercase ${isActive ? "text-primary font-bold" : "text-slate-400"}`}
+        className={({ isActive }) =>
+          `text-heading-4 font-secondary flex-1 px-4 py-2 text-end font-medium tracking-wide uppercase ${isActive ? "text-primary after:bg-primary -translate-x-[10%] scale-110 transform font-bold content-none after:absolute after:top-1/2 after:-right-1.5 after:h-1.5 after:w-1.5 after:-translate-y-1/2 after:rounded-full" : "text-slate-500"}`
+        }
       >
         {children}
       </NavLink>
