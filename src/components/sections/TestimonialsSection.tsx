@@ -29,8 +29,8 @@ const TestimonialsSection = () => {
         </div>
       </article>
       <div className="flex gap-4 pt-2">
-        <Button variant="outline" className="p-2" leftIcon={<LeftArrow className="fill-primary" />}></Button>
-        <Button variant="outline" className="p-2" rightIcon={<RightArrow className="fill-primary" />}></Button>
+        <Button variant="outline" className="p-3" leftIcon={<LeftArrow className="fill-primary" />}></Button>
+        <Button variant="outline" className="p-3" rightIcon={<RightArrow className="fill-primary" />}></Button>
       </div>
     </SectionContainter>
   );

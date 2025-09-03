@@ -7,12 +7,13 @@ type RadioOption = {
 
 type RadioProps = {
   items: RadioOption[];
+  icon?: string;
   name: string;
   value: string | null;
   onChange: (value: PaymentMethod) => void;
 };
 
-const RadioGroup = ({ items, name, value, onChange }: RadioProps) => {
+const RadioGroup = ({ items, name, value, onChange, icon }: RadioProps) => {
   return (
     <>
       {items.map((item) => (
@@ -30,6 +31,7 @@ const RadioGroup = ({ items, name, value, onChange }: RadioProps) => {
             checked={value === item.value}
             className="accent-primary scale-125"
           />
+          {icon && <img src={icon} className="h-10" />}
           <span className="font-semibold">{item.label}</span>
         </label>
       ))}

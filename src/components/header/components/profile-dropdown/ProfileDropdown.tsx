@@ -61,7 +61,13 @@ const ProfileDropdown = () => {
 
   return (
     <div role="combobox" aria-haspopup="true" ref={dropdownRef} className="relative">
-      <Button aria-controls="menu" variant="transparent" onClick={user.isAuthenticated ? toggleDropdown : () => navigate("auth/login", { state: { from: location } })} className="rounded-none p-1">
+      <Button
+        aria-controls="menu"
+        variant="transparent"
+        onClick={user.isAuthenticated ? toggleDropdown : () => navigate("auth/login", { state: { from: location } })}
+        className="relative rounded-none p-1"
+      >
+        <div className="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-600"></div>
         <UserIcon />
       </Button>
       <AnimatePresence>

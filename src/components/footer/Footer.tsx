@@ -14,7 +14,7 @@ const Footer = () => {
         <BrandLogo />
       </section>
 
-      <nav className="text-caption lg:text-body flex flex-wrap justify-center gap-x-4 gap-y-3 sm:gap-12 md:gap-16">
+      <nav className="text-caption lg:text-body flex flex-wrap justify-center gap-x-6 gap-y-3 sm:gap-12 md:gap-16">
         {navLinks.map((link) => (
           <Link key={link.link} to={link.to} className="footer-link">
             {link.link}

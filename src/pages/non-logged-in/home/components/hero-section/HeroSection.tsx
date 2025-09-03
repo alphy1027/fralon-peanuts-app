@@ -16,13 +16,9 @@ const HeroSection = () => {
   return (
     <SectionContainter className="bg-secondary flex flex-wrap items-center justify-center gap-x-10 gap-y-6 rounded-sm">
       <div className="flex flex-col gap-y-3 p-2 md:w-1/2">
-        <h1 className="text-heading-2 font-secondary text-primary font-semibold tracking-wider uppercase">
-          Crafted for the{" "}
-          <span className="text-tertiary">
-            Peanut
-            <br /> Butter
-          </span>{" "}
-          Lover in You
+        <h1 className="text-heading-2 font-secondary text-primary font-bold tracking-wider uppercase">
+          Just pure
+          <span className="text-tertiary"> peanut goodness</span>, nothing else
         </h1>
         <p className="text-slate-700">
           Not Just Any Butter, It's Peanut Perfection. Nutty, But in the Best Way. We offer quality peanut butter products. You can get all our products in a store nearby.

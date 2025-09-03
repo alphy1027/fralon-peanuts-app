@@ -9,6 +9,7 @@ import { useCartContext } from "@/context/CartContext";
 import ErrorText from "@/components/UI-primitives/ErrorText";
 import { Order, OrderAddress } from "@/types";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
+import mpesaLogo from "@/assets/images/M-PESA-logo.png";
 
 type FormValues = OrderAddress & Pick<Order, "deliveryMethod" | "paymentMethod" | "notes"> & {};
 
@@ -179,7 +180,7 @@ const CheckoutForm = () => {
             name="paymentMethod"
             control={control}
             rules={{ required: "Please select a payment method" }}
-            render={({ field }) => <RadioGroup name={field.name} items={paymentOptions} value={field.value} onChange={field.onChange} />}
+            render={({ field }) => <RadioGroup name={field.name} icon={mpesaLogo} items={paymentOptions} value={field.value} onChange={field.onChange} />}
           />
           {errors.paymentMethod && <ErrorText>{errors.paymentMethod.message}</ErrorText>}
         </div>

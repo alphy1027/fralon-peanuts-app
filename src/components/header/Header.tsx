@@ -61,7 +61,7 @@ const Header = ({ openSidebar }: HeaderProps) => {
             <nav className="flex transform items-center gap-2 sm:transform-none">
               <Link to="cart" className="relative p-1">
                 <CartIcon />
-                {cart && <span className="absolute -top-1/2 -right-1/4 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{cart?.items.length}</span>}
+                {cart && <span className="absolute -top-1/3 -right-1/5 grid h-[16px] w-[16px] place-content-center rounded-full bg-red-500 text-xs text-white">{cart?.items.length}</span>}
               </Link>
               <ProfileDropdown />
             </nav>

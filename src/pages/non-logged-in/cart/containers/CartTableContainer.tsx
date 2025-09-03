@@ -5,6 +5,7 @@ import EmptyCartIcon from "@/assets/svg/cart/EmptyCartIcon";
 import LoginIcon from "@/assets/svg/cart/LoginIcon";
 import { useNavigate } from "react-router-dom";
 import { useCartContext } from "@/context/CartContext";
+import PlusIcon from "@/assets/svg/cart/PlusIcon";
 
 const CartTableContainer = () => {
   const navigate = useNavigate();
@@ -23,7 +24,12 @@ const CartTableContainer = () => {
     );
   if (!cartItems) return <EmptyPage icon={<EmptyCartIcon />}>Your cart is Loading...</EmptyPage>;
   /* if (isPending) return <EmptyPage icon={<EmptyCartIcon />}>Your cart is Loading...</EmptyPage>; */
-  if (!cartItems.length) return <EmptyPage icon={<EmptyCartIcon />}>Your cart is empty</EmptyPage>;
+  if (!cartItems.length)
+    return (
+      <EmptyPage icon={<EmptyCartIcon />} linkIcon={<PlusIcon className="" />} link="Add products" to="/products">
+        Your cart is empty
+      </EmptyPage>
+    );
 
   return <CartTable cartItems={cartItems} handleOpenCheckout={handleOpenCheckout} />;
 };

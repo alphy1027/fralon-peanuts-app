@@ -29,7 +29,7 @@ const ProductsSection = () => {
         ))}
       </section>
       <SectionContainter className="flex justify-end">
-        <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end py-2" rightIcon={<RightArrow className="fill-primary" />}>
+        <Button onClick={() => navigate("/products")} size="md" variant="transparent" className="text-primary self-end px-1 py-2" rightIcon={<RightArrow className="fill-primary" />}>
           More Products
         </Button>
       </SectionContainter>

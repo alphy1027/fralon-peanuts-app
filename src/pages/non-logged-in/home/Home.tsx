@@ -19,9 +19,9 @@ const Home = () => {
       <SectionContainter className="flex flex-col items-center gap-y-6">
         <SectionTitle>Get discounts!</SectionTitle>
         <BodyText className="text-heading-4 max-w-[850px] text-center italic">
-          At Fralon Peanuts, we believe in keeping it real. That’s why we open our doors and invite you to visit our space, see how every jar of peanut butter is crafted, and experience the care that
-          goes into every step. And here’s a treat for making the trip—enjoy up to 20% off any products you buy when you visit us in person. Because peanut butter tastes even better when you know the
-          story behind it.
+          {/* At Fralon Peanuts, we believe in keeping it real. That’s why we open our doors and invite you to visit our space, see how every jar of peanut butter is crafted, and experience the care that
+          goes into every step. And here’s a treat for making the trip— */}
+          Enjoy up to 20% off any products you buy when you visit us in person. Because peanut butter tastes even better when you know the story behind it.
         </BodyText>
       </SectionContainter>
       <WhyUsSection />
