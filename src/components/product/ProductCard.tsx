@@ -26,7 +26,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute top-2 left-2">
           <FavouriteIcon />
         </div>
-        <img src={product.productImage.image} loading="lazy" alt="Peanut Butter image" className="h-[230px] w-[200px]" />
+        <img src={product.productImage.image} loading="lazy" alt="Peanut Butter image" className="h-[250px] w-[200px]" />
         <figcaption className="sr-only">Fralon Peanut butter photo</figcaption>
       </figure>
       <div className="flex flex-col items-center gap-1">

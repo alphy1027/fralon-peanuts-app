@@ -10,12 +10,12 @@ const WhyUsSection = () => {
         At Fralon Peanuts, we go beyond just selling peanut products—we deliver a wholesome experience rooted in quality, nutrition, and community. Here's why our customers keep coming back:
       </p>
 
-      <div className="flex max-w-[1000px] flex-wrap justify-center gap-2 pt-4">
+      <div className="flex max-w-[1000px] flex-wrap justify-center gap-2 pt-4 sm:gap-4">
         <ReasonCard index={1} title="100% Natural">
           We source only the best-grade peanuts, ensuring every product is rich in flavor, nutrition, and freshness—no compromises.
         </ReasonCard>
         <ReasonCard index={2} title="Naturally Nutritious">
-          No unnecessary additives or preservatives. Our products are packed with plant-based protein, fiber, and essential nutrients your body craves.
+          No additives or preservatives. Our products are packed with plant-based protein, fiber, and essential nutrients your body craves.
         </ReasonCard>
         <ReasonCard index={3} title="Locally Made">
           Rooted in tradition, inspired by innovation. Our products reflect the rich Kenyan heritage and meet world-class standards.

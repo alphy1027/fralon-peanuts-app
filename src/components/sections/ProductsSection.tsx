@@ -15,7 +15,7 @@ const ProductsSection = () => {
   console.log(data);
 
   return (
-    <section className="bg-secondary flex flex-col gap-y-4">
+    <section className="flex flex-col gap-y-4">
       <SectionContainter className="flex flex-col items-center gap-2">
         <SectionTitle>Our Products</SectionTitle>
         <p className="text-body-default text-body max-w-[750px] text-center">
