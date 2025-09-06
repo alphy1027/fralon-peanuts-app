@@ -5,7 +5,7 @@ import OrderDetails from "./components/OrderDetails";
 import Button from "@/components/UI-primitives/Button";
 import { useLocation } from "react-router-dom";
 import { Order } from "@/types";
-import OrderSuccessSummaryDetails from "./components/OrderSuccessSummaryDetails";
+//import OrderSuccessSummaryDetails from "./components/OrderSuccessSummaryDetails";
 
 const OrderSuccess = () => {
   /*  const { orderId } = useParams(); */
@@ -21,12 +21,12 @@ const OrderSuccess = () => {
         <FeedbackHead title="Your order is completed" headIcon={<TickIcon />}>
           Thank you for shopping with us, your order was successfully completed
         </FeedbackHead>
-        <section className="bg-primary flex w-full items-center justify-between rounded-sm p-6">
+        {/* <section className="bg-primary flex w-full items-center justify-between rounded-sm p-6">
           <OrderSuccessSummaryDetails title="Order ID">{order._id}</OrderSuccessSummaryDetails>
           <OrderSuccessSummaryDetails title="Payment Method">{order.paymentMethod}</OrderSuccessSummaryDetails>
           <OrderSuccessSummaryDetails title="Transaction ID">{order._id}</OrderSuccessSummaryDetails>
           <OrderSuccessSummaryDetails title="Delivery Date">15 Feb 2024</OrderSuccessSummaryDetails>
-        </section>
+        </section> */}
         <OrderDetails order={order} />
         <Button size="md">Back to Homepage</Button>
       </div>
