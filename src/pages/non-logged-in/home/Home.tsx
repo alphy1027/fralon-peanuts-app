@@ -21,8 +21,7 @@ const Home = () => {
         <SectionTitle className="text-brand-white">Get discounts!</SectionTitle>
         <SectionContainter className="flex flex-wrap items-center justify-evenly gap-y-6">
           <BodyText className="text-secondary max-w-[650px] text-lg italic sm:text-xl">
-            Enjoy Wholesale prices on all our products when you visit us in person Enjoy wholesale prices on any of our products when you visit us in person — because peanut butter tastes even better
-            when you know its story.
+            Enjoy wholesale prices on any of our products when you visit us in person — because peanut butter tastes even better when you know its story.
           </BodyText>
           <Button variant="secondary-outline" size="md" className="border">
             Our Location

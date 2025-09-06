@@ -3,13 +3,14 @@ import Button from "@/components/UI-primitives/Button";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
 import { useNavigate } from "react-router-dom";
+import peanutImg from "@/assets/images/peanut-spoons.webp";
 
 const AboutSection = () => {
   const navigate = useNavigate();
   return (
     <SectionContainter className="flex flex-wrap items-center justify-center gap-6">
       <div className="flex max-w-[550px] flex-col gap-y-6">
-        <SectionTitle className="text-start">Hi we're Fralon Peanuts</SectionTitle>
+        <SectionTitle className="text-start">Get to know Us</SectionTitle>
         <BodyText className="">
           It all started with a simple love for peanuts – roasted to perfection, ground with care, and shared around the table. What began as a small family recipe has grown into a community of peanut
           butter lovers who believe that the best things in life are natural, simple, and shared. Every jar we craft carries that same spirit of home and togetherness, a taste of tradition made for
@@ -19,7 +20,7 @@ const AboutSection = () => {
           Learn More
         </Button>
       </div>
-      <div className="bg-secondary h-[350px] w-full sm:w-[300px]"></div>
+      <img src={peanutImg} loading="lazy" className="bg-secondary h-[350px] w-full rounded-md sm:w-[300px]" />
     </SectionContainter>
   );
 };

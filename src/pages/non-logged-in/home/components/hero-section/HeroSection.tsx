@@ -16,7 +16,7 @@ const HeroSection = () => {
   return (
     <SectionContainter className="bg-secondary flex flex-wrap items-center justify-center gap-x-10 gap-y-6 rounded-sm">
       <div className="flex flex-col gap-y-3 p-2 md:w-1/2">
-        <h1 className="text-heading-2 font-secondary text-primary font-bold tracking-wider uppercase">
+        <h1 className="text-display font-secondary text-primary font-bold tracking-wide uppercase">
           Just pure
           <span className="text-tertiary"> peanut goodness</span>, nothing else
         </h1>

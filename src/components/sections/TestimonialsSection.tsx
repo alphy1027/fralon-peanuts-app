@@ -7,14 +7,14 @@ import RightArrow from "@/assets/svg/nav/RightArrow";
 
 const TestimonialsSection = () => {
   return (
-    <SectionContainter className="flex flex-col items-center gap-4">
+    <SectionContainter className="flex flex-col items-center gap-2">
       <SectionTitle>
         What Our Customers
         <br /> Say About Us
       </SectionTitle>
 
       <Quotes />
-      <article className="flex flex-col items-center gap-4">
+      <article className="flex flex-col items-center gap-2">
         <p className="text-body text-body-default max-w-[550px] text-center">
           "I’ve been a peanut butter lover for years, but nothing compares to the rich, creamy texture and authentic taste of this brand. The fact that they use fresh, high-quality peanuts makes all
           the difference. Their attention to detail and commitment to quality are truly unmatched!"
@@ -24,7 +24,7 @@ const TestimonialsSection = () => {
           <figcaption className="sr-only">Customer image</figcaption>
         </figure>
         <div className="text-center">
-          <h4 className="text-heading-4 font-secondary font">Jonathan Doe</h4>
+          <h4 className="text-body-lg font-semibold">Jonathan Doe</h4>
           <h5 className="text-caption text-gray-600 italic">Satisfied Customer</h5>
         </div>
       </article>

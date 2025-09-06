@@ -2,9 +2,9 @@ import StorySection from "./components/story-section";
 import IdentitySection from "./components/identity-section";
 import FoundersSection from "./components/founders-section";
 import WhyUsSection from "./components/why-us-section";
-import CtaSection from "./components/cta-section";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import ProductsSection from "@/components/sections/ProductsSection";
+import WholesaleBanner from "@/components/sections/WholesaleBanner";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
       <WhyUsSection />
       <ProductsSection />
       <TestimonialsSection />
-      <CtaSection />
+      <WholesaleBanner />
     </div>
   );
 };
