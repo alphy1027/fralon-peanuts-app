@@ -19,7 +19,7 @@ export const useCartActionsMutation = () => {
     },
     onError: (error) => {
       log("update error ::", error);
-      toast.success("Error adding item to cart");
+      toast.error("Error adding item to cart");
     },
   });
 
