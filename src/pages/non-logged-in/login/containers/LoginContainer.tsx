@@ -14,7 +14,7 @@ const LoginContainer = () => {
     loginMutate(data);
   };
 
-  return <Login handleLogin={handleLogin} isPending={isPending} errorMsg={error?.response?.data.message} />;
+  return <Login handleLogin={handleLogin} isPending={isPending} errorMsg={error?.response?.data.message || error?.message} />;
 };
 
 export default LoginContainer;

@@ -35,7 +35,7 @@ export const useLoginMutation = () => {
     },
     onError: (error: AxiosError<ErrorResponse>) => {
       log("Login Mutation Error :: ", error);
-      toast.error(error.response?.data.message || "Failed to login");
+      toast.error(error.response?.data.message || error.message || "Failed to login");
     },
   });
 };

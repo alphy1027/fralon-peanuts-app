@@ -1,22 +1,20 @@
 import Button from "@/components/UI-primitives/Button";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
 import SectionTitle from "@/components/UI-primitives/SectionTitle";
+import wholesalePeanuts from "@/assets/images/wholesale-peanuts.webp";
 
 const WholesaleBanner = () => {
   return (
-    <div className="bg-primary w-full py-4">
-      <SectionContainter className="">
-        <div className="custom-margin-auto flex max-w-[850px] flex-col items-center gap-4 rounded-2xl">
-          <SectionTitle className="text-brand-white">Wholesale prices!</SectionTitle>
-          <p className="text-primary-light text-body-lg max-w-[450px] text-center font-medium">
-            Enjoy wholesale pricing when you grab 12 or more. Perfect for families, shops, events, and peanut lovers alike.
-          </p>
-          <Button variant="secondary-outline" size="md">
-            Shop Wholesale
-          </Button>
-        </div>
-      </SectionContainter>
-    </div>
+    <SectionContainter className="">
+      <div
+        style={{ backgroundImage: `linear-gradient(to right,rgba(249, 210, 155,0.4),rgba(249, 210, 155,0.5)),url(${wholesalePeanuts})` }}
+        className="from-secondary to-tertiary flex flex-col items-center gap-4 rounded-md bg-gradient-to-r bg-cover bg-bottom py-4"
+      >
+        <SectionTitle className="">Wholesale prices!</SectionTitle>
+        <p className="text-body-lg max-w-[450px] text-center font-medium">Enjoy wholesale pricing when you grab 12 or more. Perfect for families, shops, events, and peanut lovers alike.</p>
+        <Button size="md">Shop Wholesale</Button>
+      </div>
+    </SectionContainter>
   );
 };
 

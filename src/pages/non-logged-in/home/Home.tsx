@@ -9,6 +9,7 @@ import BodyText from "@/components/UI-primitives/BodyText";
 import CategorySection from "./components/category-section";
 import HeroSection from "./components/hero-section/HeroSection";
 import Button from "@/components/UI-primitives/Button";
+import WholesaleBanner from "@/components/sections/WholesaleBanner";
 
 const Home = () => {
   return (
@@ -29,6 +30,7 @@ const Home = () => {
         </SectionContainter>
       </div>
       <WhyUsSection />
+      <WholesaleBanner />
       <div className="bg-primary-light py-4">
         <TestimonialsSection />
       </div>

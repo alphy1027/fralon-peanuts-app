@@ -28,12 +28,12 @@
 
   --color-body-default: #303030;
 
-  --color-primary: /* #0b706a */ #592207;
+  --color-primary: #592207;
   --color-primary-hover: #095a57;
   --color-primary-active: #074944;
-  --color-primary-light: /* #e3f4f3 */ #ffecc4;
+  --color-primary-light: #ffecc4;
 
-  --color-secondary: /* #ffd601 */ #f9d29b;
+  --color-secondary: #f9d29b;
   --color-secondary-hover: #e6c200;
   --color-secondary-active: #ccad00;
 
