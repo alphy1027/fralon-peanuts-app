@@ -1,15 +1,25 @@
+import { lazy } from "react";
 import { Route } from "react-router-dom";
 // Auth component
 import RequireAuth from "./RequireAuth";
 // Pages
-import Profile from "@/pages/logged-in/profile/Profile";
-import PersistLogin from "@/components/PersistLogin";
-import Account from "@/pages/logged-in/profile/components/account";
-import Notifications from "@/pages/logged-in/profile/components/notifications";
-import OrderHistory from "@/pages/logged-in/profile/components/order-history";
-import Favorites from "@/pages/logged-in/profile/components/favorites";
-import HelpAndSupport from "@/pages/logged-in/profile/components/help-and-support";
-import Settings from "@/pages/logged-in/profile/components/settings";
+//import Profile from "@/pages/logged-in/profile/Profile";
+//import PersistLogin from "@/components/PersistLogin";
+//import Account from "@/pages/logged-in/profile/components/account";
+//import Notifications from "@/pages/logged-in/profile/components/notifications";
+//import OrderHistory from "@/pages/logged-in/profile/components/order-history";
+//import Favorites from "@/pages/logged-in/profile/components/favorites";
+//import HelpAndSupport from "@/pages/logged-in/profile/components/help-and-support";
+//import Settings from "@/pages/logged-in/profile/components/settings";
+
+const Profile = lazy(() => import("@/pages/logged-in/profile/Profile"));
+const PersistLogin = lazy(() => import("@/components/PersistLogin"));
+const Account = lazy(() => import("@/pages/logged-in/profile/components/account"));
+const Notifications = lazy(() => import("@/pages/logged-in/profile/components/notifications"));
+const OrderHistory = lazy(() => import("@/pages/logged-in/profile/components/order-history"));
+const Favorites = lazy(() => import("@/pages/logged-in/profile/components/favorites"));
+const HelpAndSupport = lazy(() => import("@/pages/logged-in/profile/components/help-and-support"));
+const Settings = lazy(() => import("@/pages/logged-in/profile/components/settings"));
 
 const ProtectedRoutes = [
   <Route element={<PersistLogin />}>

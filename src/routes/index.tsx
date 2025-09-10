@@ -1,13 +1,17 @@
+import { lazy } from "react";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 // Routes
 import ProtectedRoutes from "./ProtectedRoutes";
 import PublicRoutes from "./PublicRoutes";
 import AuthRoutes from "./AuthRoutes";
 // Layouts
-import MainLayout from "@/layouts/MainLayout";
-import AuthLayout from "@/layouts/AuthLayout";
+const MainLayout = lazy(() => import("@/layouts/MainLayout"));
+const AuthLayout = lazy(() => import("@/layouts/AuthLayout"));
+const NotFound = lazy(() => import("@/pages/not-found page/components/NotFound"));
+//import MainLayout from "@/layouts/MainLayout";
+//import AuthLayout from "@/layouts/AuthLayout";
+//import NotFound from "@/pages/not-found page/components/NotFound";
 import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
-import NotFound from "@/pages/not-found page/components/NotFound";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

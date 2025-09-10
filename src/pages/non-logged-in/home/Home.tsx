@@ -1,15 +1,23 @@
-import ProductsSection from "@/components/sections/ProductsSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
-import AboutSection from "./components/about-section";
-import SectionContainter from "@/components/UI-primitives/SectionContainter";
-import WhyUsSection from "../about/components/why-us-section";
-import ContactUsSection from "../contacts/components/contact-us-section";
-import SectionTitle from "@/components/UI-primitives/SectionTitle";
-import BodyText from "@/components/UI-primitives/BodyText";
-import CategorySection from "./components/category-section";
-import HeroSection from "./components/hero-section/HeroSection";
-import Button from "@/components/UI-primitives/Button";
-import WholesaleBanner from "@/components/sections/WholesaleBanner";
+//import ProductsSection from "@/components/sections/ProductsSection";
+//import TestimonialsSection from "@/components/sections/TestimonialsSection";
+//import AboutSection from "./components/about-section";
+//import WhyUsSection from "../about/components/why-us-section";
+//import ContactUsSection from "../contacts/components/contact-us-section";
+//import CategorySection from "./components/category-section";
+//import HeroSection from "./components/hero-section/HeroSection";
+//import WholesaleBanner from "@/components/sections/WholesaleBanner";
+//import VisitUsSection from "./components/visit-section/VisitUsSection";
+import { lazy } from "react";
+
+const ProductsSection = lazy(() => import("@/components/sections/ProductsSection"));
+const TestimonialsSection = lazy(() => import("@/components/sections/TestimonialsSection"));
+const AboutSection = lazy(() => import("./components/about-section"));
+const WhyUsSection = lazy(() => import("../about/components/why-us-section"));
+const ContactUsSection = lazy(() => import("../contacts/components/contact-us-section"));
+const CategorySection = lazy(() => import("./components/category-section"));
+const HeroSection = lazy(() => import("./components/hero-section/HeroSection"));
+const WholesaleBanner = lazy(() => import("@/components/sections/WholesaleBanner"));
+const VisitUsSection = lazy(() => import("./components/visit-section/VisitUsSection"));
 
 const Home = () => {
   return (
@@ -18,17 +26,7 @@ const Home = () => {
       <AboutSection />
       <CategorySection />
       <ProductsSection />
-      <div className="bg-primary w-full py-4">
-        <SectionTitle className="text-brand-white">Get discounts!</SectionTitle>
-        <SectionContainter className="flex flex-wrap items-center justify-evenly gap-y-6">
-          <BodyText className="text-secondary max-w-[650px] text-lg italic sm:text-xl">
-            Enjoy wholesale prices on any of our products when you visit us in person — because peanut butter tastes even better when you know its story.
-          </BodyText>
-          <Button variant="secondary-outline" size="md" className="border">
-            Our Location
-          </Button>
-        </SectionContainter>
-      </div>
+      <VisitUsSection />
       <WhyUsSection />
       <WholesaleBanner />
       <div className="bg-primary-light py-4">
