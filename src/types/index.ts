@@ -52,6 +52,8 @@ export interface Product {
   description: string;
   reviews: string[];
 }
+
+export type FavoriteItems = string[];
 // CART
 export interface CartItem {
   product: Product;

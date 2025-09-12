@@ -74,7 +74,7 @@ const navLinks = [
 
 const Sidebar = ({ closeSidebar }: SidebarProps) => {
   return (
-    <motion.aside key="aside" variants={{ asideVariants }} initial="hidden" animate="visible" exit="exit" className="bg-secondary relative z-50 flex h-full w-3/4 flex-col justify-between p-4 pb-2">
+    <motion.aside key="aside" variants={{ asideVariants }} initial="hidden" animate="visible" exit="exit" className="bg-brand-white relative z-50 flex h-full w-3/4 flex-col justify-between p-4 pb-2">
       <motion.div exit={{ opacity: 0 }} onClick={closeSidebar} className="absolute top-0 right-0 bottom-0 w-full translate-x-full transform bg-black/40" />
 
       <motion.nav variants={{ navVariants }} className="flex items-center justify-between">
@@ -83,7 +83,7 @@ const Sidebar = ({ closeSidebar }: SidebarProps) => {
       </motion.nav>
 
       <motion.nav variants={{ navVariants }} onClick={closeSidebar} className="">
-        <motion.ul variants={{ ulVariants }} className="divide-primary/50 flex flex-col gap-2 divide-y">
+        <motion.ul variants={{ ulVariants }} className="flex flex-col gap-2 divide-y divide-slate-300">
           {navLinks.map((item) => (
             <SidebarLink key={item.link} to={item.to}>
               {item.link}

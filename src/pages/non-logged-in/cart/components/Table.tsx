@@ -30,9 +30,9 @@ const Table = () => {
                 />
               </td>
               <td className="flex items-center gap-x-2">
-                <img src={cartItem.product.productImage.image} alt="" className="h-20 w-20 rounded-lg" />
+                <img src={cartItem.product.productImage.image} alt="" className="h-20 w-20 rounded-md" />
                 <div className="flex flex-col gap-1">
-                  <h4 className="text-body-default text-body-lg font-semibold">{cartItem.product.productName}</h4>
+                  <h4 className="text-primary text-body-lg font-semibold">{cartItem.product.productName}</h4>
                   {/* <p className="text-body font-medium text-gray-600"> {cartItem.product.category.name}</p> */}
                   <p className="text-body text-gray-500">
                     {cartItem.product.type} | {cartItem.product.packageSize}

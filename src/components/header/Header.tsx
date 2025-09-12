@@ -1,13 +1,15 @@
-import Button from "../UI-primitives/Button";
 import { Link } from "react-router-dom";
-import Nav from "./components/Nav";
-import CartIcon from "@/assets/svg/nav/CartIcon";
-import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
-import MenuIcon from "@/assets/svg/sidebar/MenuIcon";
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
-import { useState } from "react";
+import { lazy, useState } from "react";
 import { useCartQuery } from "@/hooks/query-hooks/cart/useCartQuery";
+import Button from "../UI-primitives/Button";
+//import Nav from "./components/Nav";
+//import ProfileDropdown from "./components/profile-dropdown/ProfileDropdown";
+import CartIcon from "@/assets/svg/nav/CartIcon";
+import MenuIcon from "@/assets/svg/sidebar/MenuIcon";
 import BrandLogo from "../logo+title/BrandLogo";
+const Nav = lazy(() => import("./components/Nav"));
+const ProfileDropdown = lazy(() => import("./components/profile-dropdown/ProfileDropdown"));
 
 type HeaderProps = {
   openSidebar: () => void;

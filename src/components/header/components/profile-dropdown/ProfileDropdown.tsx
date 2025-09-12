@@ -80,9 +80,9 @@ const ProfileDropdown = () => {
             className={`bg-brand-white absolute right-0 -bottom-1 z-50 flex translate-y-full flex-col overflow-hidden rounded-sm border border-slate-300 shadow-md`}
           >
             <div className="flex items-center gap-x-4 border-b border-slate-400 px-4 py-2">
-              <div className="bg-secondary h-8 w-8 rounded-full"></div>
+              <div className="bg-secondary text-primary/50 flex h-8 w-8 items-center justify-center rounded-full text-2xl font-bold uppercase">{user.username?.charAt(0)}</div>
               <div className="pr-6">
-                <h4 className="text-body-default text-body font-bold text-nowrap">{user.username}</h4>
+                <h4 className="text-body-default text-caption font-bold text-nowrap">{user.username}</h4>
                 <p className="text-extra-sm text-gray-500">{user.userId}</p>
               </div>
             </div>

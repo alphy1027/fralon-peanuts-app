@@ -1,4 +1,3 @@
-import FavouriteIcon from "@/assets/svg/nav/FavouriteIcon";
 import BodyText from "@/components/UI-primitives/BodyText";
 import Button from "@/components/UI-primitives/Button";
 import SectionContainter from "@/components/UI-primitives/SectionContainter";
@@ -11,6 +10,7 @@ import PriceSelect from "./components/single-product/PriceSelect";
 import { useState } from "react";
 import { useCartContext } from "@/context/CartContext";
 import ProductInCartNav from "@/components/product/ProductInCartNav";
+import FavButton from "@/components/UI-primitives/Button/FavButton";
 
 const SingleProduct = () => {
   const [price, setPrice] = useState("unitPrice");
@@ -47,11 +47,11 @@ const SingleProduct = () => {
         <section className="flex w-full flex-col gap-y-6 self-center px-2 sm:w-[550px] md:w-[600px] md:px-4 lg:max-w-[450px] lg:self-start">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs font-medium tracking-wide">Butter</h4>
-            <div className="flex justify-between gap-x-10">
+            <div className="flex items-center justify-between gap-x-10">
               <SectionTitle className="text-start tracking-wide">
                 {product.productName} <br />({product.packageSize})
               </SectionTitle>
-              <FavouriteIcon />
+              <FavButton productId={product._id} />
             </div>
             <div className="flex items-center gap-x-1 pt-1.5 text-slate-500">
               <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} size="small" readOnly />

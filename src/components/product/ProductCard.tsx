@@ -1,10 +1,10 @@
-import FavouriteIcon from "@/assets/svg/nav/FavouriteIcon";
 import { useCartContext } from "@/context/CartContext";
 import { Product } from "@/types";
 import { Link } from "react-router-dom";
 import Button from "../UI-primitives/Button";
 import ProductInCartNav from "./ProductInCartNav";
 import ShoppingCartIcon from "@/assets/svg/cart/ShoppingCartIcon";
+import FavButton from "../UI-primitives/Button/FavButton";
 
 interface ProductCardProps {
   product: Product;
@@ -24,17 +24,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Link to={`/products/${product._id}`} className="flex w-fit flex-col items-center gap-4 rounded-sm p-2">
       <figure className="relative overflow-hidden rounded-sm">
         <div className="absolute top-2 left-2">
-          <FavouriteIcon />
+          <FavButton productId={product._id} />
         </div>
         <img src={product.productImage.image} loading="lazy" alt="Peanut Butter image" className="h-[250px] w-[200px]" />
         <figcaption className="sr-only">Fralon Peanut butter photo</figcaption>
       </figure>
+
       <div className="flex flex-col items-center gap-1">
         <h3 className="text-body-lg text-center font-semibold">
           {/* {product.productName} */}
           Peanut Butter ({product.packageSize})
         </h3>
         <h4 className="text-heading-5 font-secondary text-primary font-semibold">Ksh {product.unitPrice}</h4>
+
         {productInCart ? (
           <ProductInCartNav quantity={productInCart} />
         ) : (
