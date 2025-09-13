@@ -3,14 +3,21 @@ import Button from ".";
 import { useFavoriteMutation } from "@/hooks/query-hooks/favorites/useFavoriteMutation";
 import { useFavoriteQuery } from "@/hooks/query-hooks/favorites/useFavoriteQuery";
 import Loading from "../Loading";
+import { useAuthContext } from "@/context/AuthContext";
+import toast from "react-hot-toast";
 
 const FavButton = ({ productId }: { productId: string }) => {
+  const { user } = useAuthContext();
   const { addToFavorite, removeFromFavorite } = useFavoriteMutation();
   const { data: favoriteProducts } = useFavoriteQuery();
-  console.log("fav products", favoriteProducts);
+
   const isFavorite = favoriteProducts?.some((favId) => favId.toString() === productId.toString());
 
   const handleToggleFavorite = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    if (!user.isAuthenticated) {
+      toast.error("Log in to add item to favorites");
+      return;
+    }
     e.stopPropagation();
     e.preventDefault();
     if (isFavorite) {

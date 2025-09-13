@@ -47,7 +47,7 @@ const SingleProduct = () => {
         <section className="flex w-full flex-col gap-y-6 self-center px-2 sm:w-[550px] md:w-[600px] md:px-4 lg:max-w-[450px] lg:self-start">
           <div className="border-b border-slate-300 py-4">
             <h4 className="text-primary font-secondary text-xs font-medium tracking-wide">Butter</h4>
-            <div className="flex items-center justify-between gap-x-10">
+            <div className="flex items-start justify-between gap-x-10">
               <SectionTitle className="text-start tracking-wide">
                 {product.productName} <br />({product.packageSize})
               </SectionTitle>
