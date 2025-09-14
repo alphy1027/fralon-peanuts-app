@@ -14,12 +14,12 @@ const FavButton = ({ productId }: { productId: string }) => {
   const isFavorite = favoriteProducts?.some((favId) => favId.toString() === productId.toString());
 
   const handleToggleFavorite = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    if (!user.isAuthenticated) {
-      toast.error("Log in to add item to favorites");
-      return;
-    }
     e.stopPropagation();
     e.preventDefault();
+    if (!user.isAuthenticated) {
+      toast.error("Please Log in to add item to favorites");
+      return;
+    }
     if (isFavorite) {
       removeFromFavorite.mutate(productId);
     } else {

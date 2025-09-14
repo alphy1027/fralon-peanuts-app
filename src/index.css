@@ -84,10 +84,6 @@ body {
   @apply font-secondary text-tertiary text-xl;
 }
 
-.footer-link {
-  @apply text-primary hover:text-primary-hover transition-all duration-300 ease-in-out hover:scale-105;
-}
-
 .dropdown-list {
   @apply text-body-default bg-primary-light p-2;
 }
